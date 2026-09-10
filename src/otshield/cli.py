@@ -5,13 +5,15 @@ import json
 from pathlib import Path
 import platform
 import sklearn
+import sys
 from . import __version__
+from .adapters import JsonTelemetryAdapter
 from .core import SCENARIOS, faults, generate
 from .detectors import IsolationForestDetector, RuleDetector
 from .evaluation import evaluate
 
 
-def main(argv=None):
+def _benchmark_main(argv):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--scenario", choices=(*SCENARIOS, "all"), default="all")
     parser.add_argument("--detector", choices=("rules", "iforest"), default="rules")
@@ -47,6 +49,30 @@ def main(argv=None):
         args.output.write_text(content, encoding="utf-8")
     else:
         print(content, end="")
+
+
+def _ingest_main(argv):
+    parser = argparse.ArgumentParser(
+        prog="otshield ingest",
+        description="Normalize passive offline Modbus observations into OTB-INGEST/0.1 JSON.",
+    )
+    parser.add_argument("input", type=Path, help="OTB-INGEST-SOURCE/0.1 JSON file")
+    parser.add_argument("--output", type=Path, required=True, help="normalized JSON output path")
+    args = parser.parse_args(argv)
+    try:
+        dataset = JsonTelemetryAdapter().load(args.input)
+        content = json.dumps(dataset.to_dict(), indent=2, sort_keys=True, allow_nan=False) + "\n"
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        args.output.write_text(content, encoding="utf-8")
+    except (OSError, ValueError) as exc:
+        parser.error(str(exc))
+
+
+def main(argv=None):
+    arguments = list(sys.argv[1:] if argv is None else argv)
+    if arguments[:1] == ["ingest"]:
+        return _ingest_main(arguments[1:])
+    return _benchmark_main(arguments)
 
 
 if __name__ == "__main__":

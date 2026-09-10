@@ -1,3 +1,3 @@
-"""OTShield Bench: safe, offline synthetic OT benchmarking."""
+"""OTShield Bench: reproducible, passive OT detection benchmarking."""
 
-__version__ = "0.1.0a0"
+__version__ = "0.2.0a0"

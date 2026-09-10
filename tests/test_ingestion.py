@@ -4,6 +4,7 @@ from pathlib import Path
 import pytest
 
 from otshield.adapters import JsonTelemetryAdapter
+from otshield.cli import main
 from otshield.core import generate
 from otshield.detectors import IsolationForestDetector, RuleDetector
 
@@ -87,3 +88,34 @@ def test_synthetic_telemetry_contract_is_unchanged():
         "event_id", "timestamp_ms", "function_code", "address", "value",
         "interval_ms", "latency_ms", "label", "schema",
     }
+
+
+def test_cli_ingest_writes_deterministic_normalized_json(tmp_path):
+    output = tmp_path / "nested" / "normalized.json"
+    main(["ingest", str(FIXTURE), "--output", str(output)])
+    first = output.read_bytes()
+    normalized = json.loads(first)
+    assert normalized["schema"] == "OTB-INGEST/0.1"
+    assert normalized["provenance"]["source"] == "grfics"
+    assert normalized["records"][0]["telemetry"]["schema"] == "OTB-TELEMETRY/0.1"
+    main(["ingest", str(FIXTURE), "--output", str(output)])
+    assert output.read_bytes() == first
+
+
+@pytest.mark.parametrize("input_name", ["missing.json", "malformed.json"])
+def test_cli_ingest_reports_input_errors(tmp_path, input_name):
+    input_path = tmp_path / input_name
+    if input_name == "malformed.json":
+        input_path.write_text("[]", encoding="utf-8")
+    with pytest.raises(SystemExit) as error:
+        main(["ingest", str(input_path), "--output", str(tmp_path / "output.json")])
+    assert error.value.code == 2
+    assert not (tmp_path / "output.json").exists()
+
+
+def test_legacy_cli_invocation_remains_supported(tmp_path):
+    output = tmp_path / "benchmark.json"
+    main(["--scenario", "normal", "--count", "10", "--output", str(output)])
+    report = json.loads(output.read_text(encoding="utf-8"))
+    assert report["version"] == "0.2.0a0"
+    assert report["results"][0]["metrics"]["total"] == 10

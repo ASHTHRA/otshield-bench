@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "otshield-bench"
-version = "0.1.0a0"
-description = "Reproducible offline OT detection benchmarks with synthetic Modbus telemetry"
+version = "0.2.0a0"
+description = "Reproducible offline OT detection benchmarks for synthetic and lab-derived Modbus telemetry"
 requires-python = ">=3.10"
 license = "Apache-2.0"
 license-files = ["LICENSE"]
