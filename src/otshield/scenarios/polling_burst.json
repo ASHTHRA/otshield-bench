@@ -1,0 +1,1 @@
+{"schema":"OTB-SCENARIO/0.1","id":"polling_burst","description":"Synthetic rapid polling interval","synthetic_only":true,"interval_ms":5}
