@@ -24,7 +24,7 @@ class Event:
     schema: str = "OTB-TELEMETRY/0.1"
 
     def __post_init__(self):
-        if not self.event_id or self.schema != "OTB-TELEMETRY/0.1":
+        if not isinstance(self.event_id, str) or not self.event_id or self.schema != "OTB-TELEMETRY/0.1":
             raise ValueError("invalid telemetry identity or schema")
         if type(self.label) is not bool:
             raise ValueError("label must be boolean")

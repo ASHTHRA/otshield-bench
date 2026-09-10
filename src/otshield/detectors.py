@@ -14,9 +14,11 @@ class Detection:
     schema: str = "OTB-DETECT/0.1"
 
     def __post_init__(self):
-        if not self.event_id or not self.detector or type(self.alert) is not bool:
+        if (not isinstance(self.event_id, str) or not self.event_id or
+                not isinstance(self.detector, str) or not self.detector or type(self.alert) is not bool):
             raise ValueError("invalid detection")
-        if not math.isfinite(self.score) or self.schema != "OTB-DETECT/0.1":
+        if (isinstance(self.score, bool) or not isinstance(self.score, (int, float)) or
+                not math.isfinite(self.score) or self.schema != "OTB-DETECT/0.1"):
             raise ValueError("invalid detection score or schema")
 
 

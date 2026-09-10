@@ -120,3 +120,19 @@ def test_generation_validation():
             generate("normal", count)
     with pytest.raises(ValueError):
         generate("unknown")
+
+
+@pytest.mark.parametrize("change", [{"event_id": 1}, {"score": True}, {"score": "1"},
+                                    {"score": math.inf}, {"detector": 1}, {"alert": 1}])
+def test_detection_validation(change):
+    with pytest.raises(ValueError):
+        replace(Detection("test:0", False, 0.0, "test"), **change)
+
+
+def test_bundled_scenario_contracts():
+    from importlib.resources import files
+    for name in SCENARIOS:
+        config = json.loads(files("otshield").joinpath("scenarios", name + ".json").read_text())
+        assert config["schema"] == "OTB-SCENARIO/0.1"
+        assert config["id"] == name and config["synthetic_only"] is True
+        assert config["description"]
