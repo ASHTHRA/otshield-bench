@@ -1,0 +1,37 @@
+{
+  "schema": "OTB-INGEST-SOURCE/0.1",
+  "provenance": {
+    "source": "grfics",
+    "dataset_id": "sanitized-grfics-like-test-fixture-v1",
+    "evidence_type": "sanitized_fixture"
+  },
+  "records": [
+    {
+      "id": "fixture:0",
+      "timestamp_ms": 100.0,
+      "source_endpoint": "192.0.2.10:35000",
+      "destination_endpoint": "198.51.100.20:502",
+      "protocol": "modbus_tcp",
+      "function_code": 3,
+      "address": 1,
+      "value": 50.0,
+      "asset_id": "fixture-openplc-1",
+      "scenario_id": "fixture-normal-read",
+      "interval_ms": 100.0,
+      "latency_ms": 2.0,
+      "label": false
+    },
+    {
+      "id": "fixture:1",
+      "timestamp_ms": 200.0,
+      "protocol": "modbus_tcp",
+      "function_code": 6,
+      "address": 1,
+      "value": 75.0,
+      "value_metadata": {"encoding": "fixture-engineering-unit"},
+      "interval_ms": 100.0,
+      "latency_ms": 2.5,
+      "label": true
+    }
+  ]
+}
