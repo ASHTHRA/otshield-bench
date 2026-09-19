@@ -8,3 +8,4 @@ dist/
 results/
 captures/
 docker/.env
+.aider*
