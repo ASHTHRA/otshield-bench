@@ -5,6 +5,7 @@ source .venv/bin/activate 2>/dev/null || true
 export PATH="$HOME/.local/bin:$PATH"
 FAST_MODEL="${FAST_MODEL:-groq/openai/gpt-oss-20b}"
 STRONG_MODEL="${STRONG_MODEL:-groq/openai/gpt-oss-120b}"
+ONLY_TASK="${ONLY_TASK:-}"
 VERIFY_LOG="/tmp/otshield_fast_verify.$$"
 
 : "${GROQ_API_KEY:?GROQ_API_KEY is required}"
@@ -139,6 +140,11 @@ accept(){
 
 for task in automation/tasks/0{1,2,3,4,5}_*.md; do
   [[ -e "$task" ]] || continue
+
+  if [[ -n "$ONLY_TASK" && "$(basename "$task")" != "$ONLY_TASK" ]]; then
+    continue
+  fi
+
   [[ -e "${task}.done" ]] && continue
   base="$(git rev-parse HEAD)"; before="$(count_tests)"; ok=0
   : >"$VERIFY_LOG"
@@ -197,7 +203,7 @@ for task in automation/tasks/0{1,2,3,4,5}_*.md; do
 
   restore "$base"
   status="automation/status/$(basename "$task" .md).blocked.md"
-  printf '# Blocked: %s\n\nFast 3B and focused 7B attempts both failed strict verification.\n' "$(basename "$task")" > "$status"
+  printf '# Blocked: %s\n\nGroq 20B and Groq 120B attempts both failed strict verification.\n' "$(basename "$task")" > "$status"
   touch "${task}.blocked"; git add "$status" "${task}.blocked"
   git commit -m "chore: fast verifier blocked $(basename "$task")" || true
   git push -u origin automation/agent-loop || true
