@@ -117,5 +117,5 @@ def test_legacy_cli_invocation_remains_supported(tmp_path):
     output = tmp_path / "benchmark.json"
     main(["--scenario", "normal", "--count", "10", "--output", str(output)])
     report = json.loads(output.read_text(encoding="utf-8"))
-    assert report["version"] == "0.2.0a0"
+    assert report["version"] == "0.3.0a0"
     assert report["results"][0]["metrics"]["total"] == 10
