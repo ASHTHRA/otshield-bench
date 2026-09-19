@@ -3,12 +3,78 @@ set -Eeuo pipefail
 cd "$(git rev-parse --show-toplevel)"
 source .venv/bin/activate 2>/dev/null || true
 export PATH="$HOME/.local/bin:$PATH"
-FAST_MODEL="${FAST_MODEL:-qwen2.5-coder:3b}"
-STRONG_MODEL="${STRONG_MODEL:-qwen2.5-coder:7b-instruct}"
+FAST_MODEL="${FAST_MODEL:-groq/openai/gpt-oss-20b}"
+STRONG_MODEL="${STRONG_MODEL:-groq/openai/gpt-oss-120b}"
+VERIFY_LOG="/tmp/otshield_fast_verify.$$"
+
+: "${GROQ_API_KEY:?GROQ_API_KEY is required}"
+: "${TYPESAFE_API_KEY:?TYPESAFE_API_KEY is required}"
+
+command -v aider >/dev/null 2>&1 || {
+  echo "ERROR: aider is not installed" >&2
+  exit 2
+}
+
+python -c 'import typesafe_sdk' >/dev/null 2>&1 || {
+  echo "ERROR: typesafe-sdk is not installed in the active Python environment" >&2
+  exit 2
+}
 
 count_tests(){ pytest --collect-only -q 2>/dev/null | tail -n1 | grep -oE '[0-9]+ test' | grep -oE '[0-9]+' || echo 0; }
-verify_all(){ pytest -q && python -m build; }
+verify_all(){
+  {
+    pytest -q &&
+    python -m build
+  } 2>&1 | tee "$VERIFY_LOG"
+}
 restore(){ git reset --hard "$1" >/dev/null; git clean -fd -e .venv/ -e captures/ -e dist/ -e 'otshield_*.sh' -e automation/status/ >/dev/null; }
+
+jev_decision(){
+  local task="$1"
+  local phase="$2"
+  local state_file
+  local json_file
+  local decision
+
+  state_file="$(mktemp)"
+  json_file="$(mktemp)"
+
+  {
+    echo "OTShield autonomous-agent state"
+    echo
+    echo "Phase: $phase"
+    echo "Task: $(basename "$task")"
+    echo
+    echo "Task definition:"
+    cat "$task"
+    echo
+    echo "Repository status:"
+    git status --short || true
+    echo
+    echo "Current diff summary:"
+    git diff --stat || true
+    echo
+    echo "Latest verification output:"
+    if [[ -s "$VERIFY_LOG" ]]; then
+      tail -n 100 "$VERIFY_LOG"
+    else
+      echo "No verification output was produced."
+    fi
+  } >"$state_file"
+
+  if decision="$(
+    python scripts/jev_gate.py       --state-file "$state_file"       --json-out "$json_file"
+  )"; then
+    echo "JEV DECISION: $decision" >&2
+    [[ -s "$json_file" ]] && cat "$json_file" >&2
+  else
+    echo "JEV API/controller failure: failing closed." >&2
+    decision="human_review"
+  fi
+
+  rm -f "$state_file" "$json_file"
+  printf '%s\n' "$decision"
+}
 
 prep_files(){
   case "$1" in
@@ -49,9 +115,8 @@ FOCUSED MODE:
 PROMPT
   args=(); for f in "${FILES[@]}"; do args+=(--file "$f"); done
   set +e
-  timeout --signal=INT --kill-after=30s "${timeout_s}s" env OLLAMA_API_BASE=http://127.0.0.1:11434 aider \
-    --model "ollama_chat/$model" \
-    --model-settings-file "$HOME/.aider.otshield-fast.yml" \
+  timeout --signal=INT --kill-after=30s "${timeout_s}s" aider \
+    --model "$model" \
     --edit-format "$fmt" --map-tokens 512 --map-refresh files --max-chat-history-tokens 1024 \
     --message-file "$pf" --yes-always --no-auto-commits --no-dirty-commits \
     --no-auto-lint --no-auto-test --no-check-update --no-show-release-notes --no-stream \
@@ -76,6 +141,7 @@ for task in automation/tasks/0{1,2,3,4,5}_*.md; do
   [[ -e "$task" ]] || continue
   [[ -e "${task}.done" ]] && continue
   base="$(git rev-parse HEAD)"; before="$(count_tests)"; ok=0
+  : >"$VERIFY_LOG"
   echo "===== FAST TASK: $(basename "$task") ====="
 
   restore "$base"; prep_files "$(basename "$task")"
@@ -89,6 +155,33 @@ for task in automation/tasks/0{1,2,3,4,5}_*.md; do
     fi
   fi
   [[ $ok -eq 1 ]] && continue
+
+  decision="$(jev_decision "$task" "Groq 20B fast pass failed strict verification")"
+
+  case "$decision" in
+    retry|continue)
+      echo "Jev allows bounded escalation to $STRONG_MODEL"
+      ;;
+    *)
+      restore "$base"
+      status="automation/status/$(basename "$task" .md).blocked.md"
+      {
+        echo "# Blocked: $(basename "$task")"
+        echo
+        echo "Jev decision: $decision"
+        echo
+        echo "Automation stopped fail-closed before the strong-model pass."
+      } >"$status"
+
+      touch "${task}.blocked"
+      git add "$status" "${task}.blocked"
+      git commit -m "chore: Jev requested human review for $(basename "$task")" || true
+      git push -u origin automation/agent-loop || true
+
+      echo "STOPPED: Jev requires human review."
+      exit 20
+      ;;
+  esac
 
   restore "$base"; prep_files "$(basename "$task")"
   echo "ESCALATION PASS: $STRONG_MODEL"
