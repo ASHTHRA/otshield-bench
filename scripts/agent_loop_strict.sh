@@ -125,6 +125,8 @@ PROMPT
 run_local() {
   local prompt="$1"
   codex exec --oss --local-provider ollama -m "$LOCAL_MODEL" \
+    --config model_context_window=8192 \
+    --config model_auto_compact_token_limit=6144 \
     --sandbox workspace-write "$prompt"
 }
 
