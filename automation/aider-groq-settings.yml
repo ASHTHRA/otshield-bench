@@ -1,0 +1,7 @@
+- name: groq/openai/gpt-oss-20b
+  extra_params:
+    max_tokens: 1200
+
+- name: groq/openai/gpt-oss-120b
+  extra_params:
+    max_tokens: 1200

@@ -7,6 +7,7 @@ FAST_MODEL="${FAST_MODEL:-groq/openai/gpt-oss-20b}"
 STRONG_MODEL="${STRONG_MODEL:-groq/openai/gpt-oss-120b}"
 ONLY_TASK="${ONLY_TASK:-}"
 VERIFY_LOG="/tmp/otshield_fast_verify.$$"
+AIDER_LOG="/tmp/otshield_fast_aider.$$"
 
 : "${GROQ_API_KEY:?GROQ_API_KEY is required}"
 : "${TYPESAFE_API_KEY:?TYPESAFE_API_KEY is required}"
@@ -55,6 +56,13 @@ jev_decision(){
     echo "Current diff summary:"
     git diff --stat || true
     echo
+    echo "Latest Aider output:"
+    if [[ -s "$AIDER_LOG" ]]; then
+      tail -n 80 "$AIDER_LOG"
+    else
+      echo "No Aider output was captured."
+    fi
+    echo
     echo "Latest verification output:"
     if [[ -s "$VERIFY_LOG" ]]; then
       tail -n 100 "$VERIFY_LOG"
@@ -81,7 +89,7 @@ prep_files(){
   case "$1" in
     01_ground_truth_protocol.md)
       touch src/otshield/ground_truth.py tests/test_ground_truth.py docs/ground-truth.md
-      FILES=(src/otshield/ground_truth.py src/otshield/core.py src/otshield/evaluation.py src/otshield/cli.py tests/test_ground_truth.py tests/test_bench.py docs/ground-truth.md);;
+      FILES=(src/otshield/ground_truth.py src/otshield/cli.py tests/test_ground_truth.py docs/ground-truth.md);;
     02_pcap_transaction_correlation.md)
       touch src/otshield/adapters/pcap.py tests/test_pcap.py docs/pcap-ingestion.md
       FILES=(src/otshield/adapters/pcap.py src/otshield/adapters/base.py src/otshield/adapters/model.py src/otshield/adapters/__init__.py src/otshield/cli.py tests/test_pcap.py tests/test_ingestion.py docs/pcap-ingestion.md pyproject.toml);;
@@ -116,13 +124,19 @@ FOCUSED MODE:
 PROMPT
   args=(); for f in "${FILES[@]}"; do args+=(--file "$f"); done
   set +e
+  : >"$AIDER_LOG"
   timeout --signal=INT --kill-after=30s "${timeout_s}s" aider \
     --model "$model" \
-    --edit-format "$fmt" --map-tokens 512 --map-refresh files --max-chat-history-tokens 1024 \
+    --model-settings-file automation/aider-groq-settings.yml \
+    --reasoning-effort low \
+    --edit-format "$fmt" --map-tokens 0 --max-chat-history-tokens 512 \
     --message-file "$pf" --yes-always --no-auto-commits --no-dirty-commits \
     --no-auto-lint --no-auto-test --no-check-update --no-show-release-notes --no-stream \
-    "${args[@]}"
-  rc=$?; set -e; rm -f "$pf"; return $rc
+    "${args[@]}" 2>&1 | tee "$AIDER_LOG"
+  rc=${PIPESTATUS[0]}
+  set -e
+  rm -f "$pf"
+  return $rc
 }
 
 accept(){
@@ -155,7 +169,10 @@ for task in automation/tasks/0{1,2,3,4,5}_*.md; do
   if run_aider "$FAST_MODEL" 420 diff "$task"; then
     after="$(count_tests)"
     if accept "$task" "$before" "$after" && verify_all; then
-      touch "${task}.done"; rm -f "${task}.blocked"; git add -A
+      touch "${task}.done"
+      rm -f "${task}.blocked"
+      rm -f "automation/status/$(basename "$task" .md).blocked.md"
+      git add -A
       git commit -m "agent: verified fast $(basename "$task" .md | tr '_' ' ')"
       git push -u origin automation/agent-loop || true; ok=1
     fi
@@ -194,7 +211,10 @@ for task in automation/tasks/0{1,2,3,4,5}_*.md; do
   if run_aider "$STRONG_MODEL" 720 whole "$task"; then
     after="$(count_tests)"
     if accept "$task" "$before" "$after" && verify_all; then
-      touch "${task}.done"; rm -f "${task}.blocked"; git add -A
+      touch "${task}.done"
+      rm -f "${task}.blocked"
+      rm -f "automation/status/$(basename "$task" .md).blocked.md"
+      git add -A
       git commit -m "agent: verified focused $(basename "$task" .md | tr '_' ' ')"
       git push -u origin automation/agent-loop || true; ok=1
     fi
