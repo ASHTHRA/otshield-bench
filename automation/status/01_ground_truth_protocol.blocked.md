@@ -1,5 +1,3 @@
 # Blocked: 01_ground_truth_protocol.md
 
-Three local attempts plus any available cloud fallback failed the strict completion criteria.
-
-The task was not marked complete.
+Fast 3B and focused 7B attempts both failed strict verification.
