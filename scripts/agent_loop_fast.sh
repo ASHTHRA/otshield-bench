@@ -125,15 +125,36 @@ PROMPT
   args=(); for f in "${FILES[@]}"; do args+=(--file "$f"); done
   set +e
   : >"$AIDER_LOG"
-  timeout --signal=INT --kill-after=30s "${timeout_s}s" aider \
-    --model "$model" \
-    --model-settings-file automation/aider-groq-settings.yml \
-    --reasoning-effort low \
-    --edit-format "$fmt" --map-tokens 0 --max-chat-history-tokens 512 \
-    --message-file "$pf" --yes-always --no-auto-commits --no-dirty-commits \
-    --no-auto-lint --no-auto-test --no-check-update --no-show-release-notes --no-stream \
-    "${args[@]}" 2>&1 | tee "$AIDER_LOG"
-  rc=${PIPESTATUS[0]}
+  rc=1
+
+  for provider_attempt in 1 2; do
+    echo "Groq attempt $provider_attempt/2: $model" | tee -a "$AIDER_LOG"
+
+    timeout --signal=INT --kill-after=30s "${timeout_s}s" aider \
+      --model "$model" \
+      --model-settings-file automation/aider-groq-settings.yml \
+      --edit-format "$fmt" --map-tokens 0 --max-chat-history-tokens 512 \
+      --message-file "$pf" --yes-always --no-auto-commits --no-dirty-commits \
+      --no-auto-lint --no-auto-test --no-check-update --no-show-release-notes --no-stream \
+      "${args[@]}" 2>&1 | tee -a "$AIDER_LOG"
+
+    rc=${PIPESTATUS[0]}
+
+    if [[ $rc -eq 0 ]]; then
+      break
+    fi
+
+    if [[ $provider_attempt -eq 1 ]] &&
+       grep -Eqi 'token limit|rate limit|too many requests|HTTP 429|429' "$AIDER_LOG"; then
+      echo "Groq rate window exhausted; waiting 70 seconds before retry." |
+        tee -a "$AIDER_LOG"
+      sleep 70
+      continue
+    fi
+
+    break
+  done
+
   set -e
   rm -f "$pf"
   return $rc
@@ -208,7 +229,7 @@ for task in automation/tasks/0{1,2,3,4,5}_*.md; do
 
   restore "$base"; prep_files "$(basename "$task")"
   echo "ESCALATION PASS: $STRONG_MODEL"
-  if run_aider "$STRONG_MODEL" 720 whole "$task"; then
+  if run_aider "$STRONG_MODEL" 720 diff "$task"; then
     after="$(count_tests)"
     if accept "$task" "$before" "$after" && verify_all; then
       touch "${task}.done"

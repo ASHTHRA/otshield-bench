@@ -1,7 +1,9 @@
 - name: groq/openai/gpt-oss-20b
   extra_params:
-    max_tokens: 1200
+    max_tokens: 2200
+    reasoning_effort: low
 
 - name: groq/openai/gpt-oss-120b
   extra_params:
-    max_tokens: 1200
+    max_tokens: 2200
+    reasoning_effort: low
