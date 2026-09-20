@@ -1,6 +1,8 @@
 {
+  "aggregation_git_commit": "55b988414dc39ca95e88525040ab4e075bca634a",
   "completed_condition_runs": 25,
   "condition_count": 5,
+  "confidence_interval_reporting": "Student-t run-level interval; displayed probability bounds clipped to [0,1]; unbounded bounds retained in aggregate.json",
   "execution_git_commit": "79f54e19109981b88eb30b53c8b07767bbe3b368",
   "planned_transactions_per_condition": 60,
   "planned_transactions_total": 1500,
