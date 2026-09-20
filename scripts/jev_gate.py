@@ -18,13 +18,18 @@ CRITERIA = {
         "required prerequisites are available."
     ),
     "retry": (
-        "Retry the task automatically because the failure appears "
-        "recoverable without human intervention."
+        "Retry the task automatically when implementation is incomplete, "
+        "tests fail, a semantic verification gate rejects the code, a rate "
+        "limit is temporary, or another software-level failure can reasonably "
+        "be repaired by another bounded coding pass without human intervention."
     ),
     "human_review": (
-        "Stop automated execution because a prerequisite, credential, "
-        "environment capability, external service, or ambiguous unsafe "
-        "condition requires human intervention."
+        "Stop only when human action is actually required, such as invalid "
+        "credentials, unavailable external infrastructure, a missing OS-level "
+        "prerequisite that automation cannot install, an ambiguous safety "
+        "condition, or repeated bounded repair attempts that cannot proceed. "
+        "Do not choose human_review merely because code is incomplete, tests "
+        "failed, or a semantic verification check rejected an implementation."
     ),
     "finish": (
         "The current task is already complete and no additional "

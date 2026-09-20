@@ -263,7 +263,7 @@ for task in automation/tasks/0{1,2,3,4,5}_*.md; do
   fi
   [[ $ok -eq 1 ]] && continue
 
-  decision="$(jev_decision "$task" "Groq 20B fast pass failed strict verification")"
+  decision="$(jev_decision "$task" "$FAST_MODEL fast pass failed strict verification")"
 
   case "$decision" in
     retry|continue)
@@ -290,8 +290,10 @@ for task in automation/tasks/0{1,2,3,4,5}_*.md; do
       ;;
   esac
 
-  restore "$base"; prep_files "$(basename "$task")"
-  echo "ESCALATION PASS: $STRONG_MODEL"
+  # Preserve the first-pass edits. The bounded repair pass should improve
+  # the existing candidate rather than starting again from the old baseline.
+  prep_files "$(basename "$task")"
+  echo "REPAIR/ESCALATION PASS: $STRONG_MODEL"
   if run_aider "$STRONG_MODEL" 720 diff "$task"; then
     after="$(count_tests)"
     if accept "$task" "$before" "$after" && semantic_check "$task" && verify_all; then
