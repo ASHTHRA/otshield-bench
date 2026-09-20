@@ -1001,7 +1001,7 @@ lines.extend(
         "",
         "This is an exploratory repeatability analysis with five runs per condition.",
         "",
-        "The reported 95% intervals are run-level Student-t intervals and should not be interpreted as population-level production guarantees.",
+        "The reported 95% intervals are run-level Student-t intervals. Displayed probability bounds are limited to [0,1], while the raw unbounded bounds are retained in aggregate.json. These intervals should not be interpreted as population-level production guarantees.",
         "",
         "The experiments use an isolated OpenPLC laboratory, read-only Modbus/TCP Function Code 3 traffic, the polling-burst-v1 detector, and client-egress netem impairment.",
         "",

@@ -7,7 +7,6 @@ import statistics
 from pathlib import Path
 
 
-# Two-sided 95% Student-t critical values.
 T95 = {
     1: 12.706,
     2: 4.303,
@@ -61,6 +60,8 @@ def stats(values):
             "max": values[0],
             "ci95_low": None,
             "ci95_high": None,
+            "ci95_unbounded_low": None,
+            "ci95_unbounded_high": None,
         }
 
     sd = statistics.stdev(values)
@@ -73,14 +74,24 @@ def stats(values):
 
     margin = T95[df] * sd / math.sqrt(n)
 
+    raw_low = mean - margin
+    raw_high = mean + margin
+
     return {
         "n": n,
         "mean": mean,
         "sd": sd,
         "min": min(values),
         "max": max(values),
-        "ci95_low": mean - margin,
-        "ci95_high": mean + margin,
+
+        # Probability-like benchmark metrics have a natural [0,1]
+        # range. These are the presentation bounds.
+        "ci95_low": max(0.0, raw_low),
+        "ci95_high": min(1.0, raw_high),
+
+        # Preserve the mathematical Student-t interval unchanged.
+        "ci95_unbounded_low": raw_low,
+        "ci95_unbounded_high": raw_high,
     }
 
 
@@ -146,33 +157,46 @@ def main():
     ):
         conditions[condition] = {
             "trials": len(runs),
+
             "coverage": stats(
                 r["coverage"] for r in runs
             ),
+
             "precision": stats(
                 r["precision"] for r in runs
             ),
+
             "recall": stats(
                 r["recall"] for r in runs
             ),
+
             "f1": stats(
                 r["f1"] for r in runs
             ),
+
             "end_to_end_recall": stats(
                 r["end_to_end_recall"]
                 for r in runs
             ),
+
             "raw_runs": runs,
         }
 
     output = {
         "schema":
             "OTB-RESILIENCE-REPLICATES/0.1",
+
         "confidence_interval":
             "two-sided 95% Student-t interval over run-level metrics",
+
+        "confidence_interval_presentation":
+            "display bounds clipped to [0,1]; unbounded Student-t bounds retained",
+
         "interpretation":
             "exploratory repeatability analysis",
-        "conditions": conditions,
+
+        "conditions":
+            conditions,
     }
 
     args.output.write_text(
@@ -191,10 +215,10 @@ def main():
         "N",
         "Recall mean",
         "SD",
-        "95% CI",
+        "95% bounded CI",
     )
 
-    print("-" * 82)
+    print("-" * 86)
 
     for condition, result in conditions.items():
         r = result["recall"]
