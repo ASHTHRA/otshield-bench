@@ -1,0 +1,11 @@
+{
+  "dataset_id": "openplc-timing-20260920T172516Z",
+  "input": "raw.pcap",
+  "input_sha256": "9328243ab002a11cbf6c85e9fff19c9cf4463626253c684460496dd10aa4d0d2",
+  "normalization_git_commit": "4fc8e222643cb43000cf283054d05e4e9a1a44a8",
+  "normalizer": "PcapTelemetryAdapter",
+  "output": "normalized.json",
+  "output_sha256": "9ee21151dcfc3fca1e28a936493b54045cc1af45944aa4662a1a606359d839e0",
+  "record_count": 60,
+  "schema": "OTB-NORMALIZATION-EVIDENCE/0.1"
+}
