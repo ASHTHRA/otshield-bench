@@ -1,8 +1,8 @@
 # OTShield Bench
 
-**v0.3.0-alpha** (`0.3.0a0` on Python): a reproducible, vendor-neutral benchmark
-for OT cyber-detection effectiveness and resilience using synthetic or normalized
-lab-derived Modbus telemetry.
+**v0.5.0-alpha** (`0.5.0a0` on Python): a reproducible, vendor-neutral benchmark
+for OT cyber-detection effectiveness, resource cost, and resilience using synthetic
+and isolated lab-derived Modbus telemetry.
 
 OTShield generates labeled events or ingests passive offline observations, applies
 observation faults, runs a detector, and exports evidence and metrics. It never
@@ -52,17 +52,26 @@ Packet loss removes observations, and latency/jitter delay arrival and increase
 the latency feature. Labels and source polling intervals remain unchanged.
 Metrics distinguish observed recall from end-to-end recall under loss.
 
-## Docker/OpenPLC capture scaffolding (v0.3)
+## OpenPLC laboratory evidence
 
-v0.3 adds Docker/OpenPLC integration scaffolding for generating and normalizing
-Modbus TCP telemetry when a compatible laboratory environment is available.
-The repository includes capture/orchestration code, validation checks, and
-provenance-aware normalization, but a full GRFICSv3 lab run has **not yet been
-validated in this project environment**.
+OTShield now includes measured evidence from an isolated Docker-based OpenPLC
+laboratory using read-only Modbus/TCP Function Code 3 traffic.
 
-The current workstation still requires the documented Docker/Compose/network
-prerequisites before real GRFICS/OpenPLC captures can be claimed as benchmark
-evidence. Any synthetic fixtures remain explicitly labeled synthetic.
+The repository contains:
+
+- raw PCAP captures with SHA-256 integrity hashes;
+- explicit laboratory provenance;
+- transaction-aware Modbus/TCP normalization;
+- a measured normal polling baseline;
+- a predeclared labeled polling-burst experiment;
+- degraded-connectivity experiments using controlled delay, jitter, and loss;
+- a five-trial repeatability study covering 25 condition runs and 1,500 planned
+  read-only Modbus/TCP transactions.
+
+The current evidence comes from a minimal isolated OpenPLC environment using the
+configured GRFICS-derived PLC image. It must **not** be represented as a completed
+full GRFICSv3 process simulation, production OT validation, independent external
+replication, or general cybersecurity effectiveness validation.
 
 ```sh
 # From the repository root, after Docker prerequisites are available:
@@ -86,8 +95,9 @@ GRFICSv3/OpenPLC laboratory or another offline source. It emits deterministic
 context, and explicit provenance. Existing synthetic mode remains fully supported.
 
 GRFICSv3 is an independent optional upstream project and is not vendored here.
-This repository currently includes only a sanitized GRFICS-like test fixture; no
-live GRFICS experiment has been run or claimed. See the
+The repository includes both sanitized fixtures and separately identified
+laboratory-derived OpenPLC evidence. A full GRFICSv3 process simulation has not
+yet been completed or claimed. See the
 [GRFICS integration guide](docs/grfics-integration.md).
 
 ## Reproducibility and release verification
@@ -100,11 +110,13 @@ The command runs repository checks, the complete test suite, and the Python
 package build. See [docs/reproducibility.md](docs/reproducibility.md) for the
 research-release checklist and evidence boundaries.
 
-Current v0.3 capabilities include passive offline Modbus/TCP PCAP transaction
-correlation, fail-closed simulation prerequisite checks, and versioned benchmark
-result manifests.
+Current v0.5 capabilities include passive offline Modbus/TCP PCAP transaction
+correlation, explicit lab provenance, measured resource-cost reporting,
+predeclared timing ground truth, degraded-connectivity evaluation, repeatability
+statistics, and versioned benchmark result manifests.
 
-A completed full GRFICS/OpenPLC experiment remains an external milestone.
+A completed full GRFICSv3 process simulation and independent external replication
+remain future milestones.
 Repository scaffolding and sanitized fixtures are not evidence of completed
 laboratory or real-world validation.
 
