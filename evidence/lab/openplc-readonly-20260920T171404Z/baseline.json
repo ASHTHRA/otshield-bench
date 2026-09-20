@@ -1,0 +1,65 @@
+{
+  "first_interval_unavailable": true,
+  "inter_request_interval_ms": {
+    "count": 19,
+    "max": 192.06201171875,
+    "mean": 105.77031506990132,
+    "min": 100.697021484375,
+    "p50": 100.97607421875,
+    "p95": 110.4390869140623
+  },
+  "latency_ms": {
+    "count": 20,
+    "max": 91.10302734375,
+    "mean": 4.87374267578125,
+    "min": 0.199951171875,
+    "p50": 0.3204345703125,
+    "p95": 5.107849121093814
+  },
+  "limitations": [
+    "single short capture",
+    "read-only Function Code 3 traffic",
+    "normal baseline only; no anomaly-effectiveness measurement",
+    "first transaction may include connection/container warm-up cost",
+    "not a full GRFICSv3 process-simulation experiment"
+  ],
+  "measurement_scope": "descriptive transport/application observations from one read-only OpenPLC lab capture",
+  "observed_values": {
+    "unique": [
+      0.0
+    ]
+  },
+  "protocol": {
+    "address_counts": {
+      "0": 2,
+      "1": 2,
+      "2": 2,
+      "3": 2,
+      "4": 2,
+      "5": 2,
+      "6": 2,
+      "7": 2,
+      "8": 2,
+      "9": 2
+    },
+    "function_code_counts": {
+      "3": 20
+    },
+    "name": "modbus-tcp"
+  },
+  "provenance": {
+    "dataset_id": "openplc-readonly-20260920T171404Z",
+    "evidence_type": "lab_capture",
+    "source": "grfics"
+  },
+  "schema": "OTB-LAB-BASELINE/0.1",
+  "transactions": {
+    "duplicate_packet_count": 0,
+    "matched": 20,
+    "matched_ratio": 1.0,
+    "status_counts": {
+      "matched": 20
+    },
+    "total": 20
+  }
+}
