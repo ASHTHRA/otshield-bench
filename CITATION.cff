@@ -5,15 +5,15 @@ type: software
 authors:
   - given-names: "Jayachandra Reddy"
     family-names: "Palle"
-version: "0.5.0-alpha"
+version: "0.5.1-alpha"
 date-released: 2026-09-20
 license: Apache-2.0
 repository-code: "https://github.com/ASHTHRA/otshield-bench"
-url: "https://github.com/ASHTHRA/otshield-bench/releases/tag/v0.5.0-alpha"
+url: "https://github.com/ASHTHRA/otshield-bench/releases/tag/v0.5.1-alpha"
 abstract: >-
   OTShield Bench is a reproducible, vendor-neutral benchmark for operational
   technology cyber-detection effectiveness, deployment resource cost, and
-  resilience under degraded connectivity. Version 0.5.0-alpha includes
+  resilience under degraded connectivity. Version 0.5.1-alpha includes
   isolated OpenPLC laboratory evidence using bounded read-only Modbus/TCP
   Function Code 3 traffic and a five-trial repeatability study.
 keywords:
