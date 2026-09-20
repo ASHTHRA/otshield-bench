@@ -113,6 +113,7 @@ class PcapTelemetryAdapter:
             tx[direction] = parsed
 
         records = []
+        previous_request_timestamp_ms = None
 
         for index, key in enumerate(order, start=1):
             tx = transactions[key]
@@ -138,7 +139,22 @@ class PcapTelemetryAdapter:
             if primary is None:
                 continue
 
-            function_code, address, value = self._event_values(primary)
+            function_code, address, value = self._event_values(
+                request, response
+            )
+
+            request_timestamp = (
+                request["timestamp_ms"] if request is not None else None
+            )
+
+            interval_ms = 0.0
+            if request_timestamp is not None:
+                if previous_request_timestamp_ms is not None:
+                    interval_ms = max(
+                        0.0,
+                        request_timestamp - previous_request_timestamp_ms,
+                    )
+                previous_request_timestamp_ms = request_timestamp
 
             event = Event(
                 event_id=f"pcap:{index:04d}",
@@ -146,7 +162,7 @@ class PcapTelemetryAdapter:
                 function_code=function_code,
                 address=address,
                 value=value,
-                interval_ms=0.0,
+                interval_ms=interval_ms,
                 latency_ms=latency_ms,
                 label=False,
             )
@@ -285,20 +301,56 @@ class PcapTelemetryAdapter:
         }
 
     @staticmethod
-    def _event_values(packet):
+    def _event_values(request, response):
+        """Derive semantic telemetry from a correlated Modbus transaction.
+
+        For read-register operations, the address comes from the request and
+        the process value comes from the response. For single-register writes,
+        both address and written value come from the request.
+        """
+        packet = request or response
+        if packet is None:
+            return 1, 0, 0.0
+
         pdu = packet["pdu"]
         function_code = pdu[0] & 0x7F
 
         address = 0
         value = 0.0
 
-        # Requests and write responses normally contain address + value/quantity.
-        if len(pdu) >= 5:
-            address = struct.unpack("!H", pdu[1:3])[0]
-            value = float(struct.unpack("!H", pdu[3:5])[0])
+        if request is not None:
+            request_pdu = request["pdu"]
+            function_code = request_pdu[0] & 0x7F
 
-        # A read response instead contains byte-count followed by register data.
-        elif len(pdu) >= 4 and pdu[0] in (1, 2, 3, 4):
+            if len(request_pdu) >= 3:
+                address = struct.unpack("!H", request_pdu[1:3])[0]
+
+            # Read holding/input register: process value is in response.
+            if (
+                function_code in (3, 4)
+                and response is not None
+                and len(response["pdu"]) >= 4
+                and not (response["pdu"][0] & 0x80)
+                and response["pdu"][1] >= 2
+            ):
+                value = float(
+                    struct.unpack("!H", response["pdu"][2:4])[0]
+                )
+
+            # Write single coil/register: value is carried by request.
+            elif function_code in (5, 6) and len(request_pdu) >= 5:
+                value = float(
+                    struct.unpack("!H", request_pdu[3:5])[0]
+                )
+
+        elif (
+            function_code in (3, 4)
+            and len(pdu) >= 4
+            and not (pdu[0] & 0x80)
+            and pdu[1] >= 2
+        ):
+            # An unmatched read response has a value but no known address.
             value = float(struct.unpack("!H", pdu[2:4])[0])
 
         return function_code, address, value
+
