@@ -1,0 +1,485 @@
+{
+  "records": [
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 0.0,
+      "phase": "normal-pre",
+      "planned_interval_ms": null,
+      "transaction_id": 1
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 118.0810546875,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 2
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 101.18603515625,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 3
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 101.02099609375,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 4
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 100.90283203125,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 5
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 101.12109375,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 6
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 100.885986328125,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 7
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 101.304931640625,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 8
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 100.9541015625,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 9
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 101.095947265625,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 10
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 101.129150390625,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 11
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 100.9228515625,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 12
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 100.89208984375,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 13
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 101.448974609375,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 14
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 101.01806640625,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 15
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 101.1318359375,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 16
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 100.822021484375,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 17
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 101.85400390625,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 18
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 102.10107421875,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 19
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 101.0,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 20
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 11.23291015625,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 21
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 11.55517578125,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 22
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 11.288818359375,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 23
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 11.094970703125,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 24
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 10.94921875,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 25
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 11.1298828125,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 26
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 11.56494140625,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 27
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 10.80517578125,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 28
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 11.23095703125,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 29
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 12.27099609375,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 30
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 11.52001953125,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 31
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 11.056884765625,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 32
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 11.22998046875,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 33
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 11.35009765625,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 34
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 11.39697265625,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 35
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 11.202880859375,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 36
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 11.066162109375,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 37
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 10.72705078125,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 38
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 10.908935546875,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 39
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 11.14599609375,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 40
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 100.9599609375,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 41
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 100.885009765625,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 42
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 101.10205078125,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 43
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 101.182861328125,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 44
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 101.43798828125,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 45
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 101.426025390625,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 46
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 100.45703125,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 47
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 100.879150390625,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 48
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 101.805908203125,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 49
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 101.60400390625,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 50
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 100.7978515625,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 51
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 100.623046875,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 52
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 100.818115234375,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 53
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 101.0029296875,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 54
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 100.85009765625,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 55
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 101.337890625,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 56
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 100.81591796875,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 57
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 100.84716796875,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 58
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 100.81298828125,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 59
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 100.876953125,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 60
+    }
+  ],
+  "schema": "OTB-LAB-TIMING-OBSERVATIONS/0.1"
+}

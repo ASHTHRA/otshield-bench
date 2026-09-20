@@ -38,6 +38,47 @@ class RuleDetector:
         return result
 
 
+class PollingBurstDetector:
+    """Detect unusually short known polling intervals.
+
+    interval_ms == 0 represents an unavailable first interval and is not
+    treated as anomalous.
+    """
+
+    name = "polling-burst-v1"
+
+    def __init__(self, threshold_ms: float = 50.0):
+        if (
+            isinstance(threshold_ms, bool)
+            or not isinstance(threshold_ms, (int, float))
+            or not math.isfinite(threshold_ms)
+            or threshold_ms <= 0
+        ):
+            raise ValueError("threshold_ms must be finite and positive")
+
+        self.threshold_ms = float(threshold_ms)
+
+    def predict(self, events: list[Event]) -> list[Detection]:
+        result = []
+
+        for event in events:
+            alert = (
+                event.interval_ms > 0
+                and event.interval_ms < self.threshold_ms
+            )
+
+            result.append(
+                Detection(
+                    event.event_id,
+                    alert,
+                    float(alert),
+                    self.name,
+                )
+            )
+
+        return result
+
+
 class IsolationForestDetector:
     name = "isolation-forest-v1"
 

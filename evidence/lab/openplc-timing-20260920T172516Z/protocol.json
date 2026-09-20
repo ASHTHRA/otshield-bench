@@ -1,0 +1,369 @@
+{
+  "dataset_id": "openplc-timing-20260920T172516Z",
+  "protocol": "modbus-tcp",
+  "requests": [
+    {
+      "expected_anomaly": false,
+      "phase": "normal-pre",
+      "planned_interval_ms": null,
+      "transaction_id": 1
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 2
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 3
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 4
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 5
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 6
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 7
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 8
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 9
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 10
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 11
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 12
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 13
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 14
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 15
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 16
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 17
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 18
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 19
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 20
+    },
+    {
+      "expected_anomaly": true,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 21
+    },
+    {
+      "expected_anomaly": true,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 22
+    },
+    {
+      "expected_anomaly": true,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 23
+    },
+    {
+      "expected_anomaly": true,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 24
+    },
+    {
+      "expected_anomaly": true,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 25
+    },
+    {
+      "expected_anomaly": true,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 26
+    },
+    {
+      "expected_anomaly": true,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 27
+    },
+    {
+      "expected_anomaly": true,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 28
+    },
+    {
+      "expected_anomaly": true,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 29
+    },
+    {
+      "expected_anomaly": true,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 30
+    },
+    {
+      "expected_anomaly": true,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 31
+    },
+    {
+      "expected_anomaly": true,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 32
+    },
+    {
+      "expected_anomaly": true,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 33
+    },
+    {
+      "expected_anomaly": true,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 34
+    },
+    {
+      "expected_anomaly": true,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 35
+    },
+    {
+      "expected_anomaly": true,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 36
+    },
+    {
+      "expected_anomaly": true,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 37
+    },
+    {
+      "expected_anomaly": true,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 38
+    },
+    {
+      "expected_anomaly": true,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 39
+    },
+    {
+      "expected_anomaly": true,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 40
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 41
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 42
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 43
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 44
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 45
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 46
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 47
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 48
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 49
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 50
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 51
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 52
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 53
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 54
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 55
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 56
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 57
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 58
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 59
+    },
+    {
+      "expected_anomaly": false,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 60
+    }
+  ],
+  "schema": "OTB-LAB-TIMING-PROTOCOL/0.1",
+  "threshold_ms": 50.0,
+  "traffic_policy": "read-only function-code-3"
+}

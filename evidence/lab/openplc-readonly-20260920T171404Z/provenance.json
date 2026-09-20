@@ -1,0 +1,18 @@
+{
+  "captured_at_utc": "20260920T171404Z",
+  "dataset_id": "openplc-readonly-20260920T171404Z",
+  "docker_compose_version": "Docker Compose version v5.5.1",
+  "docker_version": "Docker version 29.8.1, build 4a63305",
+  "evidence_type": "lab_capture",
+  "git_commit": "fd2a36648dd5393d7abd5867ccd4c5bc3e0c908d",
+  "kernel": "6.18.33.2-microsoft-standard-WSL2",
+  "lab_scope": "minimal OpenPLC container; read-only Modbus/TCP",
+  "openplc_image": "fortiphyd/grfics-plc:latest",
+  "openplc_image_id": "sha256:364461af6d7b56563fa6fdc6a296a2dfa6530caf07ea736bbc9a71701a360919",
+  "python": "3.14.4",
+  "raw_pcap": "openplc_readonly_20260920T171404Z.pcap",
+  "raw_pcap_sha256": "b6cc46b58e86fd858d2a3705e8cb14024127108632c65da089631cceadd02c14",
+  "schema": "OTB-LAB-EVIDENCE/0.1",
+  "source": "grfics",
+  "traffic_policy": "function-code-3 reads only"
+}

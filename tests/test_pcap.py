@@ -120,6 +120,7 @@ def test_pcap_adapter_parses_request_response(tmp_path):
 
     assert event.function_code == 3
     assert event.address == 10
+    assert event.value == 42.0
     assert event.latency_ms == 50.0
 
     assert meta["transaction_id"] == 1
@@ -192,3 +193,43 @@ def test_repeated_loading_is_deterministic(tmp_path):
     second = adapter.load(path).to_dict()
 
     assert first == second
+
+
+def test_explicit_lab_capture_provenance(tmp_path):
+    path = tmp_path / "real-lab.pcap"
+    path.write_bytes(
+        _pcap([
+            (5, 100000, _request_packet(tid=21)),
+            (5, 125000, _response_packet(tid=21)),
+        ])
+    )
+
+    dataset = PcapTelemetryAdapter(
+        source="grfics",
+        dataset_id="openplc-lab-example",
+        evidence_type="lab_capture",
+    ).load(path)
+
+    assert dataset.provenance.source == "grfics"
+    assert dataset.provenance.dataset_id == "openplc-lab-example"
+    assert dataset.provenance.evidence_type == "lab_capture"
+
+
+def test_pcap_inter_request_interval_is_measured(tmp_path):
+    path = tmp_path / "intervals.pcap"
+    path.write_bytes(
+        _pcap([
+            (6, 0, _request_packet(tid=31, seq=100, address=1)),
+            (6, 10000, _response_packet(tid=31, seq=200, value=41)),
+            (6, 100000, _request_packet(tid=32, seq=300, address=2)),
+            (6, 110000, _response_packet(tid=32, seq=400, value=42)),
+        ])
+    )
+
+    records = PcapTelemetryAdapter().load(path).records
+
+    assert len(records) == 2
+    assert records[0].telemetry.value == 41.0
+    assert records[1].telemetry.value == 42.0
+    assert records[0].telemetry.interval_ms == 0.0
+    assert records[1].telemetry.interval_ms == 100.0
