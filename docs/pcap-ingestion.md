@@ -78,3 +78,14 @@ Current limitations include:
 - bounded Modbus/TCP decoding.
 
 Future lab-validation work can extend these capabilities while retaining the same provenance and reproducibility requirements.
+
+
+## Lab-derived provenance
+
+`PcapTelemetryAdapter` defaults to `sanitized_fixture` provenance for repository
+fixtures. A separately executed and documented authorized laboratory capture may
+instead provide an explicit dataset identifier and `lab_capture` evidence type.
+
+The evidence classification must describe how the PCAP was actually obtained;
+changing the provenance fields alone does not convert a fixture into laboratory
+evidence.

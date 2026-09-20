@@ -192,3 +192,23 @@ def test_repeated_loading_is_deterministic(tmp_path):
     second = adapter.load(path).to_dict()
 
     assert first == second
+
+
+def test_explicit_lab_capture_provenance(tmp_path):
+    path = tmp_path / "real-lab.pcap"
+    path.write_bytes(
+        _pcap([
+            (5, 100000, _request_packet(tid=21)),
+            (5, 125000, _response_packet(tid=21)),
+        ])
+    )
+
+    dataset = PcapTelemetryAdapter(
+        source="grfics",
+        dataset_id="openplc-lab-example",
+        evidence_type="lab_capture",
+    ).load(path)
+
+    assert dataset.provenance.source == "grfics"
+    assert dataset.provenance.dataset_id == "openplc-lab-example"
+    assert dataset.provenance.evidence_type == "lab_capture"

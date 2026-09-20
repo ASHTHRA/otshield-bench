@@ -11,6 +11,17 @@ from .model import IngestedDataset, IngestedEvent, ObservationContext, Provenanc
 class PcapTelemetryAdapter:
     """Load Ethernet/IPv4/TCP/Modbus-TCP packets from an offline PCAP."""
 
+    def __init__(
+        self,
+        *,
+        source: str = "other",
+        dataset_id: str | None = None,
+        evidence_type: str = "sanitized_fixture",
+    ):
+        self.source = source
+        self.dataset_id = dataset_id
+        self.evidence_type = evidence_type
+
     def load(self, path: Path) -> IngestedDataset:
         path = Path(path)
         raw = path.read_bytes()
@@ -179,9 +190,9 @@ class PcapTelemetryAdapter:
 
         return IngestedDataset(
             provenance=Provenance(
-                source="other",
-                dataset_id=path.name,
-                evidence_type="sanitized_fixture",
+                source=self.source,
+                dataset_id=self.dataset_id or path.name,
+                evidence_type=self.evidence_type,
             ),
             records=tuple(records),
         )
