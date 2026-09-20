@@ -1,5 +1,7 @@
 # OTShield Bench
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22863660.svg)](https://doi.org/10.5281/zenodo.22863660)
+
 **v0.5.1-alpha** (`0.5.1a0` on Python): a reproducible, vendor-neutral benchmark
 for OT cyber-detection effectiveness, resource cost, and resilience using synthetic
 and isolated lab-derived Modbus telemetry.
@@ -10,6 +12,14 @@ benchmark path is offline. Separately, the repository includes isolated laborato
 runners that generate bounded read-only Modbus/TCP Function Code 3 traffic against
 the documented OpenPLC test environment. These scenarios and laboratory measurements
 are research evidence, not validation of protection for a production industrial process.
+
+## Citation
+
+The archived **OTShield Bench v0.5.1-alpha** research-software release is permanently available through Zenodo:
+
+**DOI:** [10.5281/zenodo.22863660](https://doi.org/10.5281/zenodo.22863660)
+
+Citation metadata is also provided in [`CITATION.cff`](CITATION.cff).
 
 ## Quick start
 
