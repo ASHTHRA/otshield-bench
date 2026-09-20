@@ -1,0 +1,11 @@
+{
+  "dataset_id": "openplc-repeat-20260920T182506Z-t02-clean",
+  "input": "raw.pcap",
+  "input_sha256": "d9a3fe3703b51e7f578a5539856149f154aa7882e91ab48f54f1664630b9fe5f",
+  "normalization_git_commit": "79f54e19109981b88eb30b53c8b07767bbe3b368",
+  "normalizer": "PcapTelemetryAdapter",
+  "output": "normalized.json",
+  "output_sha256": "ede6cfca9fe61aea737fae79fac4b36aca287330fc93096ed57d8af234524569",
+  "record_count": 60,
+  "schema": "OTB-NORMALIZATION-EVIDENCE/0.1"
+}
