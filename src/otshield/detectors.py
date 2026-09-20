@@ -101,3 +101,9 @@ class IsolationForestDetector:
         scores = -self.model.decision_function([features(event) for event in events])
         return [Detection(event.event_id, bool(score > 0), float(score), self.name)
                 for event, score in zip(events, scores)]
+
+
+class RobustPollingBurstDetector(PollingBurstDetector):
+    """Polling-burst detector using an independently calibrated threshold."""
+
+    name = "robust-polling-burst-v1"

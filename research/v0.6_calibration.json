@@ -1,0 +1,64 @@
+{
+  "calibration": {
+    "mad_ms": 0.14892578125,
+    "median_ms": 101.010009765625,
+    "multiplier": 3.5,
+    "robust_sigma_ms": 0.22079736328125,
+    "sample_count": 195,
+    "scale_factor": 1.4826,
+    "threshold_ms": 100.23721899414062
+  },
+  "calibration_policy": {
+    "condition": "clean",
+    "expected_anomaly": false,
+    "interval_requirement": "observed_interval_ms > 0",
+    "mad_scale_factor": 1.4826,
+    "method": "median - 3.5 * (1.4826 * MAD)",
+    "minimum_samples": 30,
+    "multiplier": 3.5,
+    "transport_status": "matched",
+    "v06_test_data_used": false
+  },
+  "detector": "robust-polling-burst-v1",
+  "schema": "OTB-V06-CALIBRATION/0.1",
+  "source_files": [
+    {
+      "eligible_intervals": 39,
+      "path": "evidence/repeatability/20260920T182506Z/trial-1/clean/observations.json",
+      "protocol_sha256": "b83c963dd33371c37f51975664fc4bf0199606f481e380b56d47488b1a82cbaa",
+      "sha256": "bec0249f6a8bd917c43d39717b9e1b9e3ff0b904bb5889ea5513a0e5b0efe1da"
+    },
+    {
+      "eligible_intervals": 39,
+      "path": "evidence/repeatability/20260920T182506Z/trial-2/clean/observations.json",
+      "protocol_sha256": "ff9fb750f1583d90dbb6d8700d120b6d3954c3e408fb10d16ccf3858c31bdd4c",
+      "sha256": "957febf71bdfe6921a084c98f2fdb9eef8c2477c02b254144c0c91a2125cceed"
+    },
+    {
+      "eligible_intervals": 39,
+      "path": "evidence/repeatability/20260920T182506Z/trial-3/clean/observations.json",
+      "protocol_sha256": "e2b6c50fadeb9cdb6dd055ae78222d7adb5659ceb9c8c5b7aa47f9c841208065",
+      "sha256": "9fdfd13886fd83daaa636966bbdb50830045aa8d59c7f0e0c32d6cde48550229"
+    },
+    {
+      "eligible_intervals": 39,
+      "path": "evidence/repeatability/20260920T182506Z/trial-4/clean/observations.json",
+      "protocol_sha256": "06a63a83665689644a78fa130c8b9f13c2a3605d530100ad55133f7b10814dc9",
+      "sha256": "496e4ff337c1cd8510f1be3ff8fb760295f9c885f7a852f3e8e84570c698f9ac"
+    },
+    {
+      "eligible_intervals": 39,
+      "path": "evidence/repeatability/20260920T182506Z/trial-5/clean/observations.json",
+      "protocol_sha256": "f792f56df735037b5732fd69816f64f39a220e38f152a27bfdbd016a85fedeeb",
+      "sha256": "19ac3e500b2c5cc1558b944ee6e64827f43222dc140277eeb1937efe13fd85b6"
+    }
+  ],
+  "source_study": {
+    "aggregation_git_commit": "55b988414dc39ca95e88525040ab4e075bca634a",
+    "execution_git_commit": "79f54e19109981b88eb30b53c8b07767bbe3b368",
+    "root": "evidence/repeatability/20260920T182506Z",
+    "study_json": "evidence/repeatability/20260920T182506Z/study.json",
+    "study_json_sha256": "4e2b1aeaba3b5165fc574477d1dd392f474bdc9a6a2ab7708dcdb82255c1efbb",
+    "study_timestamp": "20260920T182506Z"
+  }
+}

@@ -117,9 +117,10 @@ def validate_protocol(protocol: dict[str, Any]):
     return plan
 
 
-def evaluate_resilience_capture(
+def _evaluate_resilience_capture(
     normalized: dict[str, Any],
     protocol: dict[str, Any],
+    detector=None,
 ):
     if normalized.get("schema") != "OTB-INGEST/0.1":
         raise ValueError("expected OTB-INGEST/0.1")
@@ -199,16 +200,16 @@ def evaluate_resilience_capture(
         observed.append(event)
         observed_by_tid[tid] = event
 
-    detector = PollingBurstDetector(
-        float(condition["threshold_ms"])
-    )
+    prediction_events = observed if detector is None else [replace(event, label=False) for event in observed]
+    if detector is None:
+        detector = PollingBurstDetector(float(condition["threshold_ms"]))
 
     tracemalloc.start()
 
     wall_start = time.perf_counter_ns()
     cpu_start = time.process_time_ns()
 
-    detections = detector.predict(observed)
+    detections = detector.predict(prediction_events)
 
     cpu_ms = (
         time.process_time_ns() - cpu_start
@@ -289,9 +290,7 @@ def evaluate_resilience_capture(
             ),
             "impairment_direction": "client-egress",
             "sample_count": len(truth),
-            "threshold_ms": float(
-                condition["threshold_ms"]
-            ),
+            "threshold_ms": detector.threshold_ms,
         },
         effectiveness=metrics,
         resource_cost=ResourceCostMetrics(
@@ -315,3 +314,8 @@ def evaluate_resilience_capture(
     )
 
     return manifest, details
+
+
+def evaluate_resilience_capture(normalized, protocol):
+    """Existing v0.5 interface and protocol-selected threshold."""
+    return _evaluate_resilience_capture(normalized, protocol)
