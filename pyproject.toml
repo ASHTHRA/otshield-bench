@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "otshield-bench"
-version = "0.2.0a0"
+version = "0.3.0a0"
 description = "Reproducible offline OT detection benchmarks for synthetic and lab-derived Modbus telemetry"
 requires-python = ">=3.10"
 license = "Apache-2.0"
@@ -13,7 +13,7 @@ readme = "README.md"
 dependencies = ["scikit-learn>=1.4,<2"]
 
 [project.optional-dependencies]
-dev = ["pytest>=8,<10", "build>=1,<2"]
+dev = ["pytest>=8,<10", "build>=1,<2", "pymodbus>=3.0,<4", "pyyaml>=6,<7"]
 
 [project.scripts]
 otshield = "otshield.cli:main"
