@@ -98,8 +98,10 @@ OT validation.
 
 ## Safety
 
-The implemented benchmark path is defensive and passive.
+The implemented benchmark is defensive. Offline ingestion and PCAP analysis are
+passive. The documented isolated OpenPLC laboratory runners generate only bounded
+read-only Modbus/TCP Function Code 3 requests for controlled experiments.
 
-The simulation adapter does not scan external systems, exploit devices, inject
-packets, discover credentials, or manipulate production PLCs. Any future active
+The simulation adapter does not scan external systems, exploit devices, discover
+credentials, or manipulate production PLCs. Any future active or state-changing
 research must be separately authorized and confined to an isolated laboratory.

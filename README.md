@@ -5,9 +5,11 @@ for OT cyber-detection effectiveness, resource cost, and resilience using synthe
 and isolated lab-derived Modbus telemetry.
 
 OTShield generates labeled events or ingests passive offline observations, applies
-observation faults, runs a detector, and exports evidence and metrics. It never
-connects to a PLC or transmits packets. These simplified scenarios and fixtures are
-a development benchmark, not validation of protection for a real industrial process.
+observation faults, runs detectors, and exports evidence and metrics. Its core
+benchmark path is offline. Separately, the repository includes isolated laboratory
+runners that generate bounded read-only Modbus/TCP Function Code 3 traffic against
+the documented OpenPLC test environment. These scenarios and laboratory measurements
+are research evidence, not validation of protection for a production industrial process.
 
 ## Quick start
 
