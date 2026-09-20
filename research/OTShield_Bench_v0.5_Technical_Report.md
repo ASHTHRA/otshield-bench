@@ -4,6 +4,7 @@
 **Author:** Jayachandra Reddy Palle  
 **Date:** September 20, 2026  
 **Software release:** https://github.com/ASHTHRA/otshield-bench/releases/tag/v0.5.0-alpha  
+**Archived citation release:** OTShield Bench v0.5.1-alpha — https://doi.org/10.5281/zenodo.22863660  
 **Release commit:** `8f79f77f6a410d4c648ca7dbddd3e1b5a4148edb`  
 **License:** Apache-2.0
 
