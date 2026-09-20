@@ -85,13 +85,13 @@ Five conditions are evaluated:
 
 The v0.5 study executes five trials per condition, for 25 completed condition runs and 1,500 planned transactions. Condition order rotates between trials to reduce fixed-order drift effects. Ground truth remains based on the predeclared transaction schedule rather than detector output.
 
-The report summarizes run-level metrics using arithmetic means, sample standard deviations, and exploratory two-sided 95% Student-t intervals. Because the metrics are bounded probabilities, displayed intervals are bounded to [0,1], while the unbounded mathematical intervals are preserved in `aggregate.json` for transparency. With only five trials per condition, these intervals are descriptive repeatability indicators rather than population-level guarantees.
+The report summarizes run-level metrics using arithmetic means, sample standard deviations, and exploratory two-sided 95% Student-t intervals. Because the metrics are bounded probabilities, displayed Student-t interval bounds are clipped to [0,1] for presentation, while the unbounded mathematical intervals are preserved in `aggregate.json` for transparency. With only five trials per condition, these intervals are descriptive repeatability indicators rather than population-level guarantees.
 
 ## 5. Results
 
 ### 5.1 Repeatability summary
 
-| Condition | N | Coverage mean | Recall mean | Recall SD | Recall 95% bounded CI | F1 mean | End-to-end recall mean |
+| Condition | N | Coverage mean | Recall mean | Recall SD | Recall 95% t interval (display-clipped) | F1 mean | End-to-end recall mean |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | clean | 5 | 1.000 | 1.000 | 0.000 | 1.000-1.000 | 1.000 | 1.000 |
 | delay20 | 5 | 1.000 | 1.000 | 0.000 | 1.000-1.000 | 1.000 | 1.000 |

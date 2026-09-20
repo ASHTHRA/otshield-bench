@@ -1,6 +1,6 @@
 # OTShield Bench
 
-**v0.5.0-alpha** (`0.5.0a0` on Python): a reproducible, vendor-neutral benchmark
+**v0.5.1-alpha** (`0.5.1a0` on Python): a reproducible, vendor-neutral benchmark
 for OT cyber-detection effectiveness, resource cost, and resilience using synthetic
 and isolated lab-derived Modbus telemetry.
 
