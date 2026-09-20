@@ -1,5 +1,3 @@
 # Blocked: 02_pcap_transaction_correlation.md
 
-Jev decision: human_review
-
-Automation stopped fail-closed before the strong-model pass.
+Groq 20B and Groq 120B attempts both failed strict verification.
