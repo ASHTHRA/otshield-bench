@@ -90,6 +90,24 @@ This repository currently includes only a sanitized GRFICS-like test fixture; no
 live GRFICS experiment has been run or claimed. See the
 [GRFICS integration guide](docs/grfics-integration.md).
 
+## Reproducibility and release verification
+
+Run the complete local verification with:
+
+`./scripts/verify_release.sh`
+
+The command runs repository checks, the complete test suite, and the Python
+package build. See [docs/reproducibility.md](docs/reproducibility.md) for the
+research-release checklist and evidence boundaries.
+
+Current v0.3 capabilities include passive offline Modbus/TCP PCAP transaction
+correlation, fail-closed simulation prerequisite checks, and versioned benchmark
+result manifests.
+
+A completed full GRFICS/OpenPLC experiment remains an external milestone.
+Repository scaffolding and sanitized fixtures are not evidence of completed
+laboratory or real-world validation.
+
 ## Project contracts and development
 
 - [OTB-SCENARIO](specs/OTB-SCENARIO.md)
