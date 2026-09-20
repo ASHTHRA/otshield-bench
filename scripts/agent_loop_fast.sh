@@ -170,6 +170,58 @@ PROMPT
   return $rc
 }
 
+semantic_check(){
+  local task
+  task="$(basename "$1")"
+
+  case "$task" in
+    02_pcap_transaction_correlation.md)
+
+      [[ -s docs/pcap-ingestion.md ]] || {
+        echo "SEMANTIC FAIL: PCAP documentation is empty"
+        return 1
+      }
+
+      if grep -Eqi \
+        'Placeholder|NotImplementedError|not yet implemented' \
+        src/otshield/adapters/pcap.py; then
+        echo "SEMANTIC FAIL: PCAP adapter is still a placeholder"
+        return 1
+      fi
+
+      grep -Eqi \
+        'transaction.?id|transaction identifier' \
+        src/otshield/adapters/pcap.py || {
+          echo "SEMANTIC FAIL: Modbus transaction correlation missing"
+          return 1
+        }
+
+      grep -Eqi \
+        'duplicate|retransmi' \
+        src/otshield/adapters/pcap.py || {
+          echo "SEMANTIC FAIL: duplicate/retransmission handling missing"
+          return 1
+        }
+
+      grep -Eqi \
+        'unmatched' \
+        src/otshield/adapters/pcap.py || {
+          echo "SEMANTIC FAIL: unmatched handling missing"
+          return 1
+        }
+
+      grep -Eqi \
+        'duplicate|retransmi|unmatched|transaction' \
+        tests/test_pcap.py || {
+          echo "SEMANTIC FAIL: meaningful PCAP tests missing"
+          return 1
+        }
+      ;;
+  esac
+
+  return 0
+}
+
 accept(){
   local task="$1" before="$2" after="$3" files
   files="$(git status --porcelain | awk '{print $2}' | grep -vE '^automation/(tasks|status)/' || true)"
@@ -200,7 +252,7 @@ for task in automation/tasks/0{1,2,3,4,5}_*.md; do
   echo "FAST PASS: $FAST_MODEL"
   if run_aider "$FAST_MODEL" 420 diff "$task"; then
     after="$(count_tests)"
-    if accept "$task" "$before" "$after" && verify_all; then
+    if accept "$task" "$before" "$after" && semantic_check "$task" && verify_all; then
       touch "${task}.done"
       rm -f "${task}.blocked"
       rm -f "automation/status/$(basename "$task" .md).blocked.md"
@@ -242,7 +294,7 @@ for task in automation/tasks/0{1,2,3,4,5}_*.md; do
   echo "ESCALATION PASS: $STRONG_MODEL"
   if run_aider "$STRONG_MODEL" 720 diff "$task"; then
     after="$(count_tests)"
-    if accept "$task" "$before" "$after" && verify_all; then
+    if accept "$task" "$before" "$after" && semantic_check "$task" && verify_all; then
       touch "${task}.done"
       rm -f "${task}.blocked"
       rm -f "automation/status/$(basename "$task" .md).blocked.md"
