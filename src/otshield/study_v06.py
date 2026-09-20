@@ -8,6 +8,7 @@ from pathlib import Path
 
 from scipy.stats import t
 
+from .canonical_v06 import canonicalize_capture
 from .core import Event
 from .results import BenchmarkResultManifest, ResourceCostMetrics, DegradedConnectivity
 from .lab_resilience import _hash, validate_protocol
@@ -121,8 +122,9 @@ def validate_run(root, trial, condition):
             normalization.get("output_sha256") != hashes["normalized.json"] or
             normalization.get("record_count") != len(normalized["records"])):
         raise ValueError("invalid provenance or normalization")
+    canonical, audit = canonicalize_capture(normalized)
     observed = {}
-    for record in normalized["records"]:
+    for record in canonical["records"]:
         metadata = record["context"]["value_metadata"]
         tid = metadata["transaction_id"]
         if type(tid) is not int or tid not in requests or tid in observed or metadata["status"] not in (
@@ -137,6 +139,10 @@ def validate_run(root, trial, condition):
             "resource_cost": ResourceCostMetrics(**result["resource_cost"]),
             "degraded_connectivity": DegradedConnectivity(**result["degraded_connectivity"])})
         env = result["environment"]
+        # Older duplicate-free v0.6 artifacts remain valid; resolutions require audit.
+        for metadata in (env, obs):
+            if ("canonicalization" in metadata or audit["decisions"]) and metadata.get("canonicalization") != audit:
+                raise ValueError("invalid canonicalization audit")
         if (result.get("schema") != "OTB-RESULT/0.1" or result.get("detector_adapter") != name or
                 env.get("threshold_ms") != threshold or env.get("calibration_sha256") != CALIBRATION_SHA256 or
                 env.get("experiment_protocol_sha256") != _hash(protocol) or

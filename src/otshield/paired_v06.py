@@ -4,6 +4,7 @@ import json
 from dataclasses import replace
 from pathlib import Path
 
+from .canonical_v06 import canonicalize_capture
 from .detectors import PollingBurstDetector, RobustPollingBurstDetector
 from .lab_resilience import _evaluate_resilience_capture, _hash
 
@@ -37,15 +38,17 @@ def evaluate_paired_capture(normalized, protocol, calibration_path):
                 raise ValueError("invalid transaction or transport status")
         except (KeyError, TypeError):
             raise ValueError("malformed normalized record") from None
+    canonical, audit = canonicalize_capture(normalized)
     output = {}
     for detector in (PollingBurstDetector(50.0), RobustPollingBurstDetector(
             calibration["calibration"]["threshold_ms"])):
-        result, observations = _evaluate_resilience_capture(normalized, protocol, detector)
+        result, observations = _evaluate_resilience_capture(canonical, protocol, detector)
         result = replace(result, benchmark_version="0.6.0-alpha", environment={
             **result.environment,
             "normalized_capture_sha256": _hash(normalized),
             "calibration_sha256": CALIBRATION_SHA256,
             "paired_detectors": list(DETECTORS),
+            "canonicalization": audit,
         })
         output[detector.name] = (result, observations)
     return output
@@ -62,6 +65,7 @@ def write_paired_capture(normalized_path, protocol_path, calibration_path, outpu
         (output / f"{name}.observations.json").write_text(json.dumps({
             "schema": "OTB-LAB-RESILIENCE-OBSERVATIONS/0.1",
             "detector": name, "normalized_capture_sha256": _hash(normalized),
+            "canonicalization": result.environment["canonicalization"],
             "records": observations,
         }, indent=2, sort_keys=True, allow_nan=False) + "\n")
     return paired
