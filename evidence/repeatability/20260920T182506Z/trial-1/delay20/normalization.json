@@ -1,0 +1,11 @@
+{
+  "dataset_id": "openplc-repeat-20260920T182506Z-t01-delay20",
+  "input": "raw.pcap",
+  "input_sha256": "d1c14e36f416444335684a7fa273e630fd869f1420df772c203dd6f018f84776",
+  "normalization_git_commit": "79f54e19109981b88eb30b53c8b07767bbe3b368",
+  "normalizer": "PcapTelemetryAdapter",
+  "output": "normalized.json",
+  "output_sha256": "72d8b7b64cb1b1db2c5c67af098da7e0c9137e0257386373c6bbe480c11993b9",
+  "record_count": 60,
+  "schema": "OTB-NORMALIZATION-EVIDENCE/0.1"
+}

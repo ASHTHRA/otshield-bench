@@ -1,0 +1,27 @@
+{
+  "capture_point": "OpenPLC/server network namespace",
+  "condition": {
+    "delay_ms": 0.0,
+    "jitter_ms": 0.0,
+    "loss_percent": 0.0,
+    "name": "clean"
+  },
+  "dataset_id": "openplc-repeat-20260920T182506Z-t03-clean",
+  "docker_compose_version": "Docker Compose version v5.5.1",
+  "docker_version": "Docker version 29.8.1, build 4a63305",
+  "evidence_type": "lab_capture",
+  "git_commit": "79f54e19109981b88eb30b53c8b07767bbe3b368",
+  "impairment_direction": "client-egress",
+  "kernel": "6.18.33.2-microsoft-standard-WSL2",
+  "lab_scope": "OpenPLC read-only resilience repeatability experiment",
+  "openplc_image": "fortiphyd/grfics-plc:latest",
+  "openplc_image_id": "sha256:364461af6d7b56563fa6fdc6a296a2dfa6530caf07ea736bbc9a71701a360919",
+  "python": "3.14.4",
+  "raw_pcap": "raw.pcap",
+  "raw_pcap_sha256": "ee252be1ea7bf04ca78b10961df866d7b7582089e406e0f77a81b4dd48dd398b",
+  "schema": "OTB-LAB-EVIDENCE/0.1",
+  "source": "grfics",
+  "study": "OTB-REPEATABILITY/0.1",
+  "traffic_policy": "function-code-3 reads only",
+  "trial": 3
+}

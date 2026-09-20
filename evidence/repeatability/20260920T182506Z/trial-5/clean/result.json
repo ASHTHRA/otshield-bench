@@ -1,0 +1,48 @@
+{
+  "benchmark_version": "0.4.0-alpha",
+  "degraded_connectivity": {
+    "jitter_ms": 0.0,
+    "latency_ms": 0.0,
+    "loss": 0.0
+  },
+  "detector_adapter": "polling-burst-v1",
+  "effectiveness": {
+    "coverage": 1.0,
+    "dropped": 0,
+    "end_to_end_recall": 1.0,
+    "f1": 1.0,
+    "false_positive_rate": 0.0,
+    "fn": 0,
+    "fp": 0,
+    "observed": 60,
+    "precision": 1.0,
+    "recall": 1.0,
+    "schema": "OTB-EVAL/0.1",
+    "tn": 40,
+    "total": 60,
+    "tp": 20
+  },
+  "environment": {
+    "experiment_protocol_schema": "OTB-LAB-RESILIENCE-PROTOCOL/0.1",
+    "experiment_protocol_sha256": "0eea618799a8cb339de1b53ea017036001de8d907100d3b3291a2ce03d1bd2a3",
+    "impairment_direction": "client-egress",
+    "label_source": "predeclared transaction-id experiment protocol",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "python": "3.14.4",
+    "sample_count": 60,
+    "threshold_ms": 50.0
+  },
+  "protocol": "modbus-tcp-readonly-timing",
+  "provenance": {
+    "dataset_id": "openplc-repeat-20260920T182506Z-t05-clean",
+    "evidence_type": "lab_capture",
+    "source": "grfics"
+  },
+  "resource_cost": {
+    "cpu_time_ms": 0.178256,
+    "peak_memory_mb": 0.01099395751953125,
+    "wall_time_ms": 0.195303
+  },
+  "schema": "OTB-RESULT/0.1",
+  "seed": 0
+}

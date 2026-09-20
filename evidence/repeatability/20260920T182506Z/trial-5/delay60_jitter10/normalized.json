@@ -1,0 +1,1990 @@
+{
+  "provenance": {
+    "dataset_id": "openplc-repeat-20260920T182506Z-t05-delay60_jitter10",
+    "evidence_type": "lab_capture",
+    "source": "grfics"
+  },
+  "records": [
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300000001",
+          "request_timestamp_ms": 1789929089267.522,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929089326.201,
+          "status": "matched",
+          "transaction_id": 1,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 0,
+        "event_id": "pcap:0001",
+        "function_code": 3,
+        "interval_ms": 0.0,
+        "label": false,
+        "latency_ms": 58.678955078125,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929089267.522,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300010001",
+          "request_timestamp_ms": 1789929089491.473,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929089491.738,
+          "status": "matched",
+          "transaction_id": 2,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 1,
+        "event_id": "pcap:0002",
+        "function_code": 3,
+        "interval_ms": 223.950927734375,
+        "label": false,
+        "latency_ms": 0.26513671875,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929089491.473,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300020001",
+          "request_timestamp_ms": 1789929089662.055,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929089662.332,
+          "status": "matched",
+          "transaction_id": 3,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 2,
+        "event_id": "pcap:0003",
+        "function_code": 3,
+        "interval_ms": 170.58203125,
+        "label": false,
+        "latency_ms": 0.277099609375,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929089662.055,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300030001",
+          "request_timestamp_ms": 1789929089818.292,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929089818.488,
+          "status": "matched",
+          "transaction_id": 4,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 3,
+        "event_id": "pcap:0004",
+        "function_code": 3,
+        "interval_ms": 156.237060546875,
+        "label": false,
+        "latency_ms": 0.196044921875,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929089818.292,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300040001",
+          "request_timestamp_ms": 1789929089969.904,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929089970.127,
+          "status": "matched",
+          "transaction_id": 5,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 4,
+        "event_id": "pcap:0005",
+        "function_code": 3,
+        "interval_ms": 151.612060546875,
+        "label": false,
+        "latency_ms": 0.222900390625,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929089969.904,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300050001",
+          "request_timestamp_ms": 1789929090131.963,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929090132.493,
+          "status": "matched",
+          "transaction_id": 6,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 5,
+        "event_id": "pcap:0006",
+        "function_code": 3,
+        "interval_ms": 162.058837890625,
+        "label": false,
+        "latency_ms": 0.530029296875,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929090131.963,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300060001",
+          "request_timestamp_ms": 1789929090301.053,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929090301.298,
+          "status": "matched",
+          "transaction_id": 7,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 6,
+        "event_id": "pcap:0007",
+        "function_code": 3,
+        "interval_ms": 169.090087890625,
+        "label": false,
+        "latency_ms": 0.2451171875,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929090301.053,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300070001",
+          "request_timestamp_ms": 1789929090467.244,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929090467.528,
+          "status": "matched",
+          "transaction_id": 8,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 7,
+        "event_id": "pcap:0008",
+        "function_code": 3,
+        "interval_ms": 166.19091796875,
+        "label": false,
+        "latency_ms": 0.2841796875,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929090467.244,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300080001",
+          "request_timestamp_ms": 1789929090631.859,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929090632.101,
+          "status": "matched",
+          "transaction_id": 9,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 8,
+        "event_id": "pcap:0009",
+        "function_code": 3,
+        "interval_ms": 164.614990234375,
+        "label": false,
+        "latency_ms": 0.2421875,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929090631.859,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300090001",
+          "request_timestamp_ms": 1789929090791.75,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929090792.006,
+          "status": "matched",
+          "transaction_id": 10,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 9,
+        "event_id": "pcap:0010",
+        "function_code": 3,
+        "interval_ms": 159.89111328125,
+        "label": false,
+        "latency_ms": 0.256103515625,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929090791.75,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300000001",
+          "request_timestamp_ms": 1789929090954.569,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929090954.87,
+          "status": "matched",
+          "transaction_id": 11,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 0,
+        "event_id": "pcap:0011",
+        "function_code": 3,
+        "interval_ms": 162.819091796875,
+        "label": false,
+        "latency_ms": 0.301025390625,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929090954.569,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300010001",
+          "request_timestamp_ms": 1789929091117.654,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929091117.857,
+          "status": "matched",
+          "transaction_id": 12,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 1,
+        "event_id": "pcap:0012",
+        "function_code": 3,
+        "interval_ms": 163.0849609375,
+        "label": false,
+        "latency_ms": 0.202880859375,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929091117.654,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300020001",
+          "request_timestamp_ms": 1789929091281.258,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929091281.615,
+          "status": "matched",
+          "transaction_id": 13,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 2,
+        "event_id": "pcap:0013",
+        "function_code": 3,
+        "interval_ms": 163.60400390625,
+        "label": false,
+        "latency_ms": 0.35693359375,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929091281.258,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300030001",
+          "request_timestamp_ms": 1789929091441.9,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929091442.177,
+          "status": "matched",
+          "transaction_id": 14,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 3,
+        "event_id": "pcap:0014",
+        "function_code": 3,
+        "interval_ms": 160.641845703125,
+        "label": false,
+        "latency_ms": 0.277099609375,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929091441.9,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300040001",
+          "request_timestamp_ms": 1789929091604.469,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929091604.781,
+          "status": "matched",
+          "transaction_id": 15,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 4,
+        "event_id": "pcap:0015",
+        "function_code": 3,
+        "interval_ms": 162.569091796875,
+        "label": false,
+        "latency_ms": 0.31201171875,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929091604.469,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300050001",
+          "request_timestamp_ms": 1789929091769.952,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929091770.175,
+          "status": "matched",
+          "transaction_id": 16,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 5,
+        "event_id": "pcap:0016",
+        "function_code": 3,
+        "interval_ms": 165.48291015625,
+        "label": false,
+        "latency_ms": 0.22314453125,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929091769.952,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300060001",
+          "request_timestamp_ms": 1789929091923.191,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929091923.389,
+          "status": "matched",
+          "transaction_id": 17,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 6,
+        "event_id": "pcap:0017",
+        "function_code": 3,
+        "interval_ms": 153.239013671875,
+        "label": false,
+        "latency_ms": 0.197998046875,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929091923.191,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300070001",
+          "request_timestamp_ms": 1789929092080.958,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929092081.237,
+          "status": "matched",
+          "transaction_id": 18,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 7,
+        "event_id": "pcap:0018",
+        "function_code": 3,
+        "interval_ms": 157.76708984375,
+        "label": false,
+        "latency_ms": 0.279052734375,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929092080.958,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300080001",
+          "request_timestamp_ms": 1789929092237.735,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929092237.946,
+          "status": "matched",
+          "transaction_id": 19,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 8,
+        "event_id": "pcap:0019",
+        "function_code": 3,
+        "interval_ms": 156.777099609375,
+        "label": false,
+        "latency_ms": 0.2109375,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929092237.735,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300090001",
+          "request_timestamp_ms": 1789929092393.335,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929092393.655,
+          "status": "matched",
+          "transaction_id": 20,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 9,
+        "event_id": "pcap:0020",
+        "function_code": 3,
+        "interval_ms": 155.599853515625,
+        "label": false,
+        "latency_ms": 0.320068359375,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929092393.335,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300000001",
+          "request_timestamp_ms": 1789929092468.821,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929092469.136,
+          "status": "matched",
+          "transaction_id": 21,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 0,
+        "event_id": "pcap:0021",
+        "function_code": 3,
+        "interval_ms": 75.486083984375,
+        "label": false,
+        "latency_ms": 0.31494140625,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929092468.821,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300010001",
+          "request_timestamp_ms": 1789929092537.528,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929092537.766,
+          "status": "matched",
+          "transaction_id": 22,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 1,
+        "event_id": "pcap:0022",
+        "function_code": 3,
+        "interval_ms": 68.70703125,
+        "label": false,
+        "latency_ms": 0.238037109375,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929092537.528,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300020001",
+          "request_timestamp_ms": 1789929092614.641,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929092615.015,
+          "status": "matched",
+          "transaction_id": 23,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 2,
+        "event_id": "pcap:0023",
+        "function_code": 3,
+        "interval_ms": 77.113037109375,
+        "label": false,
+        "latency_ms": 0.373779296875,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929092614.641,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300030001",
+          "request_timestamp_ms": 1789929092691.097,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929092691.41,
+          "status": "matched",
+          "transaction_id": 24,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 3,
+        "event_id": "pcap:0024",
+        "function_code": 3,
+        "interval_ms": 76.455810546875,
+        "label": false,
+        "latency_ms": 0.31298828125,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929092691.097,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300040001",
+          "request_timestamp_ms": 1789929092757.186,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929092757.505,
+          "status": "matched",
+          "transaction_id": 25,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 4,
+        "event_id": "pcap:0025",
+        "function_code": 3,
+        "interval_ms": 66.089111328125,
+        "label": false,
+        "latency_ms": 0.31884765625,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929092757.186,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300050001",
+          "request_timestamp_ms": 1789929092832.442,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929092832.87,
+          "status": "matched",
+          "transaction_id": 26,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 5,
+        "event_id": "pcap:0026",
+        "function_code": 3,
+        "interval_ms": 75.255859375,
+        "label": false,
+        "latency_ms": 0.42822265625,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929092832.442,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300060001",
+          "request_timestamp_ms": 1789929092907.251,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929092907.564,
+          "status": "matched",
+          "transaction_id": 27,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 6,
+        "event_id": "pcap:0027",
+        "function_code": 3,
+        "interval_ms": 74.80908203125,
+        "label": false,
+        "latency_ms": 0.31298828125,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929092907.251,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300070001",
+          "request_timestamp_ms": 1789929092987.239,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929092987.561,
+          "status": "matched",
+          "transaction_id": 28,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 7,
+        "event_id": "pcap:0028",
+        "function_code": 3,
+        "interval_ms": 79.988037109375,
+        "label": false,
+        "latency_ms": 0.322021484375,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929092987.239,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300080001",
+          "request_timestamp_ms": 1789929093053.962,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929093054.245,
+          "status": "matched",
+          "transaction_id": 29,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 8,
+        "event_id": "pcap:0029",
+        "function_code": 3,
+        "interval_ms": 66.722900390625,
+        "label": false,
+        "latency_ms": 0.283203125,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929093053.962,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300090001",
+          "request_timestamp_ms": 1789929093125.314,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929093125.638,
+          "status": "matched",
+          "transaction_id": 30,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 9,
+        "event_id": "pcap:0030",
+        "function_code": 3,
+        "interval_ms": 71.35205078125,
+        "label": false,
+        "latency_ms": 0.323974609375,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929093125.314,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300000001",
+          "request_timestamp_ms": 1789929093193.366,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929093193.708,
+          "status": "matched",
+          "transaction_id": 31,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 0,
+        "event_id": "pcap:0031",
+        "function_code": 3,
+        "interval_ms": 68.052001953125,
+        "label": false,
+        "latency_ms": 0.342041015625,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929093193.366,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300010001",
+          "request_timestamp_ms": 1789929093269.67,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929093269.92,
+          "status": "matched",
+          "transaction_id": 32,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 1,
+        "event_id": "pcap:0032",
+        "function_code": 3,
+        "interval_ms": 76.303955078125,
+        "label": false,
+        "latency_ms": 0.25,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929093269.67,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300020001",
+          "request_timestamp_ms": 1789929093350.163,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929093350.479,
+          "status": "matched",
+          "transaction_id": 33,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 2,
+        "event_id": "pcap:0033",
+        "function_code": 3,
+        "interval_ms": 80.4931640625,
+        "label": false,
+        "latency_ms": 0.31591796875,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929093350.163,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300030001",
+          "request_timestamp_ms": 1789929093429.278,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929093429.575,
+          "status": "matched",
+          "transaction_id": 34,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 3,
+        "event_id": "pcap:0034",
+        "function_code": 3,
+        "interval_ms": 79.114990234375,
+        "label": false,
+        "latency_ms": 0.296875,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929093429.278,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300040001",
+          "request_timestamp_ms": 1789929093501.344,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929093501.707,
+          "status": "matched",
+          "transaction_id": 35,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 4,
+        "event_id": "pcap:0035",
+        "function_code": 3,
+        "interval_ms": 72.06591796875,
+        "label": false,
+        "latency_ms": 0.363037109375,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929093501.344,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300050001",
+          "request_timestamp_ms": 1789929093581.49,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929093581.992,
+          "status": "matched",
+          "transaction_id": 36,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 5,
+        "event_id": "pcap:0036",
+        "function_code": 3,
+        "interval_ms": 80.14599609375,
+        "label": false,
+        "latency_ms": 0.501953125,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929093581.49,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300060001",
+          "request_timestamp_ms": 1789929093647.671,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929093647.997,
+          "status": "matched",
+          "transaction_id": 37,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 6,
+        "event_id": "pcap:0037",
+        "function_code": 3,
+        "interval_ms": 66.180908203125,
+        "label": false,
+        "latency_ms": 0.326171875,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929093647.671,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300070001",
+          "request_timestamp_ms": 1789929093716.3,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929093716.677,
+          "status": "matched",
+          "transaction_id": 38,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 7,
+        "event_id": "pcap:0038",
+        "function_code": 3,
+        "interval_ms": 68.629150390625,
+        "label": false,
+        "latency_ms": 0.376953125,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929093716.3,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300080001",
+          "request_timestamp_ms": 1789929093779.916,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929093780.275,
+          "status": "matched",
+          "transaction_id": 39,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 8,
+        "event_id": "pcap:0039",
+        "function_code": 3,
+        "interval_ms": 63.615966796875,
+        "label": false,
+        "latency_ms": 0.35888671875,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929093779.916,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300090001",
+          "request_timestamp_ms": 1789929093859.89,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929093860.236,
+          "status": "matched",
+          "transaction_id": 40,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 9,
+        "event_id": "pcap:0040",
+        "function_code": 3,
+        "interval_ms": 79.973876953125,
+        "label": false,
+        "latency_ms": 0.34619140625,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929093859.89,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300000001",
+          "request_timestamp_ms": 1789929094027.077,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929094027.399,
+          "status": "matched",
+          "transaction_id": 41,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 0,
+        "event_id": "pcap:0041",
+        "function_code": 3,
+        "interval_ms": 167.18701171875,
+        "label": false,
+        "latency_ms": 0.322021484375,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929094027.077,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300010001",
+          "request_timestamp_ms": 1789929094191.432,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929094191.688,
+          "status": "matched",
+          "transaction_id": 42,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 1,
+        "event_id": "pcap:0042",
+        "function_code": 3,
+        "interval_ms": 164.35498046875,
+        "label": false,
+        "latency_ms": 0.256103515625,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929094191.432,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300020001",
+          "request_timestamp_ms": 1789929094352.281,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929094352.621,
+          "status": "matched",
+          "transaction_id": 43,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 2,
+        "event_id": "pcap:0043",
+        "function_code": 3,
+        "interval_ms": 160.84912109375,
+        "label": false,
+        "latency_ms": 0.340087890625,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929094352.281,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300030001",
+          "request_timestamp_ms": 1789929094508.278,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929094508.782,
+          "status": "matched",
+          "transaction_id": 44,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 3,
+        "event_id": "pcap:0044",
+        "function_code": 3,
+        "interval_ms": 155.9970703125,
+        "label": false,
+        "latency_ms": 0.50390625,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929094508.278,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300040001",
+          "request_timestamp_ms": 1789929094679.548,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929094679.833,
+          "status": "matched",
+          "transaction_id": 45,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 4,
+        "event_id": "pcap:0045",
+        "function_code": 3,
+        "interval_ms": 171.27001953125,
+        "label": false,
+        "latency_ms": 0.284912109375,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929094679.548,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300050001",
+          "request_timestamp_ms": 1789929094837.972,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929094838.261,
+          "status": "matched",
+          "transaction_id": 46,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 5,
+        "event_id": "pcap:0046",
+        "function_code": 3,
+        "interval_ms": 158.423828125,
+        "label": false,
+        "latency_ms": 0.2890625,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929094837.972,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300060001",
+          "request_timestamp_ms": 1789929095006.991,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929095007.391,
+          "status": "matched",
+          "transaction_id": 47,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 6,
+        "event_id": "pcap:0047",
+        "function_code": 3,
+        "interval_ms": 169.01904296875,
+        "label": false,
+        "latency_ms": 0.400146484375,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929095006.991,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300070001",
+          "request_timestamp_ms": 1789929095168.272,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929095168.559,
+          "status": "matched",
+          "transaction_id": 48,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 7,
+        "event_id": "pcap:0048",
+        "function_code": 3,
+        "interval_ms": 161.281005859375,
+        "label": false,
+        "latency_ms": 0.287109375,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929095168.272,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300080001",
+          "request_timestamp_ms": 1789929095332.406,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929095332.725,
+          "status": "matched",
+          "transaction_id": 49,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 8,
+        "event_id": "pcap:0049",
+        "function_code": 3,
+        "interval_ms": 164.134033203125,
+        "label": false,
+        "latency_ms": 0.319091796875,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929095332.406,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300090001",
+          "request_timestamp_ms": 1789929095496.593,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929095496.84,
+          "status": "matched",
+          "transaction_id": 50,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 9,
+        "event_id": "pcap:0050",
+        "function_code": 3,
+        "interval_ms": 164.18701171875,
+        "label": false,
+        "latency_ms": 0.2470703125,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929095496.593,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300000001",
+          "request_timestamp_ms": 1789929095667.514,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929095667.766,
+          "status": "matched",
+          "transaction_id": 51,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 0,
+        "event_id": "pcap:0051",
+        "function_code": 3,
+        "interval_ms": 170.9208984375,
+        "label": false,
+        "latency_ms": 0.252197265625,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929095667.514,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300010001",
+          "request_timestamp_ms": 1789929095838.963,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929095839.348,
+          "status": "matched",
+          "transaction_id": 52,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 1,
+        "event_id": "pcap:0052",
+        "function_code": 3,
+        "interval_ms": 171.448974609375,
+        "label": false,
+        "latency_ms": 0.385009765625,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929095838.963,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300020001",
+          "request_timestamp_ms": 1789929095994.58,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929095995.067,
+          "status": "matched",
+          "transaction_id": 53,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 2,
+        "event_id": "pcap:0053",
+        "function_code": 3,
+        "interval_ms": 155.6171875,
+        "label": false,
+        "latency_ms": 0.48681640625,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929095994.58,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300030001",
+          "request_timestamp_ms": 1789929096147.422,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929096147.781,
+          "status": "matched",
+          "transaction_id": 54,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 3,
+        "event_id": "pcap:0054",
+        "function_code": 3,
+        "interval_ms": 152.842041015625,
+        "label": false,
+        "latency_ms": 0.35888671875,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929096147.422,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300040001",
+          "request_timestamp_ms": 1789929096310.643,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929096310.905,
+          "status": "matched",
+          "transaction_id": 55,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 4,
+        "event_id": "pcap:0055",
+        "function_code": 3,
+        "interval_ms": 163.220947265625,
+        "label": false,
+        "latency_ms": 0.261962890625,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929096310.643,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300050001",
+          "request_timestamp_ms": 1789929096478.261,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929096478.575,
+          "status": "matched",
+          "transaction_id": 56,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 5,
+        "event_id": "pcap:0056",
+        "function_code": 3,
+        "interval_ms": 167.617919921875,
+        "label": false,
+        "latency_ms": 0.31396484375,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929096478.261,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300060001",
+          "request_timestamp_ms": 1789929096633.913,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929096634.297,
+          "status": "matched",
+          "transaction_id": 57,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 6,
+        "event_id": "pcap:0057",
+        "function_code": 3,
+        "interval_ms": 155.652099609375,
+        "label": false,
+        "latency_ms": 0.384033203125,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929096633.913,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300070001",
+          "request_timestamp_ms": 1789929096804.847,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929096805.168,
+          "status": "matched",
+          "transaction_id": 58,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 7,
+        "event_id": "pcap:0058",
+        "function_code": 3,
+        "interval_ms": 170.933837890625,
+        "label": false,
+        "latency_ms": 0.321044921875,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929096804.847,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300080001",
+          "request_timestamp_ms": 1789929096969.692,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929096970.008,
+          "status": "matched",
+          "transaction_id": 59,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 8,
+        "event_id": "pcap:0059",
+        "function_code": 3,
+        "interval_ms": 164.844970703125,
+        "label": false,
+        "latency_ms": 0.316162109375,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929096969.692,
+        "value": 0.0
+      }
+    },
+    {
+      "context": {
+        "asset_id": null,
+        "destination_endpoint": "192.168.100.2:502",
+        "operation": "matched",
+        "protocol": "modbus-tcp",
+        "scenario_id": null,
+        "source_endpoint": "192.168.100.3:36790",
+        "target_type": "register",
+        "value_metadata": {
+          "duplicate_count": 0,
+          "protocol_id": 0,
+          "request_pdu": "0300090001",
+          "request_timestamp_ms": 1789929097126.207,
+          "response_pdu": "03020000",
+          "response_timestamp_ms": 1789929097126.511,
+          "status": "matched",
+          "transaction_id": 60,
+          "unit_id": 1
+        }
+      },
+      "telemetry": {
+        "address": 9,
+        "event_id": "pcap:0060",
+        "function_code": 3,
+        "interval_ms": 156.51513671875,
+        "label": false,
+        "latency_ms": 0.303955078125,
+        "schema": "OTB-TELEMETRY/0.1",
+        "timestamp_ms": 1789929097126.207,
+        "value": 0.0
+      }
+    }
+  ],
+  "schema": "OTB-INGEST/0.1"
+}

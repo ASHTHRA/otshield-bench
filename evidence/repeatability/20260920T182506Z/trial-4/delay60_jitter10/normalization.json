@@ -1,0 +1,11 @@
+{
+  "dataset_id": "openplc-repeat-20260920T182506Z-t04-delay60_jitter10",
+  "input": "raw.pcap",
+  "input_sha256": "e9659c84030e53e44acf83c7b6135d83335590db7221f223a20734290c2309fc",
+  "normalization_git_commit": "79f54e19109981b88eb30b53c8b07767bbe3b368",
+  "normalizer": "PcapTelemetryAdapter",
+  "output": "normalized.json",
+  "output_sha256": "41860d08d8889622f4fcdcacbcba7718f08f454e2b670236a445890afe0aed59",
+  "record_count": 60,
+  "schema": "OTB-NORMALIZATION-EVIDENCE/0.1"
+}
