@@ -198,6 +198,7 @@ def test_worker_failure_finalizes_manifest(tmp_path, monkeypatch):
     spec = importlib.util.spec_from_file_location("v06_runner_failure", "scripts/run_v06_study.py")
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
+    monkeypatch.setattr(module, "LOCK_PATH", tmp_path / "lab.lock")
     root = tmp_path / "new-study"
     monkeypatch.setattr(sys, "argv", ["run_v06_study.py", "--execute-lab", "--output", str(root)])
     monkeypatch.setattr(module.shutil, "which", lambda _: "/fake/docker")

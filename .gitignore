@@ -9,3 +9,6 @@ results/
 captures/
 docker/.env
 .aider*
+
+# Host-side v0.6 execution lock; never remove while a worker is active.
+.otshield-runtime/

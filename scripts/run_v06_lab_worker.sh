@@ -12,6 +12,38 @@ CAPTURE_DIR="$ROOT/captures"
 
 COMPOSE_FILE="docker/docker-compose.grfics.yml"
 
+# Validate the inherited open file description before creating output or installing
+# cleanup traps. An environment authorization flag alone grants no ownership.
+verify_execution_lock() {
+    python - <<'PYLOCK'
+import fcntl
+import os
+from pathlib import Path
+
+try:
+    fd = int(os.environ["V06_LOCK_FD"])
+    path = Path(".otshield-runtime/v06-lab.lock").resolve()
+    inherited = os.fstat(fd)
+    current = path.stat()
+    if (inherited.st_dev, inherited.st_ino) != (current.st_dev, current.st_ino):
+        raise RuntimeError("wrong lock inode")
+    with path.open("a+") as probe:
+        try:
+            fcntl.flock(probe, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            pass
+        else:
+            raise RuntimeError("execution lock is not held")
+    # Succeeds only if the inherited description owns the existing lock.
+    fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+except (KeyError, ValueError, OSError, RuntimeError) as exc:
+    raise SystemExit(f"INFRASTRUCTURE_FAILURE: study execution lock ownership required: {exc}")
+PYLOCK
+}
+
+verify_execution_lock
+
+
 mkdir -p "$ROOT"
 mkdir -p "$CAPTURE_DIR"
 
@@ -63,6 +95,28 @@ wait_for_openplc() {
         docker logs --tail 100 otshield-openplc || true
         return 1
     fi
+}
+
+
+verify_openplc_identity() {
+    local observed_id=missing observed_running=missing state
+    # One inspect response keeps ID and running state from the same container.
+    if state="$(docker inspect --format '{{.Id}} {{.State.Running}}' otshield-openplc 2>/dev/null)"; then
+        read -r observed_id observed_running <<< "$state"
+        observed_id="${observed_id:-missing}"
+        observed_running="${observed_running:-missing}"
+    fi
+    if [[ "${OPENPLC_EXPECTED_ID:-}" =~ ^[0-9a-f]{64}$ ]] &&
+       [[ "$observed_id" == "$OPENPLC_EXPECTED_ID" ]] &&
+       [[ "$observed_running" == true ]] &&
+       [[ "$state" == "$observed_id true" ]]; then
+        return 0
+    fi
+    echo "INFRASTRUCTURE_FAILURE: OpenPLC lifecycle identity mismatch" >&2
+    echo "EXPECTED_OPENPLC_ID=${OPENPLC_EXPECTED_ID:-missing}" >&2
+    echo "OBSERVED_OPENPLC_ID=$observed_id" >&2
+    echo "OBSERVED_RUNNING_STATE=$observed_running" >&2
+    return 1
 }
 
 
@@ -684,6 +738,9 @@ for TRIAL in $(seq 1 "$TRIALS"); do
 
 
     wait_for_openplc
+    OPENPLC_EXPECTED_ID="$(docker inspect --format '{{.Id}}' otshield-openplc 2>/dev/null)" || OPENPLC_EXPECTED_ID=missing
+    echo "OPENPLC_EXPECTED_ID=$OPENPLC_EXPECTED_ID"
+    verify_openplc_identity
 
 
     NETWORK="$(
@@ -719,6 +776,8 @@ for TRIAL in $(seq 1 "$TRIALS"); do
 
 
     for STEP in $(seq 0 $((COUNT - 1))); do
+
+        verify_openplc_identity
 
         INDEX=$(( (STEP + OFFSET) % COUNT ))
 
@@ -779,6 +838,8 @@ for TRIAL in $(seq 1 "$TRIALS"); do
           >/dev/null 2>&1 || true
 
 
+        verify_openplc_identity
+
         docker run -d --rm \
           --name otshield-server-capture \
           --network container:otshield-openplc \
@@ -832,11 +893,18 @@ for TRIAL in $(seq 1 "$TRIALS"); do
         fi
 
 
+        verify_openplc_identity
+
+        CLIENT_STATUS=0
         run_client \
           "$NETWORK" \
           "$DELAY" \
           "$JITTER" \
-          "$LOSS"
+          "$LOSS" || CLIENT_STATUS=$?
+        verify_openplc_identity
+        if [ "$CLIENT_STATUS" -ne 0 ]; then
+            exit "$CLIENT_STATUS"
+        fi
 
 
         sleep 1
@@ -871,6 +939,8 @@ for TRIAL in $(seq 1 "$TRIALS"); do
           "$DIR/raw.pcap"
 
 
+        verify_openplc_identity
+
         normalize_capture \
           "$DIR" \
           "$DATASET_ID" \
@@ -882,6 +952,8 @@ for TRIAL in $(seq 1 "$TRIALS"); do
           "$LOSS" \
           "$TRIAL"
 
+
+        verify_openplc_identity
 
         python scripts/evaluate_v06_paired.py \
           "$DIR/normalized.json" "$DIR/protocol.json" \
