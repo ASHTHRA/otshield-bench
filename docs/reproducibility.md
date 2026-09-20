@@ -9,7 +9,7 @@ Run the complete local verification from the repository root:
 The command checks repository whitespace/errors, runs the complete test suite,
 and builds both Python source and wheel distributions.
 
-## Implemented v0.3 capabilities
+## Implemented v0.5 capabilities
 
 The current development line includes:
 
@@ -33,19 +33,22 @@ The current development line includes:
 
 ## Current evidence boundary
 
+The repository now contains measured evidence from an isolated OpenPLC laboratory,
+including raw PCAPs, provenance, integrity hashes, controlled timing experiments,
+degraded-connectivity experiments, and a five-trial repeatability study.
+
 The repository does not currently claim:
 
-- a completed full GRFICSv3 laboratory deployment;
-- completed OpenPLC/GRFICS experimental validation;
+- a completed full GRFICSv3 process simulation;
 - production OT deployment;
-- real-world cybersecurity effectiveness validation;
+- general real-world cybersecurity effectiveness validation;
 - peer review;
-- publication;
-- independent replication;
+- formal publication;
+- independent external replication;
 - industry adoption.
 
-Configuration files, mocked tests, simulation preflight code, and sanitized
-fixtures are not evidence that a real laboratory experiment occurred.
+The OpenPLC evidence is explicitly separated from synthetic data and sanitized
+fixtures. Results apply only to the documented laboratory conditions and detector.
 
 ## Reproducibility checklist
 
@@ -110,7 +113,7 @@ Before a release candidate:
 - reproduce deterministic outputs from a clean checkout;
 - verify documentation claims match the available evidence.
 
-## Future GRFICS/OpenPLC milestone
+## Future full-GRFICS and external-validation milestone
 
 A future external laboratory milestone can include:
 
@@ -125,8 +128,9 @@ A future external laboratory milestone can include:
 9. preserve hashes, timestamps, configuration and provenance;
 10. generate benchmark result manifests from measured data.
 
-Until those activities are actually executed and documented, they remain planned
-work rather than completed experimental evidence.
+The existing isolated OpenPLC experiments are completed experimental evidence.
+The full-GRFICS, production, and independent-validation activities listed above
+remain future work.
 
 ## Research-release artifacts
 

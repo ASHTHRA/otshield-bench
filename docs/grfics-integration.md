@@ -4,8 +4,9 @@
 
 OTShield Bench treats GRFICS/OpenPLC as an optional external laboratory source.
 
-The repository does **not** claim that a full GRFICS laboratory has been
-successfully deployed or executed as part of the current milestone.
+The repository contains measured evidence from a minimal isolated OpenPLC
+laboratory. It does **not** claim that a complete GRFICSv3 process simulation has
+been successfully deployed or validated.
 
 Implemented capabilities include:
 
@@ -49,7 +50,9 @@ Explicit execution through `run()` is refused unless preflight succeeds.
 
 `docker/docker-compose.grfics.yml` is retained as an integration scaffold.
 
-Its existence is **not evidence** that a GRFICS/OpenPLC experiment was run.
+The compose file alone is not evidence of an experiment; however, separately
+committed raw PCAPs, provenance records, hashes, and result manifests now document
+completed isolated OpenPLC experiments.
 
 The current repository configuration must not be described as a completed
 full-GRFICS deployment. Full GRFICS environments may require host networking,
@@ -60,18 +63,21 @@ and additional upstream components.
 
 Repository unit tests mock Docker and host prerequisites.
 
-They verify adapter behavior only. They do not constitute evidence of:
+Mocked unit tests verify adapter behavior only. Separately committed laboratory
+artifacts provide evidence of a running isolated OpenPLC instance and completed
+read-only Modbus/TCP experiments.
 
-- a running PLC;
-- a running GRFICS process simulation;
-- a successful macvlan deployment;
+The repository still does not provide evidence of:
+
+- a complete GRFICSv3 process simulation;
+- a successful full macvlan GRFICS deployment;
 - captured production traffic;
-- real-world validation;
-- completed laboratory experiments.
+- production cybersecurity validation;
+- independent external replication.
 
 Generated PCAP fixtures remain explicitly classified as sanitized fixtures.
 
-## External milestone
+## Remaining external milestone
 
 A future lab milestone may include:
 
@@ -86,13 +92,16 @@ A future lab milestone may include:
 9. recording hashes, timestamps, tool versions, topology, and provenance;
 10. publishing only reproducible measured results.
 
-Until those steps are actually performed and recorded, OTShield must not claim
-completed GRFICS/OpenPLC experimental validation.
+OTShield may claim the documented isolated OpenPLC laboratory measurements.
+It must not describe those measurements as full GRFICSv3 validation or production
+OT validation.
 
 ## Safety
 
-The implemented benchmark path is defensive and passive.
+The implemented benchmark is defensive. Offline ingestion and PCAP analysis are
+passive. The documented isolated OpenPLC laboratory runners generate only bounded
+read-only Modbus/TCP Function Code 3 requests for controlled experiments.
 
-The simulation adapter does not scan external systems, exploit devices, inject
-packets, discover credentials, or manipulate production PLCs. Any future active
+The simulation adapter does not scan external systems, exploit devices, discover
+credentials, or manipulate production PLCs. Any future active or state-changing
 research must be separately authorized and confined to an isolated laboratory.
