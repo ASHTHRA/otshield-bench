@@ -22,7 +22,17 @@ python -c 'import typesafe_sdk' >/dev/null 2>&1 || {
   exit 2
 }
 
-count_tests(){ pytest --collect-only -q 2>/dev/null | tail -n1 | grep -oE '[0-9]+ test' | grep -oE '[0-9]+' || echo 0; }
+count_tests(){
+  local output count
+  output="$(pytest --collect-only -q 2>/dev/null || true)"
+  count="$(
+    printf '%s\n' "$output" |
+      sed -nE 's/^([0-9]+) tests? collected.*$/\1/p' |
+      tail -n1
+  )"
+  [[ "$count" =~ ^[0-9]+$ ]] || count=0
+  printf '%s\n' "$count"
+}
 verify_all(){
   {
     pytest -q &&
@@ -133,7 +143,7 @@ PROMPT
     timeout --signal=INT --kill-after=30s "${timeout_s}s" aider \
       --model "$model" \
       --model-settings-file automation/aider-groq-settings.yml \
-      --edit-format "$fmt" --map-tokens 0 --max-chat-history-tokens 512 \
+      --edit-format "$fmt" --map-tokens 0 --max-chat-history-tokens 8192 \
       --message-file "$pf" --yes-always --no-auto-commits --no-dirty-commits \
       --no-auto-lint --no-auto-test --no-check-update --no-show-release-notes --no-stream \
       "${args[@]}" 2>&1 | tee -a "$AIDER_LOG"
@@ -168,7 +178,8 @@ accept(){
     01_*|02_*|03_*|04_*)
       echo "$files" | grep -q '^src/otshield/' || return 1
       echo "$files" | grep -q '^tests/' || return 1
-      (( after > before )) || return 1;;
+      [[ "$before" =~ ^[0-9]+$ && "$after" =~ ^[0-9]+$ ]] || return 1
+      (( 10#$after > 10#$before )) || return 1;;
     05_*) echo "$files" | grep -Eq '^(scripts/|docs/|README\.md)' || return 1;;
   esac
 }
