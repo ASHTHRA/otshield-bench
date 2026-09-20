@@ -1,0 +1,11 @@
+{
+  "dataset_id": "openplc-resilience-20260920T173853Z-delay20",
+  "input": "raw.pcap",
+  "input_sha256": "2cca40f7aacfaac66933446b865f483b7b22d0d8eaf264a4e6ba40dcc6c2cfe5",
+  "normalization_git_commit": "a346535cd1ff0dd1ae5a1229a9d1540ee1bc2fd6",
+  "normalizer": "PcapTelemetryAdapter",
+  "output": "normalized.json",
+  "output_sha256": "a97e47e0c7fa3a8476c67f460281d7506bc258274a768a588ba6256f6d692c38",
+  "record_count": 60,
+  "schema": "OTB-NORMALIZATION-EVIDENCE/0.1"
+}

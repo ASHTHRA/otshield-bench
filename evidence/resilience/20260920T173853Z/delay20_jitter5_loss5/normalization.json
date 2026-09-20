@@ -1,0 +1,11 @@
+{
+  "dataset_id": "openplc-resilience-20260920T173853Z-delay20_jitter5_loss5",
+  "input": "raw.pcap",
+  "input_sha256": "09e9cd4d28947ceb9482266d08cf8481b9fe34a2a4acc947310a61d8e3cde5b6",
+  "normalization_git_commit": "a346535cd1ff0dd1ae5a1229a9d1540ee1bc2fd6",
+  "normalizer": "PcapTelemetryAdapter",
+  "output": "normalized.json",
+  "output_sha256": "a5760131ff9c5be4b1f27a5209583ac7fa6457a312c06e1126231aaca8c24d8e",
+  "record_count": 60,
+  "schema": "OTB-NORMALIZATION-EVIDENCE/0.1"
+}

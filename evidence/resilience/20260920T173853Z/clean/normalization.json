@@ -1,0 +1,11 @@
+{
+  "dataset_id": "openplc-resilience-20260920T173853Z-clean",
+  "input": "raw.pcap",
+  "input_sha256": "26a54920e88f3b5e241cefef944f491f66300e9ac3f62e08e87db8236e9e2fe5",
+  "normalization_git_commit": "a346535cd1ff0dd1ae5a1229a9d1540ee1bc2fd6",
+  "normalizer": "PcapTelemetryAdapter",
+  "output": "normalized.json",
+  "output_sha256": "4a94e39d753280130c4f694a3593d06ecb925ec064278afbf8d866b3b1ea4bfc",
+  "record_count": 60,
+  "schema": "OTB-NORMALIZATION-EVIDENCE/0.1"
+}
