@@ -102,7 +102,7 @@ prep_files(){
       FILES=(src/otshield/ground_truth.py src/otshield/cli.py tests/test_ground_truth.py docs/ground-truth.md);;
     02_pcap_transaction_correlation.md)
       touch src/otshield/adapters/pcap.py tests/test_pcap.py docs/pcap-ingestion.md
-      FILES=(src/otshield/adapters/pcap.py src/otshield/adapters/base.py src/otshield/adapters/model.py src/otshield/adapters/__init__.py src/otshield/cli.py tests/test_pcap.py tests/test_ingestion.py docs/pcap-ingestion.md pyproject.toml);;
+      FILES=(src/otshield/adapters/pcap.py src/otshield/adapters/model.py src/otshield/adapters/__init__.py src/otshield/core.py tests/test_pcap.py docs/pcap-ingestion.md pyproject.toml);;
     03_simulation_adapter.md)
       touch src/otshield/adapters/simulation.py tests/test_adapters.py
       FILES=(src/otshield/adapters/base.py src/otshield/adapters/simulation.py src/otshield/adapters/__init__.py tests/test_adapters.py docker/docker-compose.grfics.yml docs/grfics-integration.md);;
