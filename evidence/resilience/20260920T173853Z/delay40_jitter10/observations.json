@@ -1,0 +1,605 @@
+{
+  "records": [
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 0.0,
+      "observed_latency_ms": 12.785888671875,
+      "phase": "normal-pre",
+      "planned_interval_ms": null,
+      "transaction_id": 1,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 152.5849609375,
+      "observed_latency_ms": 0.323974609375,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 2,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 139.741943359375,
+      "observed_latency_ms": 0.23095703125,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 3,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 144.487060546875,
+      "observed_latency_ms": 0.199951171875,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 4,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 140.373046875,
+      "observed_latency_ms": 0.303955078125,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 5,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 144.406982421875,
+      "observed_latency_ms": 0.2978515625,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 6,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 134.93408203125,
+      "observed_latency_ms": 0.433837890625,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 7,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 144.052001953125,
+      "observed_latency_ms": 0.2939453125,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 8,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 138.77587890625,
+      "observed_latency_ms": 0.22705078125,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 9,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 146.31103515625,
+      "observed_latency_ms": 0.2890625,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 10,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 137.14794921875,
+      "observed_latency_ms": 0.3701171875,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 11,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 133.6240234375,
+      "observed_latency_ms": 0.322998046875,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 12,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 147.18505859375,
+      "observed_latency_ms": 0.362060546875,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 13,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 140.337890625,
+      "observed_latency_ms": 0.281005859375,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 14,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 147.220947265625,
+      "observed_latency_ms": 0.10009765625,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 15,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 139.955078125,
+      "observed_latency_ms": 0.323974609375,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 16,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 148.22705078125,
+      "observed_latency_ms": 0.220947265625,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 17,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 140.447998046875,
+      "observed_latency_ms": 0.237060546875,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 18,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 136.65087890625,
+      "observed_latency_ms": 0.1630859375,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 19,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 142.55615234375,
+      "observed_latency_ms": 0.220947265625,
+      "phase": "normal-pre",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 20,
+      "transport_status": "matched"
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 48.218017578125,
+      "observed_latency_ms": 0.260986328125,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 21,
+      "transport_status": "matched"
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 44.921875,
+      "observed_latency_ms": 1.089111328125,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 22,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": true,
+      "observed_interval_ms": 61.4931640625,
+      "observed_latency_ms": 0.27783203125,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 23,
+      "transport_status": "matched"
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 43.098876953125,
+      "observed_latency_ms": 0.24609375,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 24,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": true,
+      "observed_interval_ms": 54.948974609375,
+      "observed_latency_ms": 0.48193359375,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 25,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": true,
+      "observed_interval_ms": 55.18408203125,
+      "observed_latency_ms": 0.202880859375,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 26,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": true,
+      "observed_interval_ms": 52.54296875,
+      "observed_latency_ms": 0.294921875,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 27,
+      "transport_status": "matched"
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 44.637939453125,
+      "observed_latency_ms": 0.4140625,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 28,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": true,
+      "observed_interval_ms": 51.860107421875,
+      "observed_latency_ms": 0.33203125,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 29,
+      "transport_status": "matched"
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 44.135009765625,
+      "observed_latency_ms": 0.281982421875,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 30,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": true,
+      "observed_interval_ms": 58.927978515625,
+      "observed_latency_ms": 0.383056640625,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 31,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": true,
+      "observed_interval_ms": 56.051025390625,
+      "observed_latency_ms": 0.3330078125,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 32,
+      "transport_status": "matched"
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 42.35986328125,
+      "observed_latency_ms": 0.238037109375,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 33,
+      "transport_status": "matched"
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 47.157958984375,
+      "observed_latency_ms": 0.330078125,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 34,
+      "transport_status": "matched"
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 46.363037109375,
+      "observed_latency_ms": 0.330078125,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 35,
+      "transport_status": "matched"
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 48.2451171875,
+      "observed_latency_ms": 0.27685546875,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 36,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": true,
+      "observed_interval_ms": 50.47998046875,
+      "observed_latency_ms": 0.31201171875,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 37,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": true,
+      "observed_interval_ms": 56.8330078125,
+      "observed_latency_ms": 0.373046875,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 38,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": true,
+      "observed_interval_ms": 51.244873046875,
+      "observed_latency_ms": 0.28515625,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 39,
+      "transport_status": "matched"
+    },
+    {
+      "alert": true,
+      "expected_anomaly": true,
+      "observed_interval_ms": 46.43505859375,
+      "observed_latency_ms": 0.2109375,
+      "phase": "controlled-burst",
+      "planned_interval_ms": 10.0,
+      "transaction_id": 40,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 133.428955078125,
+      "observed_latency_ms": 0.344970703125,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 41,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 136.7470703125,
+      "observed_latency_ms": 0.318115234375,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 42,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 132.717041015625,
+      "observed_latency_ms": 0.342041015625,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 43,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 133.31494140625,
+      "observed_latency_ms": 0.30908203125,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 44,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 149.367919921875,
+      "observed_latency_ms": 0.30517578125,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 45,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 135.953125,
+      "observed_latency_ms": 0.224853515625,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 46,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 133.723876953125,
+      "observed_latency_ms": 0.236083984375,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 47,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 140.983154296875,
+      "observed_latency_ms": 0.286865234375,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 48,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 141.074951171875,
+      "observed_latency_ms": 0.278076171875,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 49,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 150.449951171875,
+      "observed_latency_ms": 0.31298828125,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 50,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 142.575927734375,
+      "observed_latency_ms": 0.402099609375,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 51,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 144.10400390625,
+      "observed_latency_ms": 0.300048828125,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 52,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 133.758056640625,
+      "observed_latency_ms": 0.302001953125,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 53,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 134.68115234375,
+      "observed_latency_ms": 0.25,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 54,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 137.890869140625,
+      "observed_latency_ms": 0.528076171875,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 55,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 143.787109375,
+      "observed_latency_ms": 0.31689453125,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 56,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 132.537841796875,
+      "observed_latency_ms": 0.35400390625,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 57,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 134.902099609375,
+      "observed_latency_ms": 0.512939453125,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 58,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 143.157958984375,
+      "observed_latency_ms": 0.219970703125,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 59,
+      "transport_status": "matched"
+    },
+    {
+      "alert": false,
+      "expected_anomaly": false,
+      "observed_interval_ms": 137.196044921875,
+      "observed_latency_ms": 0.47705078125,
+      "phase": "normal-post",
+      "planned_interval_ms": 100.0,
+      "transaction_id": 60,
+      "transport_status": "matched"
+    }
+  ],
+  "schema": "OTB-LAB-RESILIENCE-OBSERVATIONS/0.1"
+}

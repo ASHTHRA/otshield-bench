@@ -1,0 +1,25 @@
+{
+  "capture_point": "OpenPLC/server network namespace",
+  "condition": {
+    "delay_ms": 20.0,
+    "jitter_ms": 0.0,
+    "loss_percent": 0.0,
+    "name": "delay20"
+  },
+  "dataset_id": "openplc-resilience-20260920T173853Z-delay20",
+  "docker_compose_version": "Docker Compose version v5.5.1",
+  "docker_version": "Docker version 29.8.1, build 4a63305",
+  "evidence_type": "lab_capture",
+  "git_commit": "a346535cd1ff0dd1ae5a1229a9d1540ee1bc2fd6",
+  "impairment_direction": "client-egress",
+  "kernel": "6.18.33.2-microsoft-standard-WSL2",
+  "lab_scope": "OpenPLC read-only resilience experiment",
+  "openplc_image": "fortiphyd/grfics-plc:latest",
+  "openplc_image_id": "sha256:364461af6d7b56563fa6fdc6a296a2dfa6530caf07ea736bbc9a71701a360919",
+  "python": "3.14.4",
+  "raw_pcap": "raw.pcap",
+  "raw_pcap_sha256": "2cca40f7aacfaac66933446b865f483b7b22d0d8eaf264a4e6ba40dcc6c2cfe5",
+  "schema": "OTB-LAB-EVIDENCE/0.1",
+  "source": "grfics",
+  "traffic_policy": "function-code-3 reads only"
+}
