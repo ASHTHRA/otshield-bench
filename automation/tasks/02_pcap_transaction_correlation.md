@@ -18,3 +18,10 @@ Required behavior:
   5. deterministic repeated loading.
 - Documentation must explain supported PCAP/Modbus behavior, provenance, limitations, and any optional packet-decoding dependency.
 - Prefer a small deterministic implementation. Never claim real GRFICS/OpenPLC capture execution unless evidence exists.
+
+Implementation constraints for this bounded Groq run:
+- Use the Python standard library for the classic PCAP/Ethernet/IPv4/TCP/Modbus-TCP parsing needed by the sanitized tests; do not add a new packet dependency in this milestone.
+- Import Event from otshield.core when constructing normalized telemetry.
+- Event fields are: event_id, timestamp_ms, function_code, address, value, interval_ms, latency_ms, label.
+- Return IngestedDataset / IngestedEvent / ObservationContext / Provenance using the existing model contract.
+- Keep the implementation compact enough for the bounded coding pass.
