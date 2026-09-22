@@ -34,6 +34,32 @@ invocation and never commits, pushes, merges, tags, releases, or writes task mar
 Review the candidate diff and evidence before integrating it and marking completion.
 Candidates are development isolation, not a security sandbox for untrusted code.
 
+### v0.6 lab readiness
+
+Before any replacement v0.6 study is authorized, run:
+
+```sh
+python -m scripts.v06_lab_readiness
+```
+
+This performs a deterministic host gate and writes JSON plus Markdown reports
+under `.otshield-runtime/v06-readiness/`. It never creates `evidence/v06`, runs
+the 125-condition study, changes detector thresholds, or treats synthetic tests
+as laboratory evidence. Docker/OpenPLC startup and one bounded read-only FC3
+probe require the explicit opt-in:
+
+```sh
+python -m scripts.v06_lab_readiness --authorize-start
+```
+
+The opt-in uses a unique Compose project, captures the full container identity,
+checks it is running, probes one FC3 read with a timeout, and removes only the
+container whose identity it captured. Reports use `PASS`, `FAIL`,
+`NOT_CHECKED`, and `EXTERNAL_ACTION_REQUIRED`; missing images and macvlan/NIC
+requirements identify the exact external action. A readiness pass is a host
+prerequisite result, not scientific evidence and not permission to start the
+study without separate human approval.
+
 ### Optional Soup context
 
 The audit found `soup-ai==0.2.1` in `.soup-venv`, but no tracked Soup integration in

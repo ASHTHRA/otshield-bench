@@ -35,6 +35,15 @@ def test_pending_skips_blocked(tmp_path):
     assert runner.pending(tmp_path) == []
 
 
+def test_future_numbered_tasks_are_discovered(tmp_path):
+    task_repo(tmp_path)
+    future = tmp_path / "automation/tasks/07_future.md"
+    future.write_text("future")
+    assert [item.name for item in runner.pending(tmp_path)] == [
+        "03_simulation_adapter.md", "07_future.md"
+    ]
+
+
 @pytest.mark.parametrize('failure', [False, True])
 def test_policy_outside_router(tmp_path, monkeypatch, failure):
     task = task_repo(tmp_path)

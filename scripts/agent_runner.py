@@ -36,7 +36,7 @@ def run(args: list[str], root: Path, **kwargs) -> subprocess.CompletedProcess:
 
 
 def pending(root: Path, only: str = "") -> list[Path]:
-    return [p for p in sorted((root / "automation/tasks").glob("0[1-5]_*.md"))
+    return [p for p in sorted((root / "automation/tasks").glob("[0-9][0-9]_*.md"))
             if (not only or p.name == only)
             and not Path(str(p) + ".done").exists()
             and not Path(str(p) + ".blocked").exists()]
