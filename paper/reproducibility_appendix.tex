@@ -1,0 +1,37 @@
+\section*{Reproducibility appendix}
+\label{app:reproducibility}
+
+The software is archived as OTShield Bench \texttt{v0.6.0-alpha} at
+\url{https://github.com/ASHTHRA/otshield-bench/releases/tag/v0.6.0-alpha} and
+Zenodo DOI \url{https://doi.org/10.5281/zenodo.22899466}. The repository is
+\url{https://github.com/ASHTHRA/otshield-bench}. The release declares Python
+package version \texttt{0.6.0a0}; the completed study provenance records Python
+3.14.4, Docker 29.8.1, Compose v5.5.1, and the Linux/WSL2 kernel used for the
+isolated laboratory run.
+
+The study identifier is \texttt{20260922T021855Z}. Its source files are
+\texttt{evidence/v06/20260922T021855Z/aggregate.json} and
+\texttt{evidence/v06/20260922T021855Z/study.json}; per-run captures and
+provenance are under the same evidence root. The release manifest and
+\texttt{STUDY\_SHA256SUMS} provide integrity records. The frozen calibration is
+\texttt{research/v0.6\_calibration.json}, whose recorded SHA-256 is
+\texttt{d8676d4670ba44c0f4b1045e5e07dd2d251ccb4a63ed8089b9b9aada729ea234}.
+
+Software verification is performed with:
+
+\begin{verbatim}
+./scripts/verify_release.sh
+python paper/generate_figures.py
+\end{verbatim}
+
+The first command checks whitespace, runs the complete test suite, and builds
+the package. The second reads only committed aggregate data and deterministically
+writes the figures in \texttt{paper/figures/}. These commands reproduce the
+analysis and manuscript artifacts; they do not launch Docker, OpenPLC, packet
+capture, or laboratory traffic.
+
+Reproducing the laboratory measurements is a separate activity requiring an
+explicitly authorized, isolated Linux/Docker environment. The protocol uses
+bounded read-only Modbus/TCP Function Code 3 requests and must never be aimed at
+a real operational system. The preserved failed attempts and errata remain in
+the repository and are excluded from the completed replacement aggregate.
