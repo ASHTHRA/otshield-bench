@@ -16,6 +16,8 @@ COMPOSE = """
 services:
   openplc:
     image: example/openplc:test
+    ports:
+      - "502:502"
 networks:
   otshield-ics-net:
     driver: bridge
@@ -85,6 +87,7 @@ def test_macvlan_requires_parent_interface(tmp_path, monkeypatch):
 
 def test_authorized_probe_captures_identity_and_cleans_same_container(tmp_path, monkeypatch):
     patch_common(monkeypatch)
+    monkeypatch.setattr(readiness, "_tcp_endpoint", lambda host, port: (True, "mock TCP"))
     monkeypatch.setattr(readiness, "_modbus_fc3", lambda host, port: (True, "mock FC3"))
     calls = []
     def command(args, *, timeout=15):
@@ -93,6 +96,8 @@ def test_authorized_probe_captures_identity_and_cleans_same_container(tmp_path, 
             raise AssertionError("unexpected argument ordering")
         if "up" in args:
             return SimpleNamespace(returncode=0, stdout="", stderr="")
+        if args[:2] == ["/usr/bin/docker", "inspect"] and "{{.Id}}" in args:
+            return SimpleNamespace(returncode=0, stdout="a" * 64 + "\n", stderr="")
         if args[:2] == ["/usr/bin/docker", "inspect"] and "{{.Id}} {{.State.Running}}" in args:
             return SimpleNamespace(returncode=0, stdout="a" * 64 + " true\n", stderr="")
         if args[:2] == ["/usr/bin/docker", "inspect"]:
@@ -101,7 +106,7 @@ def test_authorized_probe_captures_identity_and_cleans_same_container(tmp_path, 
     gate = readiness.Readiness(compose_file=fake_compose(tmp_path), runtime=tmp_path / "runtime",
                                authorize_start=True, runner=command)
     report = gate.run()
-    assert report["overall"] == readiness.PASS
+    assert report["overall"] == readiness.PASS, json.dumps(report, indent=2)
     assert any(item["name"] == "container_identity" and item["status"] == readiness.PASS for item in report["checks"])
     gate.cleanup()
     assert any(call[-3:] == ["rm", "-f", "otshield-openplc"] for call in calls)
@@ -109,13 +114,17 @@ def test_authorized_probe_captures_identity_and_cleans_same_container(tmp_path, 
 
 def test_cleanup_does_not_remove_replaced_container(tmp_path, monkeypatch):
     patch_common(monkeypatch)
+    monkeypatch.setattr(readiness, "_tcp_endpoint", lambda host, port: (True, "mock TCP"))
     monkeypatch.setattr(readiness, "_modbus_fc3", lambda host, port: (True, "mock FC3"))
     responses = iter([SimpleNamespace(returncode=0, stdout="a" * 64 + " true\n", stderr=""),
+                      SimpleNamespace(returncode=0, stdout="a" * 64 + " true\n", stderr=""),
                       SimpleNamespace(returncode=0, stdout="b" * 64 + "\n", stderr="")])
     def command(args, *, timeout=15):
         if "image" in args:
             return fake_command(args, timeout=timeout)
         if args[:2] == ["/usr/bin/docker", "inspect"]:
+            if "{{.Id}}" in args:
+                return next(responses)
             return next(responses)
         return fake_command(args, timeout=timeout)
     gate = readiness.Readiness(compose_file=fake_compose(tmp_path), runtime=tmp_path / "runtime",
@@ -143,3 +152,58 @@ def test_fc3_response_validation(monkeypatch):
             return {7: b"\x00\x01\x00\x00\x00\x05\x01", 4: b"\x03\x02\x00\x01"}[size]
     monkeypatch.setattr(readiness.socket, "create_connection", lambda address, timeout: Connection())
     assert readiness._modbus_fc3("127.0.0.1", 502)[0] is True
+
+
+def _wait_gate(monkeypatch, *, endpoints, fc3=None, identities=None):
+    gate = readiness.Readiness(compose_file=Path("compose.yml"), port=502,
+                               authorize_start=True, service_timeout=3, retry_interval=1)
+    gate.started_id = "a" * 64
+    gate.sleeper = lambda seconds: None
+    clock = iter([0, 0, 1, 2, 3, 4, 5])
+    gate.monotonic = lambda: next(clock, 5)
+    identity_values = iter(identities or [(gate.started_id, True, "running")] * 8)
+    monkeypatch.setattr(gate, "_identity", lambda docker: next(identity_values))
+    endpoint_values = iter(endpoints)
+    monkeypatch.setattr(readiness, "_tcp_endpoint", lambda host, port: next(endpoint_values))
+    monkeypatch.setattr(readiness, "_modbus_fc3", lambda host, port: fc3 or (True, "FC3 ok"))
+    gate._wait_for_modbus("docker")
+    return gate
+
+
+def test_service_becomes_ready_after_retries(monkeypatch):
+    gate = _wait_gate(monkeypatch, endpoints=[(False, "closed"), (False, "starting"), (True, "open")])
+    check = gate.checks[-1]
+    assert check.name == "modbus_fc3" and check.status == readiness.PASS
+    assert check.evidence["attempts"] == 3
+
+
+def test_tcp_never_becomes_ready(monkeypatch):
+    gate = _wait_gate(monkeypatch, endpoints=[(False, "closed")] * 8)
+    assert gate.checks[-1].status == readiness.FAIL
+    assert "did not become ready" in gate.checks[-1].detail
+
+
+def test_tcp_opens_but_fc3_fails(monkeypatch):
+    gate = _wait_gate(monkeypatch, endpoints=[(True, "open")] * 8,
+                      fc3=(False, "connection reset by peer"))
+    assert gate.checks[-1].status == readiness.FAIL
+    assert "TCP ready but FC3 failed" in gate.checks[-1].detail
+
+
+def test_identity_changes_during_wait(monkeypatch):
+    gate = _wait_gate(monkeypatch, endpoints=[(False, "closed")],
+                      identities=[("a" * 64, True, "running"), ("b" * 64, True, "replaced")])
+    assert gate.checks[-2].name == "container_identity"
+    assert gate.checks[-2].status == readiness.FAIL
+    assert gate.checks[-1].status == readiness.NOT_CHECKED
+
+
+def test_successful_fc3_readiness(monkeypatch):
+    gate = _wait_gate(monkeypatch, endpoints=[(True, "open")], fc3=(True, "FC3 succeeded"))
+    assert gate.checks[-1].status == readiness.PASS
+
+
+def test_compose_port_mapping_is_resolved():
+    document = {"services": {"openplc": {"ports": ["${OTSHIELD_OPENPLC_MODBUS_PORT:-1502}:502"]}}}
+    assert readiness._compose_host_port(document, {}) == 1502
+    assert readiness._compose_host_port(document, {"OTSHIELD_OPENPLC_MODBUS_PORT": "2502"}) == 2502

@@ -52,9 +52,13 @@ probe require the explicit opt-in:
 python -m scripts.v06_lab_readiness --authorize-start
 ```
 
-The opt-in uses a unique Compose project, captures the full container identity,
-checks it is running, probes one FC3 read with a timeout, and removes only the
-container whose identity it captured. Reports use `PASS`, `FAIL`,
+The opt-in uses a unique Compose project, resolves the host port from the
+Compose mapping, captures the full container identity, then waits up to 60
+seconds with bounded retries. Each attempt checks the identity, opens the TCP
+endpoint first, and only then performs one read-only FC3 request. It removes
+only the container and Compose network owned by that readiness invocation; it
+also removes earlier empty networks carrying the readiness project label.
+Reports use `PASS`, `FAIL`,
 `NOT_CHECKED`, and `EXTERNAL_ACTION_REQUIRED`; missing images and macvlan/NIC
 requirements identify the exact external action. A readiness pass is a host
 prerequisite result, not scientific evidence and not permission to start the

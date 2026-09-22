@@ -20,6 +20,7 @@ import socket
 import subprocess
 import sys
 import time
+import re
 from typing import Any, Callable
 
 
@@ -75,6 +76,27 @@ def _images(document: dict[str, Any]) -> list[str]:
                    if isinstance(service, dict) and service.get("image")})
 
 
+def _compose_host_port(document: dict[str, Any], environ: Any) -> int | None:
+    """Resolve the host port mapped to OpenPLC's container port 502."""
+    service = document.get("services", {}).get("openplc", {})
+    for mapping in service.get("ports", []) if isinstance(service, dict) else []:
+        if isinstance(mapping, dict) and str(mapping.get("target")) == "502":
+            return int(mapping["published"])
+        value = str(mapping)
+        if ":502" not in value:
+            continue
+        host = value.rsplit(":", 1)[0]
+        match = re.fullmatch(r"\$\{([^}:]+)(?::-([^}]+))?\}", host)
+        if match:
+            host = environ.get(match.group(1), match.group(2) or "")
+        host = host.rsplit(":", 1)[-1]
+        try:
+            return int(host)
+        except ValueError:
+            return None
+    return None
+
+
 def _network_requirements(document: dict[str, Any], interface: str | None) -> Check:
     networks = document.get("networks", {})
     drivers = sorted({str(value.get("driver", "bridge")) for value in networks.values()
@@ -93,6 +115,14 @@ def _network_requirements(document: dict[str, Any], interface: str | None) -> Ch
                      f"configured macvlan parent NIC does not exist: {interface}", {"interface": interface})
     return Check("network_nic_macvlan", PASS,
                  f"macvlan parent NIC exists: {interface}", {"interface": interface, "networks": macvlan})
+
+
+def _tcp_endpoint(host: str, port: int, timeout: float = 2.0) -> tuple[bool, str]:
+    try:
+        with socket.create_connection((host, port), timeout=timeout):
+            return True, f"TCP endpoint accepted a connection at {host}:{port}"
+    except OSError as exc:
+        return False, f"TCP endpoint is not ready at {host}:{port}: {exc}"
 
 
 def _modbus_fc3(host: str, port: int, timeout: float = 5.0) -> tuple[bool, str]:
@@ -194,19 +224,45 @@ def _capture_tools() -> Check:
 class Readiness:
     def __init__(self, *, compose_file: Path = DEFAULT_COMPOSE, runtime: Path = DEFAULT_RUNTIME,
                  evidence: Path = DEFAULT_EVIDENCE, interface: str | None = None,
-                 authorize_start: bool = False, host: str = "127.0.0.1", port: int = 502,
+                 authorize_start: bool = False, host: str = "127.0.0.1", port: int | None = None,
                  project: str | None = None, minimum_disk_gib: float = DEFAULT_DISK_GIB,
-                 runner: Callable[..., subprocess.CompletedProcess[str]] = command):
+                 runner: Callable[..., subprocess.CompletedProcess[str]] = command,
+                 service_timeout: float = 60.0, retry_interval: float = 2.0,
+                 sleeper: Callable[[float], None] = time.sleep,
+                 monotonic: Callable[[], float] = time.monotonic):
         self.compose_file, self.runtime, self.evidence = compose_file, runtime, evidence
         self.interface, self.authorize_start, self.host, self.port = interface, authorize_start, host, port
         self.project = project or f"otshield-readiness-{os.getpid()}"
         self.minimum_disk_gib, self.runner = minimum_disk_gib, runner
+        self.service_timeout, self.retry_interval = service_timeout, retry_interval
+        self.sleeper, self.monotonic = sleeper, monotonic
         self.checks: list[Check] = []
         self.started_id: str | None = None
         self.started = False
+        self.network_name = f"{self.project}_otshield-ics-net"
 
     def _run(self, args: list[str], timeout: float = 15) -> subprocess.CompletedProcess[str]:
         return self.runner(args, timeout=timeout)
+
+    def _identity(self, docker: str) -> tuple[str | None, bool, str]:
+        result = self._run([docker, "inspect", "--format", "{{.Id}} {{.State.Running}}", "otshield-openplc"])
+        fields = result.stdout.strip().split()
+        if result.returncode or len(fields) != 2:
+            return None, False, result.stderr.strip() or "OpenPLC container identity could not be inspected"
+        return fields[0], fields[1].lower() == "true", "OpenPLC identity is present and running"
+
+    def _cleanup_stale_networks(self, docker: str) -> None:
+        """Remove only empty networks created by earlier readiness invocations."""
+        listed = self._run([docker, "network", "ls", "--format", "{{.Name}} {{.Labels}}"])
+        if listed.returncode:
+            return
+        for line in listed.stdout.splitlines():
+            name, _, labels = line.partition(" ")
+            if not name.startswith("otshield-readiness-") or "com.docker.compose.project=otshield-readiness-" not in labels:
+                continue
+            inspected = self._run([docker, "network", "inspect", name, "--format", "{{json .Containers}}"])
+            if inspected.returncode == 0 and inspected.stdout.strip() in {"{}", "null", ""}:
+                self._run([docker, "network", "rm", name], timeout=30)
 
     def _docker_checks(self, document: dict[str, Any]) -> None:
         docker = shutil.which("docker")
@@ -251,22 +307,64 @@ class Readiness:
         if not docker:
             self.checks.append(Check("openplc_start", NOT_CHECKED, "Docker CLI prerequisite is missing"))
             return
+        existing = self._run([docker, "ps", "-a", "--filter", "name=^/otshield-openplc$", "--format", "{{.ID}}"])
+        if existing.returncode == 0 and existing.stdout.strip():
+            self.checks.append(Check("openplc_start", EXTERNAL,
+                                     "otshield-openplc already exists; refusing to start or clean an unrelated container",
+                                     {"existing_id": existing.stdout.strip()}))
+            self.checks.append(Check("container_identity", NOT_CHECKED, "existing container is not readiness-owned"))
+            self.checks.append(Check("modbus_fc3", NOT_CHECKED, "FC3 probe withheld for unrelated container"))
+            return
+        self._cleanup_stale_networks(docker)
         result = self._run([docker, "compose", "-f", str(self.compose_file), "-p", self.project, "up", "-d", "openplc"], timeout=120)
         if result.returncode:
             self.checks.append(Check("openplc_start", FAIL, result.stderr.strip() or "OpenPLC could not be started"))
             return
         self.started = True
-        inspect = self._run([docker, "inspect", "--format", "{{.Id}} {{.State.Running}}", "otshield-openplc"])
-        fields = inspect.stdout.strip().split()
-        if inspect.returncode or len(fields) != 2 or fields[1].lower() != "true":
+        identity, running, identity_detail = self._identity(docker)
+        if identity is None or not running:
             self.checks.append(Check("openplc_start", FAIL, "OpenPLC did not report a running state"))
-            self.checks.append(Check("container_identity", FAIL, "container identity or running state could not be captured"))
+            self.checks.append(Check("container_identity", FAIL, identity_detail))
             return
-        self.started_id = fields[0]
+        self.started_id = identity
         self.checks.append(Check("openplc_start", PASS, "OpenPLC was started by this readiness check"))
         self.checks.append(Check("container_identity", PASS, "OpenPLC container identity captured", {"id": self.started_id}))
-        ok, detail = _modbus_fc3(self.host, self.port)
-        self.checks.append(Check("modbus_fc3", PASS if ok else FAIL, detail))
+        self._wait_for_modbus(docker)
+
+    def _wait_for_modbus(self, docker: str) -> None:
+        if self.port is None:
+            self.checks.append(Check("modbus_fc3", FAIL, "host Modbus port could not be resolved from Compose mapping"))
+            return
+        deadline = self.monotonic() + self.service_timeout
+        attempts = 0
+        last_detail = "service did not become ready"
+        while True:
+            attempts += 1
+            identity, running, identity_detail = self._identity(docker)
+            if identity != self.started_id or not running:
+                self.checks.append(Check("container_identity", FAIL,
+                                         f"OpenPLC identity changed or stopped during Modbus wait: {identity_detail}",
+                                         {"expected_id": self.started_id, "observed_id": identity, "running": running}))
+                self.checks.append(Check("modbus_fc3", NOT_CHECKED, "FC3 probe withheld after lifecycle identity failure"))
+                return
+            endpoint_ok, endpoint_detail = _tcp_endpoint(self.host, self.port)
+            if endpoint_ok:
+                ok, detail = _modbus_fc3(self.host, self.port)
+                if ok:
+                    self.checks.append(Check("modbus_fc3", PASS,
+                                             f"{detail}; endpoint readiness succeeded after {attempts} attempt(s)",
+                                             {"host": self.host, "port": self.port, "attempts": attempts}))
+                    return
+                last_detail = f"TCP ready but FC3 failed: {detail}"
+            else:
+                last_detail = endpoint_detail
+            if self.monotonic() >= deadline:
+                self.checks.append(Check("modbus_fc3", FAIL,
+                                         f"Modbus service did not become ready within {self.service_timeout:g}s after {attempts} attempt(s): {last_detail}",
+                                         {"host": self.host, "port": self.port, "attempts": attempts,
+                                          "timeout_seconds": self.service_timeout}))
+                return
+            self.sleeper(min(self.retry_interval, max(0.0, deadline - self.monotonic())))
 
     def run(self) -> dict[str, Any]:
         if not self.compose_file.is_file():
@@ -276,6 +374,8 @@ class Readiness:
             document, error = _parse_compose(self.compose_file)
             self.checks.append(Check("compose_file", PASS, f"required Compose file exists: {self.compose_file}") if not error else
                                Check("compose_file", FAIL, error))
+        if document is not None and self.port is None:
+            self.port = _compose_host_port(document, os.environ)
         self.checks.append(_check_writable(self.runtime))
         self.checks.append(_check_evidence_parent(self.evidence))
         self.checks.append(_check_disk(self.runtime, self.minimum_disk_gib))
@@ -300,14 +400,17 @@ class Readiness:
                 "generated_at_utc": datetime.now(timezone.utc).isoformat()}
 
     def cleanup(self) -> None:
-        if not self.started or not self.started_id:
+        if not self.started:
             return
         docker = shutil.which("docker")
         if not docker:
             return
         current = self._run([docker, "inspect", "--format", "{{.Id}}", "otshield-openplc"])
-        if current.returncode == 0 and current.stdout.strip() == self.started_id:
+        if self.started_id and current.returncode == 0 and current.stdout.strip() == self.started_id:
             self._run([docker, "rm", "-f", "otshield-openplc"], timeout=30)
+        # Compose names this network from our unique project.  Remove only that
+        # exact network after the owned container is gone.
+        self._run([docker, "network", "rm", self.network_name], timeout=30)
 
 
 def write_reports(report: dict[str, Any], directory: Path) -> tuple[Path, Path]:
@@ -329,7 +432,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--report-dir", type=Path)
     parser.add_argument("--interface", help="macvlan parent NIC when the Compose file requires one")
     parser.add_argument("--host", default="127.0.0.1")
-    parser.add_argument("--port", type=int, default=502)
+    parser.add_argument("--port", type=int, default=None,
+                        help="host Modbus port (defaults to the Compose mapping)")
     parser.add_argument("--project", help="unique readiness Compose project name")
     parser.add_argument("--min-disk-gib", type=float, default=DEFAULT_DISK_GIB)
     parser.add_argument("--authorize-start", action="store_true", help="explicitly start OpenPLC for a bounded FC3 readiness probe")
