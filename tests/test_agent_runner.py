@@ -153,6 +153,7 @@ def test_bounded_pipeline(tmp_path, monkeypatch, decision, passes, expected_atte
     monkeypatch.setattr(runner, 'run', fake_run)
     monkeypatch.setattr(runner, 'prompt', lambda *a: 'PERMANENT policy plus task context')
     monkeypatch.setattr(runner, 'verify', lambda root: True)
+    monkeypatch.setattr(runner, 'has_changes', lambda root: True)
     monkeypatch.setattr(runner, 'jev', lambda *a: decision)
     attempts = []
     def fake_implement(root, text, model):
@@ -168,3 +169,33 @@ def test_bounded_pipeline(tmp_path, monkeypatch, decision, passes, expected_atte
     assert not Path(str(task) + '.done').exists()
     assert not Path(str(task) + '.blocked').exists()
     assert not any(word in command for command in commands for word in ('push', 'reset', 'clean', 'commit'))
+
+
+def test_noop_agent_cannot_pass(tmp_path, monkeypatch):
+    task = task_repo(tmp_path)
+
+    monkeypatch.setattr(runner, 'ROOT', tmp_path)
+    monkeypatch.setattr(sys, 'argv', ['runner'])
+    monkeypatch.setenv('GEMINI_API_KEY', 'fake')
+    monkeypatch.setenv('TYPESAFE_API_KEY', 'fake')
+    monkeypatch.delenv('GROQ_API_KEY', raising=False)
+    monkeypatch.delenv('ONLY_TASK', raising=False)
+    monkeypatch.setattr(shutil, 'which', lambda name: '/fake/aider')
+
+    def fake_run(command, root, **kwargs):
+        return SimpleNamespace(returncode=0, stdout='')
+
+    monkeypatch.setattr(runner, 'run', fake_run)
+    monkeypatch.setattr(
+        runner, 'prompt',
+        lambda *a: 'PERMANENT policy plus task context'
+    )
+    monkeypatch.setattr(runner, 'verify', lambda root: True)
+    monkeypatch.setattr(runner, 'implement', lambda *a: True)
+    monkeypatch.setattr(runner, 'has_changes', lambda root: False)
+    monkeypatch.setattr(runner, 'jev', lambda *a: 'human_review')
+
+    assert runner.main() == 20
+    assert task.read_text() == 'simulation Docker preflight'
+    assert not Path(str(task) + '.done').exists()
+    assert not Path(str(task) + '.blocked').exists()

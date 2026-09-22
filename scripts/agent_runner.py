@@ -61,6 +61,12 @@ def prompt(root: Path, task: Path, soup_python: str | None = None) -> str:
                             "TASK:\n" + task_text))
 
 
+
+def has_changes(root: Path) -> bool:
+    """Return True only when the candidate actually changed the repository."""
+    result = run(["git", "status", "--porcelain"], root)
+    return result.returncode == 0 and bool(result.stdout.strip())
+
 def verify(root: Path) -> bool:
     for command in ([sys.executable, "-m", "pytest", "-q"],
                     [sys.executable, "-m", "build"]):
@@ -204,7 +210,13 @@ def main() -> int:
             f"{provider} -> {model}"
         )
 
-        if implement(candidate, text, model) and verify(candidate):
+        implemented = implement(candidate, text, model)
+        changed = has_changes(candidate) if implemented else False
+
+        if implemented and not changed:
+            print("Agent produced no repository changes; attempt cannot pass.")
+
+        if implemented and changed and verify(candidate):
             print(
                 "Candidate passed tests/build; human review required. "
                 "No completion marker written."
@@ -217,9 +229,10 @@ def main() -> int:
 
             if decision in {"retry", "continue"}:
                 text += (
-                    "\nRepair the existing candidate from the previous bounded "
-                    "attempt. Preserve valid changes. Run python -m pytest -q "
-                    "and resolve failures without fabricating benchmark evidence."
+                    "\nRepair or implement the candidate after the previous bounded "
+                    "attempt. Preserve valid changes if any. A no-op response is not "
+                    "acceptable when the task requires implementation. Run python -m "
+                    "pytest -q and resolve failures without fabricating benchmark evidence."
                 )
                 continue
 
