@@ -70,16 +70,40 @@ better intrusion detector. It tests whether the benchmark can expose a differenc
 between complete transaction coverage and stable timing-based detection.
 
 \section{Related work}
-OT security guidance frames reliability and safety as first-class constraints
-\cite{stouffer2023ot}, and CISA's performance goals provide a measurement
-orientation for critical-infrastructure security \cite{cisa2023cpg}. MITRE
-Engenuity's ICS evaluations provide an important adversary-behavior detection
-perspective \cite{mitre2021ics}. \otb{} addresses a narrower experimental axis:
-the resilience of an observation-dependent detector under network-path
-impairment, with an explicit evidence boundary and reproducible artifacts. The
-configured PLC image is GRFICS-derived; the upstream project is acknowledged
-here \cite{formbygrfics}, but this work does not claim a completed GRFICSv3
-process simulation.
+\subsection{OT guidance and security goals}
+NIST SP 800-82 Rev.~3 frames OT security as a systems problem in which
+performance, reliability, safety, and availability constrain security choices
+\cite{stouffer2023ot}. CISA's Cross-Sector Cybersecurity Performance Goals
+provide a complementary set of measurable practices for critical-infrastructure
+organizations \cite{cisa2023cpg}. Neither document prescribes a single detector
+benchmark; together they motivate measurements that report operational context
+and evidence boundaries rather than a standalone accuracy number.
+
+\subsection{ICS testbeds and datasets}
+Public testbeds make ICS research more concrete and reproducible. SWaT provides
+a water-treatment testbed for security research and training
+\cite{mathur2016swat}; the HAI work contributes datasets and an anomaly-detection
+contest built around a hardware-in-the-loop augmented ICS testbed
+\cite{shin2021hai}. GRFICS lowers the barrier to constructing graphical and
+containerized ICS security environments \cite{formbygrfics}; the repository's
+configured PLC image is GRFICS-derived and is cited separately as an upstream
+project artifact \cite{formbygrficsproject}. These resources support broader
+process, device, and adversary studies than the narrowly controlled workload in
+this paper. OTShield does not replace these testbeds or datasets, and this paper
+does not claim full GRFICSv3 process-simulation validation.
+
+\subsection{Detection evaluations and the OTShield distinction}
+MITRE Engenuity's ICS evaluations offer an adversary-behavior detection
+perspective for security tools \cite{mitre2021ics}. OTShield addresses a
+different axis: how an observation-dependent detector behaves when the network
+path is deliberately degraded. Its contribution is a reproducible benchmark
+methodology combining paired evaluation on identical observations, calibration
+frozen outside the test study, controlled delay/jitter/loss, preserved provenance,
+run-level statistics, and integrity-checked analysis artifacts. The intended
+relationship is complementary: established testbeds provide environments and
+datasets, while OTShield provides a method for measuring a specific resilience
+question within a declared environment. No claim of being the first such method
+is made.
 
 \section{OTShield benchmark architecture}
 The offline benchmark path emits labeled events or ingests passive observations,
@@ -158,6 +182,30 @@ Delay40/Jitter10, baseline recall/F1 is 0.46/0.6230102454707571 while robust is
 1.0/1.0. At Delay60/Jitter10, baseline is 0.0/0.0 while robust is 1.0/1.0.
 Coverage remains 1.0 and false positives remain zero in all conditions.
 
+Table~\ref{tab:results} reports the central effectiveness values without
+recomputing metrics from pooled transactions. The paired column is the
+run-level robust-minus-baseline recall difference; its interval is shown only
+where the aggregate reports a nonzero effect.
+
+\begin{table}[t]
+\centering
+\caption{Mean effectiveness and paired recall effects from the completed-study aggregate.}
+\label{tab:results}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+ & \multicolumn{2}{c}{Baseline} & \multicolumn{2}{c}{Robust} & Paired recall\\
+Condition & Recall & F1 & Recall & F1 & Robust $-$ baseline\\
+\midrule
+Clean & 1.00 & 1.00 & 1.00 & 1.00 & 0.00\\
+Delay20 & 1.00 & 1.00 & 1.00 & 1.00 & 0.00\\
+Delay20/Jitter5/Loss5 & 0.95 & 0.9738 & 0.95 & 0.9738 & 0.00\\
+Delay40/Jitter10 & 0.46 & 0.6230 & 1.00 & 1.00 & 0.54\\
+Delay60/Jitter10 & 0.00 & 0.00 & 1.00 & 1.00 & 1.00\\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \begin{figure}[t]
 \centering
 \includegraphics[width=.82\linewidth]{figures/recall_by_condition.png}
@@ -185,6 +233,23 @@ Delay40/Jitter10 (95\% interval 0.4962180999417499--0.5837819000582501), and
 1.0 at Delay60/Jitter10. The paired F1 mean is 0.3769897545292429 at Delay40
 and 1.0 at Delay60. These are absolute run-level differences, not relative
 percentages or population-wide effects; no multiplicity adjustment is claimed.
+
+The study unit is a condition run, not an individual packet. Each completed
+run contributes one metric record for each detector, and the aggregate retains
+the corresponding confusion counts, coverage, end-to-end recall, prediction
+resource measures, and provenance. A detector receives no labels as features;
+the protocol's anomaly labels are joined only in the evaluation layer. This
+separation prevents the analysis from turning the known burst schedule into a
+training signal and makes the baseline/robust comparison a comparison of
+predictions on the same observation view.
+
+The completion manifest is also part of the statistical interpretation. The
+replacement root reports 125 completed condition runs, 250 detector evaluations,
+no failed attempts, and no unattempted runs. The earlier Study A duplicate-TID
+failure and Study B lifecycle failure are preserved in their own roots and are
+not pooled into these counts. The runner does not automatically retry a failed
+laboratory attempt; this keeps the accounting auditable and avoids silently
+changing the intended number of observations.
 
 \begin{figure}[t]
 \centering
@@ -216,6 +281,15 @@ The release package, source paths, study identifier, calibration hash, and
 integrity manifest are listed in Appendix~\ref{app:reproducibility}. The
 repository release is archived as \cite{palle2026otshield}.
 
+The analysis boundary is deliberately layered. A reader can reproduce the
+figures, aggregate interpretation, and package checks from the repository and
+archived release without obtaining Docker or laboratory access. Reproducing the
+measurements themselves is a separate, authorized activity: it requires the
+declared Linux/Docker environment, the pinned image identity, read-only traffic,
+capture and normalization tooling, and the protocol's lifecycle checks. The
+software's synthetic fixtures and mocked readiness tests are useful regression
+evidence, but they must not be substituted for measured OpenPLC evidence.
+
 \section{Threats to validity}
 The experiment uses one isolated OpenPLC setup and one documented host
 environment. Repeated trials on one host do not establish site-level or
@@ -225,6 +299,17 @@ Student-$t$ intervals are descriptive run-level summaries for bounded metrics,
 with no population or multiplicity claim. The mutable image tag alone is not a
 complete environment specification, so the retained image identity and per-run
 provenance matter.
+
+The detector comparison is paired, which controls the observation stream and
+helps isolate detector behavior, but it does not remove all dependence on the
+single laboratory environment. TCP behavior, host scheduling, container
+runtime, and the placement of the impairment can all affect observed intervals.
+The five declared conditions sample a small part of the space of delay, jitter,
+loss, queueing, and retransmission behavior. Results at the tested settings
+should therefore be read as condition-specific measurements. Finally, the
+run-level Student-$t$ summaries are descriptive confidence intervals under the
+chosen analysis plan; they do not establish a causal effect for a wider
+population of plants, networks, or detectors.
 
 \section{Limitations}
 The workload is read-only \fc{} traffic and a polling-burst anomaly. The study
@@ -244,6 +329,29 @@ failure preservation make the result auditable. The earlier duplicate-TID and
 infrastructure failures remain disclosed and excluded from the replacement
 aggregate; they were not silently pooled or used to tune the threshold.
 
+The distinction between coverage and effectiveness is operationally important.
+All five aggregate conditions report complete observation coverage, yet the
+baseline's recall falls as delay and jitter move observed intervals across its
+fixed timing boundary. In this study the robust threshold is less sensitive to
+that shift, but the result should not be interpreted as evidence that robust
+thresholding solves general OT detection. A different anomaly, capture point,
+sampling policy, or calibration population could change the comparison.
+
+The benchmark's main value is consequently its audit trail. A reviewer can
+trace each reported number to a run-level record, the canonical observation
+view, the frozen calibration hash, the protocol, and the aggregate manifest.
+Preserving failed attempts is part of that trail: the duplicate-transaction
+failure and the infrastructure-interference failure remain visible, while the
+completed replacement study remains a separately accounted population. This
+separation avoids treating software correction as if it were additional
+scientific replication.
+
+The methodology also gives testbed work a focused extension point. SWaT, HAI,
+GRFICS, or another authorized environment could supply a different process and
+telemetry workload while retaining the same ideas of paired inputs, frozen
+calibration, explicit impairment placement, and run-level accounting. Such a
+study would be a new measurement, not an interpretation of the present results.
+
 \section{Conclusion}
 \otb{} v0.6 provides a reproducible measurement package for OT detection
 resilience under controlled connectivity impairment. In the completed isolated
@@ -262,6 +370,13 @@ reproduction. Reproducing the figures and aggregate interpretation requires no
 laboratory execution. Any future laboratory reproduction must use an authorized,
 isolated environment and the bounded read-only protocol; readers must not send
 traffic to real OT systems.
+
+The release is intended to support scholarly inspection of both positive and
+negative evidence. The two earlier failed attempts and their errata are retained,
+the replacement study reports its own completion accounting, and SHA-256 files
+bind the captured and derived artifacts to their provenance. The DOI identifies
+the published software/evidence release; it does not imply that this paper
+establishes production performance or external replication.
 
 \bibliographystyle{plain}
 \bibliography{references}

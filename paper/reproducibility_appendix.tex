@@ -9,6 +9,12 @@ package version \texttt{0.6.0a0}; the completed study provenance records Python
 3.14.4, Docker 29.8.1, Compose v5.5.1, and the Linux/WSL2 kernel used for the
 isolated laboratory run.
 
+The repository's software CI runs on Ubuntu and Windows with Python 3.10 and
+3.12. POSIX-only v0.6 lifecycle tests are explicitly skipped on native Windows;
+portable package, analysis, and accounting tests remain cross-platform. The
+manuscript workflow additionally compiles this file and \texttt{main.tex} with
+TeX Live in GitHub Actions and uploads the resulting PDF as a workflow artifact.
+
 The study identifier is \texttt{20260922T021855Z}. Its source files are
 \texttt{evidence/v06/20260922T021855Z/aggregate.json} and
 \texttt{evidence/v06/20260922T021855Z/study.json}; per-run captures and
@@ -29,6 +35,12 @@ the package. The second reads only committed aggregate data and deterministicall
 writes the figures in \texttt{paper/figures/}. These commands reproduce the
 analysis and manuscript artifacts; they do not launch Docker, OpenPLC, packet
 capture, or laboratory traffic.
+
+The figures intentionally read the aggregate rather than duplicating numerical
+constants in plotting code. Their condition labels and detector names are the
+declared v0.6 schema values; all metric means and interval endpoints come from
+\texttt{aggregate.json}. The manuscript's prose is a human-readable rendering
+of the same bounded result set and the technical report.
 
 Reproducing the laboratory measurements is a separate activity requiring an
 explicitly authorized, isolated Linux/Docker environment. The protocol uses
