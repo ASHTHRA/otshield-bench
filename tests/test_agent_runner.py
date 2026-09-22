@@ -135,12 +135,13 @@ def test_soup_contract(monkeypatch):
 @pytest.mark.parametrize('decision,passes,expected_attempts,expected_code', [
     ('retry', [False, True], 2, 0),
     ('human_review', [False], 1, 20),
-    ('retry', [False, False], 2, 20),
+    ('retry', [False, False, False, False], 4, 20),
 ])
 def test_bounded_pipeline(tmp_path, monkeypatch, decision, passes, expected_attempts, expected_code):
     task = task_repo(tmp_path)
     monkeypatch.setattr(runner, 'ROOT', tmp_path)
     monkeypatch.setattr(sys, 'argv', ['runner'])
+    monkeypatch.setenv('GEMINI_API_KEY', 'fake')
     monkeypatch.setenv('GROQ_API_KEY', 'fake')
     monkeypatch.setenv('TYPESAFE_API_KEY', 'fake')
     monkeypatch.delenv('ONLY_TASK', raising=False)

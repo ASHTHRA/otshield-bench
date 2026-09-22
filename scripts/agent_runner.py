@@ -86,22 +86,62 @@ def jev(root: Path, task: Path) -> str:
 
 
 def implement(root: Path, text: str, model: str) -> bool:
+    """Run one bounded Aider implementation attempt."""
+    if model.startswith("openai/gemini-"):
+        provider = "gemini"
+    elif model.startswith("groq/"):
+        provider = "groq"
+    else:
+        raise ValueError(f"Unsupported coding model: {model}")
     with tempfile.TemporaryDirectory(prefix="otshield-aider-") as temporary:
-        path = Path(temporary)
-        message = path / "prompt.txt"
+        message = Path(temporary) / "prompt.txt"
         message.write_text(text)
-        try:
-            result = subprocess.run([
-                "aider", "--model", model, "--model-settings-file",
+
+        command = ["aider", "--model", model]
+
+        if provider == "gemini":
+            env = environment(root, credentials=("GEMINI_API_KEY",))
+            env["OPENAI_API_KEY"] = env["GEMINI_API_KEY"]
+            env["OPENAI_API_BASE"] = (
+                "https://generativelanguage.googleapis.com/v1beta/openai/"
+            )
+            command += ["--no-show-model-warnings"]
+
+        elif provider == "groq":
+            env = environment(root, credentials=("GROQ_API_KEY",))
+            command += [
+                "--model-settings-file",
                 str(ROOT / "automation/aider-groq-settings.yml"),
-                "--message-file", str(message), "--yes-always", "--no-auto-commits",
-                "--no-dirty-commits", "--no-auto-lint", "--no-auto-test",
-                "--no-check-update", "--no-show-release-notes", "--no-stream",
-                "--no-gitignore", "--chat-history-file", os.devnull,
-                "--input-history-file", os.devnull],
-                cwd=root, env=environment(root, credentials=("GROQ_API_KEY",)),
-                capture_output=True, text=True, timeout=720)
-            # Do not print/store provider output: it can contain credentials.
+            ]
+
+        else:
+            raise ValueError(f"Unsupported provider: {provider}")
+
+        command += [
+            "--message-file", str(message),
+            "--yes-always",
+            "--no-auto-commits",
+            "--no-dirty-commits",
+            "--no-auto-lint",
+            "--no-auto-test",
+            "--no-check-update",
+            "--no-show-release-notes",
+            "--no-stream",
+            "--no-gitignore",
+            "--chat-history-file", os.devnull,
+            "--input-history-file", os.devnull,
+        ]
+
+        try:
+            result = subprocess.run(
+                command,
+                cwd=root,
+                env=env,
+                capture_output=True,
+                text=True,
+                timeout=720,
+            )
+            # Provider output stays private because it may contain sensitive data.
             return result.returncode == 0
         except (OSError, subprocess.TimeoutExpired):
             return False
@@ -130,8 +170,11 @@ def main() -> int:
         return 0
     if run(["git", "status", "--porcelain"], ROOT).stdout.strip():
         raise RuntimeError("Commit or set aside local changes before starting a candidate")
-    if not shutil.which("aider") or not all(os.environ.get(k) for k in ("GROQ_API_KEY", "TYPESAFE_API_KEY")):
-        raise RuntimeError("Aider, GROQ_API_KEY and TYPESAFE_API_KEY are required")
+    required = ("GEMINI_API_KEY", "TYPESAFE_API_KEY")
+    if not shutil.which("aider") or not all(os.environ.get(k) for k in required):
+        raise RuntimeError(
+            "Aider, GEMINI_API_KEY and TYPESAFE_API_KEY are required"
+        )
     if not verify(ROOT):
         raise RuntimeError("Baseline verification failed")
     # One candidate per invocation: review it before processing dependent tasks.
@@ -143,13 +186,43 @@ def main() -> int:
     print(f"Candidate workspace: {candidate}")
     candidate_task = candidate / task.relative_to(ROOT)
     text = prompt(ROOT, task, soup_python)
-    for attempt, model in enumerate(("groq/openai/gpt-oss-20b", "groq/openai/gpt-oss-120b")):
+    attempts = [
+        ("gemini", "openai/gemini-3.5-flash-lite"),
+        ("gemini", "openai/gemini-3.5-flash-lite"),
+    ]
+
+    # Preserve Groq quota by using it only as an optional fallback.
+    if os.environ.get("GROQ_API_KEY"):
+        attempts.extend([
+            ("groq", "groq/openai/gpt-oss-20b"),
+            ("groq", "groq/openai/gpt-oss-120b"),
+        ])
+
+    for attempt, (provider, model) in enumerate(attempts):
+        print(
+            f"Agent attempt {attempt + 1}/{len(attempts)}: "
+            f"{provider} -> {model}"
+        )
+
         if implement(candidate, text, model) and verify(candidate):
-            print("Candidate passed tests/build; human review required. No completion marker written.")
+            print(
+                "Candidate passed tests/build; human review required. "
+                "No completion marker written."
+            )
             return 0
-        if attempt == 0 and jev(candidate, candidate_task) in {"retry", "continue"}:
-            text += "\nRepair the existing candidate. Run python -m pytest -q and resolve failures."
-            continue
+
+        if attempt < len(attempts) - 1:
+            decision = jev(candidate, candidate_task)
+            print(f"Jev decision: {decision}")
+
+            if decision in {"retry", "continue"}:
+                text += (
+                    "\nRepair the existing candidate from the previous bounded "
+                    "attempt. Preserve valid changes. Run python -m pytest -q "
+                    "and resolve failures without fabricating benchmark evidence."
+                )
+                continue
+
         break
     print("Candidate requires human review; source repository and task markers preserved.")
     return 20
