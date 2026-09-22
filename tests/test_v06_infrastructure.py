@@ -1,4 +1,12 @@
 """Host lock and shell function harnesses only: no Docker or laboratory traffic."""
+import sys
+
+import pytest
+
+if sys.platform != "linux":
+    pytest.skip("OTShield v0.6 lab lifecycle/locking tests require POSIX/Linux semantics",
+                allow_module_level=True)
+
 import fcntl
 import importlib.util
 import os
@@ -6,9 +14,6 @@ from pathlib import Path
 import re
 import signal
 import subprocess
-import sys
-
-import pytest
 
 REPO = Path(__file__).resolve().parents[1]
 WORKER = (REPO / "scripts/run_v06_lab_worker.sh").read_text()

@@ -14,6 +14,10 @@ from otshield.study_v06 import (CONDITIONS, REQUIRED, aggregate, digest, finaliz
 from test_lab_resilience import _record
 
 CALIBRATION = Path("research/v0.6_calibration.json")
+linux_lab_only = pytest.mark.skipif(
+    sys.platform != "linux",
+    reason="OTShield v0.6 lab lifecycle/locking tests require POSIX/Linux semantics",
+)
 
 
 def make_run(study, trial=1, condition=CONDITIONS[0]):
@@ -150,6 +154,7 @@ def test_tampered_evidence_fails(tmp_path):
         validate_run(root, 1, "clean")
 
 
+@linux_lab_only
 def test_dry_run_never_calls_docker_or_creates_output(tmp_path, monkeypatch, capsys):
     spec = importlib.util.spec_from_file_location("v06_runner", "scripts/run_v06_study.py")
     module = importlib.util.module_from_spec(spec)
@@ -166,6 +171,7 @@ def test_dry_run_never_calls_docker_or_creates_output(tmp_path, monkeypatch, cap
     assert "125 condition runs, 7500 planned transactions, 250" in capsys.readouterr().out
 
 
+@linux_lab_only
 def test_worker_has_one_capture_normalization_and_paired_evaluation():
     source = Path("scripts/run_v06_lab_worker.sh").read_text()
     assert source.count('        normalize_capture \\\n') == 1
@@ -194,6 +200,7 @@ def test_malformed_pcap_with_updated_hash_fails(tmp_path):
     assert finalize(tmp_path, "synthetic-test")["completed_condition_runs"] == 0
 
 
+@linux_lab_only
 def test_worker_failure_finalizes_manifest(tmp_path, monkeypatch):
     spec = importlib.util.spec_from_file_location("v06_runner_failure", "scripts/run_v06_study.py")
     module = importlib.util.module_from_spec(spec)

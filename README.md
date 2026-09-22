@@ -164,6 +164,10 @@ laboratory or real-world validation.
 
 Run `python -m pytest -q` before every commit. CI runs tests on Linux and Windows
 with Python 3.10 and 3.12, builds distributions, and smoke-tests the installed wheel.
+The v0.6 laboratory readiness and lifecycle tooling requires Linux (including WSL2),
+POSIX locking/process semantics, and Bash; native Windows lab execution is not
+supported. Its tests run on Ubuntu and are explicitly skipped on other platforms.
+Portable package, analysis, and accounting tests continue to run on both CI platforms.
 Changes should follow [the permanent repository instructions](AGENTS.md), keep the
 offline OT detection benchmark scope, and use incremental commits.
 

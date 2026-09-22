@@ -6,8 +6,13 @@ from contextlib import contextmanager
 import json
 from pathlib import Path
 from types import SimpleNamespace
+import sys
 
 import pytest
+
+if sys.platform != "linux":
+    pytest.skip("OTShield v0.6 lab lifecycle/locking tests require POSIX/Linux semantics",
+                allow_module_level=True)
 
 from scripts import v06_lab_readiness as readiness
 
