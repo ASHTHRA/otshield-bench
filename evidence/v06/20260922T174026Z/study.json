@@ -1,0 +1,769 @@
+{
+  "attempts": [
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 1
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 1
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 1
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 1
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 1
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 2
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 2
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 2
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 2
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 2
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 3
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 3
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 3
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 3
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 3
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 4
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 4
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 4
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 4
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 4
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 5
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 5
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 5
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 5
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 5
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 6
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 6
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 6
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 6
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 6
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 7
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 7
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 7
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 7
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 7
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 8
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 8
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 8
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 8
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 8
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 9
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 9
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 9
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 9
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 9
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 10
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 10
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 10
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 10
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 10
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 11
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 11
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 11
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 11
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 11
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 12
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 12
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 12
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 12
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 12
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 13
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 13
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 13
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 13
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 13
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 14
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 14
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 14
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 14
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 14
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 15
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 15
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 15
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 15
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 15
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 16
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 16
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 16
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 16
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 16
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 17
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 17
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 17
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 17
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 17
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 18
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 18
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 18
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 18
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 18
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 19
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 19
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 19
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 19
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 19
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 20
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 20
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 20
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 20
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 20
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 21
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 21
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 21
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 21
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 21
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 22
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 22
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 22
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 22
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 22
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 23
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 23
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 23
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 23
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 23
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 24
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 24
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 24
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 24
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 24
+    },
+    {
+      "condition": "delay60_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 25
+    },
+    {
+      "condition": "clean",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 25
+    },
+    {
+      "condition": "delay20",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 25
+    },
+    {
+      "condition": "delay20_jitter5_loss5",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 25
+    },
+    {
+      "condition": "delay40_jitter10",
+      "planned_transactions": 60,
+      "status": "completed",
+      "trial": 25
+    }
+  ],
+  "calibration_sha256": "d8676d4670ba44c0f4b1045e5e07dd2d251ccb4a63ed8089b9b9aada729ea234",
+  "completed_condition_runs": 125,
+  "completed_detector_evaluations": 250,
+  "condition_count": 5,
+  "execution_git_commit": "88e1f056dc2143129ef115f3ce1ad731fd0e9a0e",
+  "failed_attempts": [],
+  "infrastructure_failure": null,
+  "planned_condition_runs": 125,
+  "planned_detector_evaluations": 250,
+  "planned_transactions_per_condition": 60,
+  "planned_transactions_total": 7500,
+  "requested_trials_per_condition": 25,
+  "schema": "OTB-V06-STUDY/0.1",
+  "status": "completed",
+  "unattempted_runs": []
+}
