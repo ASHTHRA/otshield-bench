@@ -10,6 +10,7 @@ date-released: 2026-09-22
 license: Apache-2.0
 repository-code: "https://github.com/ASHTHRA/otshield-bench"
 url: "https://github.com/ASHTHRA/otshield-bench/releases/tag/v0.6.1-alpha"
+doi: "10.5281/zenodo.22904827"
 abstract: >-
   OTShield Bench is a reproducible, vendor-neutral benchmark for operational
   technology cyber-detection effectiveness, resource cost, and resilience under

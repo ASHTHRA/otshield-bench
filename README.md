@@ -37,7 +37,9 @@ and [v0.6 technical report](research/OTShield_Bench_v0.6_Technical_Report.md).
 
 The **current release candidate, OTShield Bench v0.6.1-alpha**, is dated
 2026-09-22. Its release target is [v0.6.1-alpha](https://github.com/ASHTHRA/otshield-bench/releases/tag/v0.6.1-alpha).
-No Zenodo DOI is asserted for v0.6.1-alpha.
+The archived **v0.6.1-alpha** release is available on Zenodo:
+
+**DOI:** [10.5281/zenodo.22904827](https://doi.org/10.5281/zenodo.22904827)
 
 The **immutable archived predecessor, OTShield Bench v0.6.0-alpha**, remains
 published on [GitHub](https://github.com/ASHTHRA/otshield-bench/releases/tag/v0.6.0-alpha)
