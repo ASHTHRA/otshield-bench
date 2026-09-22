@@ -16,7 +16,7 @@ mkdir -p automation/status
 verify_repo() {
   local out="$1"
   set +e
-  pytest -q >"$out" 2>&1
+  python -m pytest -q >"$out" 2>&1
   local t=$?
   python -m build >>"$out" 2>&1
   local b=$?
@@ -142,4 +142,4 @@ echo "Completed:"
 find automation/tasks -name '*.done' -printf '  %f\n' | sort || true
 echo "Blocked:"
 find automation/tasks -name '*.blocked' -printf '  %f\n' | sort || true
-pytest -q || true
+python -m pytest -q || true

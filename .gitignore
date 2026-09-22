@@ -12,3 +12,6 @@ docker/.env
 
 # Host-side v0.6 execution lock; never remove while a worker is active.
 .otshield-runtime/
+
+# Optional offline context router environment
+.soup-venv/

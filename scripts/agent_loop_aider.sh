@@ -15,13 +15,13 @@ git switch "$BRANCH" >/dev/null
 mkdir -p automation/status
 
 count_tests() {
-  pytest --collect-only -q 2>/dev/null | tail -n 1 | grep -oE '[0-9]+ test' | grep -oE '[0-9]+' || echo 0
+  python -m pytest --collect-only -q 2>/dev/null | tail -n 1 | grep -oE '[0-9]+ test' | grep -oE '[0-9]+' || echo 0
 }
 
 verify_repo() {
   local out="$1"
   set +e
-  pytest -q >"$out" 2>&1
+  python -m pytest -q >"$out" 2>&1
   local t=$?
   python -m build >>"$out" 2>&1
   local b=$?
@@ -257,4 +257,4 @@ echo "Blocked:"
 find automation/tasks -maxdepth 1 -name '*.blocked' -printf '  %f\n' | sort
 echo
 echo "Final tests:"
-pytest -q
+python -m pytest -q

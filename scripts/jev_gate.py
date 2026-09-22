@@ -9,7 +9,6 @@ import os
 import sys
 from pathlib import Path
 
-from typesafe_sdk import Choice, TypeSafeClient
 
 
 CRITERIA = {
@@ -57,6 +56,8 @@ def main() -> int:
     )
 
     try:
+        from typesafe_sdk import Choice, TypeSafeClient
+
         client = TypeSafeClient()
 
         response = client.system_one(
@@ -87,9 +88,9 @@ def main() -> int:
             ),
         }
 
-    except Exception as exc:
+    except Exception:
         print(
-            f"Jev gate failed closed: {exc}",
+            "Jev gate failed closed",
             file=sys.stderr,
         )
         return 3
