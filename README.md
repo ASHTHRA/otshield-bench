@@ -1,9 +1,8 @@
 # OTShield Bench
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22863660.svg)](https://doi.org/10.5281/zenodo.22863660)
-
-**v0.5.1-alpha** (`0.5.1a0` on Python): a reproducible, vendor-neutral benchmark
-for OT cyber-detection effectiveness, resource cost, and resilience using synthetic
+**v0.6.0-alpha** (`0.6.0a0` on Python) is the current research release candidate:
+a reproducible, vendor-neutral benchmark for OT cyber-detection effectiveness,
+resource cost, and resilience using synthetic
 and isolated lab-derived Modbus telemetry.
 
 OTShield generates labeled events or ingests passive offline observations, applies
@@ -13,13 +12,30 @@ runners that generate bounded read-only Modbus/TCP Function Code 3 traffic again
 the documented OpenPLC test environment. These scenarios and laboratory measurements
 are research evidence, not validation of protection for a production industrial process.
 
+The completed v0.6 paired study contains **125 condition runs** (25 trials × five
+conditions), 7,500 planned transactions, and 250 baseline/robust detector evaluations.
+The robust threshold was frozen from independent historical clean calibration.
+Within the documented isolated OpenPLC lab and preregistered timing setup, it
+showed materially greater resilience under the heavier tested delay conditions,
+with no observed recall/F1 penalty under clean and lighter tested conditions.
+Coverage was 1.0 and false positives were zero across all conditions.
+
+See the [v0.6 findings](research/v0.6_findings.md),
+[v0.6 technical report](research/OTShield_Bench_v0.6_Technical_Report.md),
+[release notes](research/v0.6_release_notes.md), and
+[release manifest](research/v0.6_release_manifest.md).
+
 ## Citation
 
-The archived **OTShield Bench v0.5.1-alpha** research-software release is permanently available through Zenodo:
+The **previous archived release, OTShield Bench v0.5.1-alpha**, is permanently
+available through Zenodo:
 
 **DOI:** [10.5281/zenodo.22863660](https://doi.org/10.5281/zenodo.22863660)
 
-Citation metadata is also provided in [`CITATION.cff`](CITATION.cff).
+A persistent identifier for v0.6 will be added after archival.
+The DOI above identifies only the previous v0.5.1-alpha release.
+
+Current candidate citation metadata is provided in [`CITATION.cff`](CITATION.cff).
 
 ## Quick start
 
@@ -77,8 +93,10 @@ The repository contains:
 - a measured normal polling baseline;
 - a predeclared labeled polling-burst experiment;
 - degraded-connectivity experiments using controlled delay, jitter, and loss;
-- a five-trial repeatability study covering 25 condition runs and 1,500 planned
-  read-only Modbus/TCP transactions.
+- the historical v0.5 five-trial repeatability study covering 25 condition runs
+  and 1,500 planned read-only Modbus/TCP transactions;
+- the completed v0.6 125-run paired study, with frozen calibration, readiness
+  checks, infrastructure hardening, and separately preserved failed attempts.
 
 The current evidence comes from a minimal isolated OpenPLC environment using the
 configured GRFICS-derived PLC image. It must **not** be represented as a completed
@@ -122,7 +140,7 @@ The command runs repository checks, the complete test suite, and the Python
 package build. See [docs/reproducibility.md](docs/reproducibility.md) for the
 research-release checklist and evidence boundaries.
 
-Current v0.5 capabilities include passive offline Modbus/TCP PCAP transaction
+Capabilities retained from v0.5 include passive offline Modbus/TCP PCAP transaction
 correlation, explicit lab provenance, measured resource-cost reporting,
 predeclared timing ground truth, degraded-connectivity evaluation, repeatability
 statistics, and versioned benchmark result manifests.
