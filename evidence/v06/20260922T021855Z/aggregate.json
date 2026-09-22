@@ -1,0 +1,1227 @@
+{
+  "conditions": {
+    "clean": {
+      "detectors": {
+        "polling-burst-v1": {
+          "coverage": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "cpu_time_ms": {
+            "ci95_unbounded_high": 0.35503499952917067,
+            "ci95_unbounded_low": 0.25024508047082933,
+            "max": 0.74616,
+            "mean": 0.30264004,
+            "min": 0.15006,
+            "n": 25,
+            "sd": 0.12693201231711934
+          },
+          "end_to_end_recall": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "f1": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "fn": {
+            "ci95_unbounded_high": 0.0,
+            "ci95_unbounded_low": 0.0,
+            "max": 0,
+            "mean": 0,
+            "min": 0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "fp": {
+            "ci95_unbounded_high": 0.0,
+            "ci95_unbounded_low": 0.0,
+            "max": 0,
+            "mean": 0,
+            "min": 0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "peak_memory_mb": {
+            "ci95_unbounded_high": 0.01099395751953125,
+            "ci95_unbounded_low": 0.01099395751953125,
+            "max": 0.01099395751953125,
+            "mean": 0.01099395751953125,
+            "min": 0.01099395751953125,
+            "n": 25,
+            "sd": 0.0
+          },
+          "precision": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "recall": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "tn": {
+            "ci95_unbounded_high": 40.0,
+            "ci95_unbounded_low": 40.0,
+            "max": 40,
+            "mean": 40,
+            "min": 40,
+            "n": 25,
+            "sd": 0.0
+          },
+          "tp": {
+            "ci95_unbounded_high": 20.0,
+            "ci95_unbounded_low": 20.0,
+            "max": 20,
+            "mean": 20,
+            "min": 20,
+            "n": 25,
+            "sd": 0.0
+          },
+          "wall_time_ms": {
+            "ci95_unbounded_high": 0.3888130484959776,
+            "ci95_unbounded_low": 0.2784703915040225,
+            "max": 0.788408,
+            "mean": 0.33364172000000003,
+            "min": 0.164673,
+            "n": 25,
+            "sd": 0.1336580428944576
+          }
+        },
+        "robust-polling-burst-v1": {
+          "coverage": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "cpu_time_ms": {
+            "ci95_unbounded_high": 0.31481987336468925,
+            "ci95_unbounded_low": 0.21696780663531073,
+            "max": 0.669666,
+            "mean": 0.26589384,
+            "min": 0.127278,
+            "n": 25,
+            "sd": 0.11852819289261943
+          },
+          "end_to_end_recall": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "f1": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "fn": {
+            "ci95_unbounded_high": 0.0,
+            "ci95_unbounded_low": 0.0,
+            "max": 0,
+            "mean": 0,
+            "min": 0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "fp": {
+            "ci95_unbounded_high": 0.0,
+            "ci95_unbounded_low": 0.0,
+            "max": 0,
+            "mean": 0,
+            "min": 0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "peak_memory_mb": {
+            "ci95_unbounded_high": 0.00746917724609375,
+            "ci95_unbounded_low": 0.00746917724609375,
+            "max": 0.00746917724609375,
+            "mean": 0.00746917724609375,
+            "min": 0.00746917724609375,
+            "n": 25,
+            "sd": 0.0
+          },
+          "precision": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "recall": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "tn": {
+            "ci95_unbounded_high": 40.0,
+            "ci95_unbounded_low": 40.0,
+            "max": 40,
+            "mean": 40,
+            "min": 40,
+            "n": 25,
+            "sd": 0.0
+          },
+          "tp": {
+            "ci95_unbounded_high": 20.0,
+            "ci95_unbounded_low": 20.0,
+            "max": 20,
+            "mean": 20,
+            "min": 20,
+            "n": 25,
+            "sd": 0.0
+          },
+          "wall_time_ms": {
+            "ci95_unbounded_high": 0.35252678129653287,
+            "ci95_unbounded_low": 0.24738713870346715,
+            "max": 0.723582,
+            "mean": 0.29995696,
+            "min": 0.141608,
+            "n": 25,
+            "sd": 0.12735563237920286
+          }
+        }
+      },
+      "paired_robust_minus_baseline": {
+        "f1": {
+          "ci95_unbounded_high": 0.0,
+          "ci95_unbounded_low": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "min": 0.0,
+          "n": 25,
+          "sd": 0.0
+        },
+        "recall": {
+          "ci95_unbounded_high": 0.0,
+          "ci95_unbounded_low": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "min": 0.0,
+          "n": 25,
+          "sd": 0.0
+        }
+      }
+    },
+    "delay20": {
+      "detectors": {
+        "polling-burst-v1": {
+          "coverage": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "cpu_time_ms": {
+            "ci95_unbounded_high": 0.3474817249305031,
+            "ci95_unbounded_low": 0.2527352350694969,
+            "max": 0.661644,
+            "mean": 0.30010848,
+            "min": 0.144786,
+            "n": 25,
+            "sd": 0.1147664081250549
+          },
+          "end_to_end_recall": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "f1": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "fn": {
+            "ci95_unbounded_high": 0.0,
+            "ci95_unbounded_low": 0.0,
+            "max": 0,
+            "mean": 0,
+            "min": 0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "fp": {
+            "ci95_unbounded_high": 0.0,
+            "ci95_unbounded_low": 0.0,
+            "max": 0,
+            "mean": 0,
+            "min": 0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "peak_memory_mb": {
+            "ci95_unbounded_high": 0.01099395751953125,
+            "ci95_unbounded_low": 0.01099395751953125,
+            "max": 0.01099395751953125,
+            "mean": 0.01099395751953125,
+            "min": 0.01099395751953125,
+            "n": 25,
+            "sd": 0.0
+          },
+          "precision": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "recall": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "tn": {
+            "ci95_unbounded_high": 40.0,
+            "ci95_unbounded_low": 40.0,
+            "max": 40,
+            "mean": 40,
+            "min": 40,
+            "n": 25,
+            "sd": 0.0
+          },
+          "tp": {
+            "ci95_unbounded_high": 20.0,
+            "ci95_unbounded_low": 20.0,
+            "max": 20,
+            "mean": 20,
+            "min": 20,
+            "n": 25,
+            "sd": 0.0
+          },
+          "wall_time_ms": {
+            "ci95_unbounded_high": 0.3833537862492663,
+            "ci95_unbounded_low": 0.27766573375073367,
+            "max": 0.719785,
+            "mean": 0.33050976,
+            "min": 0.159042,
+            "n": 25,
+            "sd": 0.12801992121061992
+          }
+        },
+        "robust-polling-burst-v1": {
+          "coverage": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "cpu_time_ms": {
+            "ci95_unbounded_high": 0.3057049792767865,
+            "ci95_unbounded_low": 0.22521350072321344,
+            "max": 0.482121,
+            "mean": 0.26545924,
+            "min": 0.126846,
+            "n": 25,
+            "sd": 0.09749931519173181
+          },
+          "end_to_end_recall": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "f1": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "fn": {
+            "ci95_unbounded_high": 0.0,
+            "ci95_unbounded_low": 0.0,
+            "max": 0,
+            "mean": 0,
+            "min": 0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "fp": {
+            "ci95_unbounded_high": 0.0,
+            "ci95_unbounded_low": 0.0,
+            "max": 0,
+            "mean": 0,
+            "min": 0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "peak_memory_mb": {
+            "ci95_unbounded_high": 0.00746917724609375,
+            "ci95_unbounded_low": 0.00746917724609375,
+            "max": 0.00746917724609375,
+            "mean": 0.00746917724609375,
+            "min": 0.00746917724609375,
+            "n": 25,
+            "sd": 0.0
+          },
+          "precision": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "recall": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "tn": {
+            "ci95_unbounded_high": 40.0,
+            "ci95_unbounded_low": 40.0,
+            "max": 40,
+            "mean": 40,
+            "min": 40,
+            "n": 25,
+            "sd": 0.0
+          },
+          "tp": {
+            "ci95_unbounded_high": 20.0,
+            "ci95_unbounded_low": 20.0,
+            "max": 20,
+            "mean": 20,
+            "min": 20,
+            "n": 25,
+            "sd": 0.0
+          },
+          "wall_time_ms": {
+            "ci95_unbounded_high": 0.35687980408260384,
+            "ci95_unbounded_low": 0.2591975559173962,
+            "max": 0.589539,
+            "mean": 0.30803868,
+            "min": 0.143476,
+            "n": 25,
+            "sd": 0.11832249169280258
+          }
+        }
+      },
+      "paired_robust_minus_baseline": {
+        "f1": {
+          "ci95_unbounded_high": 0.0,
+          "ci95_unbounded_low": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "min": 0.0,
+          "n": 25,
+          "sd": 0.0
+        },
+        "recall": {
+          "ci95_unbounded_high": 0.0,
+          "ci95_unbounded_low": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "min": 0.0,
+          "n": 25,
+          "sd": 0.0
+        }
+      }
+    },
+    "delay20_jitter5_loss5": {
+      "detectors": {
+        "polling-burst-v1": {
+          "coverage": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "cpu_time_ms": {
+            "ci95_unbounded_high": 0.30083248209666014,
+            "ci95_unbounded_low": 0.23902591790333985,
+            "max": 0.469436,
+            "mean": 0.2699292,
+            "min": 0.159462,
+            "n": 25,
+            "sd": 0.07486628139389588
+          },
+          "end_to_end_recall": {
+            "ci95_unbounded_high": 0.9697603243056199,
+            "ci95_unbounded_low": 0.93023967569438,
+            "max": 1.0,
+            "mean": 0.95,
+            "min": 0.85,
+            "n": 25,
+            "sd": 0.04787135538781691
+          },
+          "f1": {
+            "ci95_unbounded_high": 0.9843132015649917,
+            "ci95_unbounded_low": 0.9631996554215495,
+            "max": 1.0,
+            "mean": 0.9737564284932706,
+            "min": 0.918918918918919,
+            "n": 25,
+            "sd": 0.02557483509120195
+          },
+          "fn": {
+            "ci95_unbounded_high": 1.3952064861123972,
+            "ci95_unbounded_low": 0.6047935138876028,
+            "max": 3,
+            "mean": 1,
+            "min": 0,
+            "n": 25,
+            "sd": 0.9574271077563381
+          },
+          "fp": {
+            "ci95_unbounded_high": 0.0,
+            "ci95_unbounded_low": 0.0,
+            "max": 0,
+            "mean": 0,
+            "min": 0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "peak_memory_mb": {
+            "ci95_unbounded_high": 0.01099395751953125,
+            "ci95_unbounded_low": 0.01099395751953125,
+            "max": 0.01099395751953125,
+            "mean": 0.01099395751953125,
+            "min": 0.01099395751953125,
+            "n": 25,
+            "sd": 0.0
+          },
+          "precision": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "recall": {
+            "ci95_unbounded_high": 0.9697603243056199,
+            "ci95_unbounded_low": 0.93023967569438,
+            "max": 1.0,
+            "mean": 0.95,
+            "min": 0.85,
+            "n": 25,
+            "sd": 0.04787135538781691
+          },
+          "tn": {
+            "ci95_unbounded_high": 40.0,
+            "ci95_unbounded_low": 40.0,
+            "max": 40,
+            "mean": 40,
+            "min": 40,
+            "n": 25,
+            "sd": 0.0
+          },
+          "tp": {
+            "ci95_unbounded_high": 19.395206486112397,
+            "ci95_unbounded_low": 18.604793513887603,
+            "max": 20,
+            "mean": 19,
+            "min": 17,
+            "n": 25,
+            "sd": 0.9574271077563381
+          },
+          "wall_time_ms": {
+            "ci95_unbounded_high": 0.32789770842039434,
+            "ci95_unbounded_low": 0.26239709157960567,
+            "max": 0.502741,
+            "mean": 0.2951474,
+            "min": 0.173802,
+            "n": 25,
+            "sd": 0.07934088677924306
+          }
+        },
+        "robust-polling-burst-v1": {
+          "coverage": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "cpu_time_ms": {
+            "ci95_unbounded_high": 0.25582351344116483,
+            "ci95_unbounded_low": 0.1935409665588352,
+            "max": 0.395776,
+            "mean": 0.22468224,
+            "min": 0.127798,
+            "n": 25,
+            "sd": 0.0754428391495177
+          },
+          "end_to_end_recall": {
+            "ci95_unbounded_high": 0.9697603243056199,
+            "ci95_unbounded_low": 0.93023967569438,
+            "max": 1.0,
+            "mean": 0.95,
+            "min": 0.85,
+            "n": 25,
+            "sd": 0.04787135538781691
+          },
+          "f1": {
+            "ci95_unbounded_high": 0.9843132015649917,
+            "ci95_unbounded_low": 0.9631996554215495,
+            "max": 1.0,
+            "mean": 0.9737564284932706,
+            "min": 0.918918918918919,
+            "n": 25,
+            "sd": 0.02557483509120195
+          },
+          "fn": {
+            "ci95_unbounded_high": 1.3952064861123972,
+            "ci95_unbounded_low": 0.6047935138876028,
+            "max": 3,
+            "mean": 1,
+            "min": 0,
+            "n": 25,
+            "sd": 0.9574271077563381
+          },
+          "fp": {
+            "ci95_unbounded_high": 0.0,
+            "ci95_unbounded_low": 0.0,
+            "max": 0,
+            "mean": 0,
+            "min": 0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "peak_memory_mb": {
+            "ci95_unbounded_high": 0.00746917724609375,
+            "ci95_unbounded_low": 0.00746917724609375,
+            "max": 0.00746917724609375,
+            "mean": 0.00746917724609375,
+            "min": 0.00746917724609375,
+            "n": 25,
+            "sd": 0.0
+          },
+          "precision": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "recall": {
+            "ci95_unbounded_high": 0.9697603243056199,
+            "ci95_unbounded_low": 0.93023967569438,
+            "max": 1.0,
+            "mean": 0.95,
+            "min": 0.85,
+            "n": 25,
+            "sd": 0.04787135538781691
+          },
+          "tn": {
+            "ci95_unbounded_high": 40.0,
+            "ci95_unbounded_low": 40.0,
+            "max": 40,
+            "mean": 40,
+            "min": 40,
+            "n": 25,
+            "sd": 0.0
+          },
+          "tp": {
+            "ci95_unbounded_high": 19.395206486112397,
+            "ci95_unbounded_low": 18.604793513887603,
+            "max": 20,
+            "mean": 19,
+            "min": 17,
+            "n": 25,
+            "sd": 0.9574271077563381
+          },
+          "wall_time_ms": {
+            "ci95_unbounded_high": 0.28698891489150957,
+            "ci95_unbounded_low": 0.21959308510849043,
+            "max": 0.433755,
+            "mean": 0.253291,
+            "min": 0.142988,
+            "n": 25,
+            "sd": 0.0816365579152502
+          }
+        }
+      },
+      "paired_robust_minus_baseline": {
+        "f1": {
+          "ci95_unbounded_high": 0.0,
+          "ci95_unbounded_low": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "min": 0.0,
+          "n": 25,
+          "sd": 0.0
+        },
+        "recall": {
+          "ci95_unbounded_high": 0.0,
+          "ci95_unbounded_low": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "min": 0.0,
+          "n": 25,
+          "sd": 0.0
+        }
+      }
+    },
+    "delay40_jitter10": {
+      "detectors": {
+        "polling-burst-v1": {
+          "coverage": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "cpu_time_ms": {
+            "ci95_unbounded_high": 0.3039596424982209,
+            "ci95_unbounded_low": 0.24169211750177919,
+            "max": 0.473162,
+            "mean": 0.27282588,
+            "min": 0.156465,
+            "n": 25,
+            "sd": 0.0754246431415268
+          },
+          "end_to_end_recall": {
+            "ci95_unbounded_high": 0.5037819000582502,
+            "ci95_unbounded_low": 0.41621809994174985,
+            "max": 0.65,
+            "mean": 0.46,
+            "min": 0.25,
+            "n": 25,
+            "sd": 0.10606601717798214
+          },
+          "f1": {
+            "ci95_unbounded_high": 0.6653575850544574,
+            "ci95_unbounded_low": 0.5806629058870568,
+            "max": 0.7878787878787878,
+            "mean": 0.6230102454707571,
+            "min": 0.4,
+            "n": 25,
+            "sd": 0.10259065142788876
+          },
+          "fn": {
+            "ci95_unbounded_high": 11.675638001165003,
+            "ci95_unbounded_low": 9.924361998834998,
+            "max": 15,
+            "mean": 10.8,
+            "min": 7,
+            "n": 25,
+            "sd": 2.1213203435596424
+          },
+          "fp": {
+            "ci95_unbounded_high": 0.0,
+            "ci95_unbounded_low": 0.0,
+            "max": 0,
+            "mean": 0,
+            "min": 0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "peak_memory_mb": {
+            "ci95_unbounded_high": 0.01099395751953125,
+            "ci95_unbounded_low": 0.01099395751953125,
+            "max": 0.01099395751953125,
+            "mean": 0.01099395751953125,
+            "min": 0.01099395751953125,
+            "n": 25,
+            "sd": 0.0
+          },
+          "precision": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "recall": {
+            "ci95_unbounded_high": 0.5037819000582502,
+            "ci95_unbounded_low": 0.41621809994174985,
+            "max": 0.65,
+            "mean": 0.46,
+            "min": 0.25,
+            "n": 25,
+            "sd": 0.10606601717798214
+          },
+          "tn": {
+            "ci95_unbounded_high": 40.0,
+            "ci95_unbounded_low": 40.0,
+            "max": 40,
+            "mean": 40,
+            "min": 40,
+            "n": 25,
+            "sd": 0.0
+          },
+          "tp": {
+            "ci95_unbounded_high": 10.075638001165002,
+            "ci95_unbounded_low": 8.324361998834997,
+            "max": 13,
+            "mean": 9.2,
+            "min": 5,
+            "n": 25,
+            "sd": 2.1213203435596424
+          },
+          "wall_time_ms": {
+            "ci95_unbounded_high": 0.33331124170407594,
+            "ci95_unbounded_low": 0.2653806782959241,
+            "max": 0.522497,
+            "mean": 0.29934596,
+            "min": 0.170822,
+            "n": 25,
+            "sd": 0.0822842806704699
+          }
+        },
+        "robust-polling-burst-v1": {
+          "coverage": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "cpu_time_ms": {
+            "ci95_unbounded_high": 0.2468616995104745,
+            "ci95_unbounded_low": 0.1951499004895255,
+            "max": 0.344439,
+            "mean": 0.2210058,
+            "min": 0.12447,
+            "n": 25,
+            "sd": 0.0626384939434211
+          },
+          "end_to_end_recall": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "f1": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "fn": {
+            "ci95_unbounded_high": 0.0,
+            "ci95_unbounded_low": 0.0,
+            "max": 0,
+            "mean": 0,
+            "min": 0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "fp": {
+            "ci95_unbounded_high": 0.0,
+            "ci95_unbounded_low": 0.0,
+            "max": 0,
+            "mean": 0,
+            "min": 0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "peak_memory_mb": {
+            "ci95_unbounded_high": 0.00746917724609375,
+            "ci95_unbounded_low": 0.00746917724609375,
+            "max": 0.00746917724609375,
+            "mean": 0.00746917724609375,
+            "min": 0.00746917724609375,
+            "n": 25,
+            "sd": 0.0
+          },
+          "precision": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "recall": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "tn": {
+            "ci95_unbounded_high": 40.0,
+            "ci95_unbounded_low": 40.0,
+            "max": 40,
+            "mean": 40,
+            "min": 40,
+            "n": 25,
+            "sd": 0.0
+          },
+          "tp": {
+            "ci95_unbounded_high": 20.0,
+            "ci95_unbounded_low": 20.0,
+            "max": 20,
+            "mean": 20,
+            "min": 20,
+            "n": 25,
+            "sd": 0.0
+          },
+          "wall_time_ms": {
+            "ci95_unbounded_high": 0.277249887886281,
+            "ci95_unbounded_low": 0.22004867211371895,
+            "max": 0.371845,
+            "mean": 0.24864928,
+            "min": 0.13853,
+            "n": 25,
+            "sd": 0.06928782358305582
+          }
+        }
+      },
+      "paired_robust_minus_baseline": {
+        "f1": {
+          "ci95_unbounded_high": 0.41933709411294323,
+          "ci95_unbounded_low": 0.33464241494554253,
+          "max": 0.6,
+          "mean": 0.3769897545292429,
+          "min": 0.21212121212121215,
+          "n": 25,
+          "sd": 0.10259065142788876
+        },
+        "recall": {
+          "ci95_unbounded_high": 0.5837819000582501,
+          "ci95_unbounded_low": 0.4962180999417499,
+          "max": 0.75,
+          "mean": 0.54,
+          "min": 0.35,
+          "n": 25,
+          "sd": 0.10606601717798214
+        }
+      }
+    },
+    "delay60_jitter10": {
+      "detectors": {
+        "polling-burst-v1": {
+          "coverage": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "cpu_time_ms": {
+            "ci95_unbounded_high": 0.3040173461424168,
+            "ci95_unbounded_low": 0.2354096138575832,
+            "max": 0.491748,
+            "mean": 0.26971348,
+            "min": 0.156195,
+            "n": 25,
+            "sd": 0.08310453522327567
+          },
+          "end_to_end_recall": {
+            "ci95_unbounded_high": 0.0,
+            "ci95_unbounded_low": 0.0,
+            "max": 0.0,
+            "mean": 0.0,
+            "min": 0.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "f1": {
+            "ci95_unbounded_high": 0.0,
+            "ci95_unbounded_low": 0.0,
+            "max": 0.0,
+            "mean": 0.0,
+            "min": 0.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "fn": {
+            "ci95_unbounded_high": 20.0,
+            "ci95_unbounded_low": 20.0,
+            "max": 20,
+            "mean": 20,
+            "min": 20,
+            "n": 25,
+            "sd": 0.0
+          },
+          "fp": {
+            "ci95_unbounded_high": 0.0,
+            "ci95_unbounded_low": 0.0,
+            "max": 0,
+            "mean": 0,
+            "min": 0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "peak_memory_mb": {
+            "ci95_unbounded_high": 0.01099395751953125,
+            "ci95_unbounded_low": 0.01099395751953125,
+            "max": 0.01099395751953125,
+            "mean": 0.01099395751953125,
+            "min": 0.01099395751953125,
+            "n": 25,
+            "sd": 0.0
+          },
+          "precision": {
+            "ci95_unbounded_high": 0.0,
+            "ci95_unbounded_low": 0.0,
+            "max": 0.0,
+            "mean": 0.0,
+            "min": 0.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "recall": {
+            "ci95_unbounded_high": 0.0,
+            "ci95_unbounded_low": 0.0,
+            "max": 0.0,
+            "mean": 0.0,
+            "min": 0.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "tn": {
+            "ci95_unbounded_high": 40.0,
+            "ci95_unbounded_low": 40.0,
+            "max": 40,
+            "mean": 40,
+            "min": 40,
+            "n": 25,
+            "sd": 0.0
+          },
+          "tp": {
+            "ci95_unbounded_high": 0.0,
+            "ci95_unbounded_low": 0.0,
+            "max": 0,
+            "mean": 0,
+            "min": 0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "wall_time_ms": {
+            "ci95_unbounded_high": 0.3333827335475047,
+            "ci95_unbounded_low": 0.25827982645249525,
+            "max": 0.547977,
+            "mean": 0.29583128,
+            "min": 0.172197,
+            "n": 25,
+            "sd": 0.0909721394395559
+          }
+        },
+        "robust-polling-burst-v1": {
+          "coverage": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "cpu_time_ms": {
+            "ci95_unbounded_high": 0.23805080565427664,
+            "ci95_unbounded_low": 0.18498655434572334,
+            "max": 0.374521,
+            "mean": 0.21151868,
+            "min": 0.119822,
+            "n": 25,
+            "sd": 0.06427671918465762
+          },
+          "end_to_end_recall": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "f1": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "fn": {
+            "ci95_unbounded_high": 0.0,
+            "ci95_unbounded_low": 0.0,
+            "max": 0,
+            "mean": 0,
+            "min": 0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "fp": {
+            "ci95_unbounded_high": 0.0,
+            "ci95_unbounded_low": 0.0,
+            "max": 0,
+            "mean": 0,
+            "min": 0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "peak_memory_mb": {
+            "ci95_unbounded_high": 0.00746917724609375,
+            "ci95_unbounded_low": 0.00746917724609375,
+            "max": 0.00746917724609375,
+            "mean": 0.00746917724609375,
+            "min": 0.00746917724609375,
+            "n": 25,
+            "sd": 0.0
+          },
+          "precision": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "recall": {
+            "ci95_unbounded_high": 1.0,
+            "ci95_unbounded_low": 1.0,
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "n": 25,
+            "sd": 0.0
+          },
+          "tn": {
+            "ci95_unbounded_high": 40.0,
+            "ci95_unbounded_low": 40.0,
+            "max": 40,
+            "mean": 40,
+            "min": 40,
+            "n": 25,
+            "sd": 0.0
+          },
+          "tp": {
+            "ci95_unbounded_high": 20.0,
+            "ci95_unbounded_low": 20.0,
+            "max": 20,
+            "mean": 20,
+            "min": 20,
+            "n": 25,
+            "sd": 0.0
+          },
+          "wall_time_ms": {
+            "ci95_unbounded_high": 0.271224239906927,
+            "ci95_unbounded_low": 0.20944072009307305,
+            "max": 0.412731,
+            "mean": 0.24033248000000001,
+            "min": 0.134017,
+            "n": 25,
+            "sd": 0.07483836774070726
+          }
+        }
+      },
+      "paired_robust_minus_baseline": {
+        "f1": {
+          "ci95_unbounded_high": 1.0,
+          "ci95_unbounded_low": 1.0,
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "n": 25,
+          "sd": 0.0
+        },
+        "recall": {
+          "ci95_unbounded_high": 1.0,
+          "ci95_unbounded_low": 1.0,
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "n": 25,
+          "sd": 0.0
+        }
+      }
+    }
+  },
+  "confidence_interval": "two-sided 95% Student-t; unbounded run-level intervals",
+  "interpretation": "isolated OpenPLC laboratory only; no universal superiority claim",
+  "schema": "OTB-V06-AGGREGATE/0.1"
+}
