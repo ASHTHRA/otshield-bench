@@ -5,24 +5,23 @@ type: software
 authors:
   - given-names: "Jayachandra Reddy"
     family-names: "Palle"
-version: "0.6.0-alpha"
+version: "0.6.1-alpha"
 date-released: 2026-09-22
 license: Apache-2.0
 repository-code: "https://github.com/ASHTHRA/otshield-bench"
-url: "https://github.com/ASHTHRA/otshield-bench/releases/tag/v0.6.0-alpha"
-doi: "10.5281/zenodo.22899466"
+url: "https://github.com/ASHTHRA/otshield-bench/releases/tag/v0.6.1-alpha"
 abstract: >-
   OTShield Bench is a reproducible, vendor-neutral benchmark for operational
   technology cyber-detection effectiveness, resource cost, and resilience under
-  degraded connectivity. Version 0.6.0-alpha is a research release candidate
-  with 125 completed isolated OpenPLC condition runs across five network
-  conditions, pairing a fixed baseline detector with an independently calibrated
-  robust detector on identical read-only Modbus/TCP Function Code 3 captures.
-  The robust threshold showed greater resilience under the heavier tested delay
-  conditions with no observed recall/F1 penalty under clean and lighter tested
-  conditions. Results are limited to the documented laboratory and timing setup;
-  they do not establish production validation, universal superiority, full GRFICS
-  validation, DNP3 or EtherNet/IP validation, external replication, or adoption.
+  degraded connectivity. Version 0.6.1-alpha, dated 2026-09-22, is a research
+  release candidate reporting a post-release paired study with 125 completed
+  isolated OpenPLC condition runs across five network conditions, 7,500 planned
+  transactions, and 250 baseline/robust detector evaluations. The robust threshold
+  was fixed using historical clean calibration. Observed resilience differences
+  are limited to the documented laboratory and timing setup; they do not establish
+  production validation, universal detector superiority, full GRFICS validation,
+  DNP3 or EtherNet/IP validation, completed external independent replication, or
+  adoption.
 keywords:
   - operational technology
   - industrial control systems

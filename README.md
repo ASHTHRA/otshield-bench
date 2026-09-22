@@ -1,9 +1,15 @@
 # OTShield Bench
 
-**v0.6.0-alpha** (`0.6.0a0` on Python) is the current research release candidate:
+**v0.6.1-alpha** (`0.6.1a0` on Python), dated 2026-09-22, is the current
+research release candidate:
 a reproducible, vendor-neutral benchmark for OT cyber-detection effectiveness,
 resource cost, and resilience using synthetic
 and isolated lab-derived Modbus telemetry.
+
+This release is supported by a completed post-release paired study
+(125 condition runs, 250 detector evaluations, 7,500 planned transactions).
+See the [v0.6.1 release notes](research/v0.6.1_release_notes.md) and
+[v0.6.1 release manifest](research/v0.6.1_release_manifest.md) for full details.
 
 OTShield generates labeled events or ingests passive offline observations, applies
 observation faults, runs detectors, and exports evidence and metrics. Its core
@@ -12,26 +18,36 @@ runners that generate bounded read-only Modbus/TCP Function Code 3 traffic again
 the documented OpenPLC test environment. These scenarios and laboratory measurements
 are research evidence, not validation of protection for a production industrial process.
 
-The completed v0.6 paired study contains **125 condition runs** (25 trials × five
-conditions), 7,500 planned transactions, and 250 baseline/robust detector evaluations.
+The completed v0.6.1 post-release paired study contains **125 condition runs**
+(25 trials × five conditions), 7,500 planned transactions, and 250 baseline/robust
+detector evaluations.
 The robust threshold was frozen from independent historical clean calibration.
 Within the documented isolated OpenPLC lab and preregistered timing setup, it
 showed materially greater resilience under the heavier tested delay conditions,
 with no observed recall/F1 penalty under clean and lighter tested conditions.
 Coverage was 1.0 and false positives were zero across all conditions.
 
-See the [v0.6 findings](research/v0.6_findings.md),
-[v0.6 technical report](research/OTShield_Bench_v0.6_Technical_Report.md),
-[release notes](research/v0.6_release_notes.md), and
-[release manifest](research/v0.6_release_manifest.md).
+See the [v0.6.1 release candidate](research/v0.6.1_release_candidate.md),
+[v0.6.1 release notes](research/v0.6.1_release_notes.md), and
+[v0.6.1 release manifest](research/v0.6.1_release_manifest.md).
+Historical v0.6 technical context remains in the [v0.6 findings](research/v0.6_findings.md)
+and [v0.6 technical report](research/OTShield_Bench_v0.6_Technical_Report.md).
 
 ## Citation
 
-The **current archived release, OTShield Bench v0.6.0-alpha**, is published on
-[GitHub](https://github.com/ASHTHRA/otshield-bench/releases/tag/v0.6.0-alpha)
+The **current release candidate, OTShield Bench v0.6.1-alpha**, is dated
+2026-09-22. Its release target is [v0.6.1-alpha](https://github.com/ASHTHRA/otshield-bench/releases/tag/v0.6.1-alpha).
+No Zenodo DOI is asserted for v0.6.1-alpha.
+
+The **immutable archived predecessor, OTShield Bench v0.6.0-alpha**, remains
+published on [GitHub](https://github.com/ASHTHRA/otshield-bench/releases/tag/v0.6.0-alpha)
 and archived on Zenodo:
 
 **DOI:** [10.5281/zenodo.22899466](https://doi.org/10.5281/zenodo.22899466)
+
+That DOI predates and does not contain `evidence/v06/20260922T174026Z/` or its
+data and results. It belongs only to v0.6.0-alpha and must not be used for
+v0.6.1-alpha.
 
 The **previous archived release, OTShield Bench v0.5.1-alpha**, is permanently
 available through Zenodo:
@@ -98,8 +114,9 @@ The repository contains:
 - degraded-connectivity experiments using controlled delay, jitter, and loss;
 - the historical v0.5 five-trial repeatability study covering 25 condition runs
   and 1,500 planned read-only Modbus/TCP transactions;
-- the completed v0.6 125-run paired study, with frozen calibration, readiness
-  checks, infrastructure hardening, and separately preserved failed attempts.
+- the completed v0.6.1 post-release 125-run paired study, with 250 detector
+  evaluations, 7,500 planned transactions, frozen calibration, readiness checks,
+  and infrastructure hardening; failed and unattempted counts are both zero.
 
 The current evidence comes from a minimal isolated OpenPLC environment using the
 configured GRFICS-derived PLC image. It must **not** be represented as a completed
@@ -148,8 +165,8 @@ correlation, explicit lab provenance, measured resource-cost reporting,
 predeclared timing ground truth, degraded-connectivity evaluation, repeatability
 statistics, and versioned benchmark result manifests.
 
-A completed full GRFICSv3 process simulation and independent external replication
-remain future milestones.
+No completed full GRFICSv3 process simulation or independent external replication
+has occurred; both remain future milestones.
 Repository scaffolding and sanitized fixtures are not evidence of completed
 laboratory or real-world validation.
 
