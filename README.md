@@ -27,15 +27,18 @@ See the [v0.6 findings](research/v0.6_findings.md),
 
 ## Citation
 
+The **current archived release, OTShield Bench v0.6.0-alpha**, is published on
+[GitHub](https://github.com/ASHTHRA/otshield-bench/releases/tag/v0.6.0-alpha)
+and archived on Zenodo:
+
+**DOI:** [10.5281/zenodo.22899466](https://doi.org/10.5281/zenodo.22899466)
+
 The **previous archived release, OTShield Bench v0.5.1-alpha**, is permanently
 available through Zenodo:
 
 **DOI:** [10.5281/zenodo.22863660](https://doi.org/10.5281/zenodo.22863660)
 
-A persistent identifier for v0.6 will be added after archival.
-The DOI above identifies only the previous v0.5.1-alpha release.
-
-Current candidate citation metadata is provided in [`CITATION.cff`](CITATION.cff).
+Current release citation metadata is provided in [`CITATION.cff`](CITATION.cff).
 
 ## Quick start
 

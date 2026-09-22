@@ -6,7 +6,7 @@
 **Branch:** `research/v0.6-experiments`  
 **Execution commit:** `b931b6a850a9a3319327043fe834402a0267187d`  
 **License:** Apache-2.0  
-**DOI status:** pending archival; no v0.6 DOI assigned.
+**DOI:** 10.5281/zenodo.22899466
 
 ## Abstract
 
@@ -298,7 +298,9 @@ requires a separately authorized isolated laboratory, clean execution checkout,
 new output root, and the procedure in [implementation notes](v0.6_implementation.md).
 Do not overwrite retained evidence or retune calibration using v0.6 results.
 See also [reproducibility guidance](../docs/reproducibility.md).
-A persistent identifier for v0.6 will be added after archival.
+v0.6.0-alpha is published on
+[GitHub](https://github.com/ASHTHRA/otshield-bench/releases/tag/v0.6.0-alpha)
+and archived on [Zenodo](https://doi.org/10.5281/zenodo.22899466).
 
 ## 11. Critical-Infrastructure Relevance
 
@@ -315,8 +317,7 @@ Priorities are independent replication of the Modbus milestone, additional hosts
 and polling schedules, other capture points and impairment models, fuller resource
 measurement, and explicitly versioned protocols for new detector comparisons.
 Full process-simulation evaluation remains future work. Defer DNP3 and EtherNet/IP
-expansion until the Modbus milestone is stable. Archive the reviewed release and
-then add its own persistent identifier and version-specific citation metadata.
+expansion until the Modbus milestone is stable.
 
 ## 13. Conclusion
 
