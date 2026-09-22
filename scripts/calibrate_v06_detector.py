@@ -21,6 +21,11 @@ def sha256(path: Path) -> str:
     ).hexdigest()
 
 
+def canonical_path(path: Path) -> str:
+    """Serialize repository-relative paths consistently on every platform."""
+    return path.as_posix()
+
+
 def main():
     parser = argparse.ArgumentParser()
 
@@ -113,7 +118,7 @@ def main():
 
         file_records.append(
             {
-                "path": str(path),
+                "path": canonical_path(path),
                 "sha256": sha256(path),
                 "protocol_sha256": sha256(protocol_path),
                 "eligible_intervals":
@@ -180,10 +185,10 @@ def main():
 
         "source_study": {
             "root":
-                str(source),
+                canonical_path(source),
 
             "study_json":
-                str(study_path),
+                canonical_path(study_path),
 
             "study_json_sha256":
                 sha256(study_path),
@@ -216,15 +221,9 @@ def main():
         exist_ok=True,
     )
 
-    args.output.write_text(
-        json.dumps(
-            output,
-            indent=2,
-            sort_keys=True,
-            allow_nan=False,
-        )
-        + "\n"
-    )
+    serialized = json.dumps(output, indent=2, sort_keys=True, allow_nan=False) + "\n"
+    with args.output.open("w", encoding="utf-8", newline="\n") as stream:
+        stream.write(serialized)
 
     print(
         "Eligible intervals:",

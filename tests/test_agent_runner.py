@@ -1,5 +1,6 @@
 """Offline automation checks: no cloud providers or laboratory execution."""
 from pathlib import Path
+import os
 import shutil
 import subprocess
 import sys
@@ -69,7 +70,7 @@ def test_credentials_scoped_and_imports_absolute(tmp_path, monkeypatch):
     assert env['GROQ_API_KEY'] == 'synthetic-groq'
     assert 'TYPESAFE_API_KEY' not in env
     assert 'OTHER_TOKEN' not in env
-    assert env['PYTHONPATH'].split(':') == [str(tmp_path), str(tmp_path / 'src')]
+    assert env['PYTHONPATH'].split(os.pathsep) == [str(tmp_path), str(tmp_path / 'src')]
 
 
 def test_imports_survive_reset_clean(tmp_path):
