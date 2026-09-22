@@ -1,12 +1,12 @@
 # OTShield Bench: Paired Timing-Detector Evaluation Under Degraded Connectivity
 
-**Technical Report — v0.6.0-alpha release candidate**  
+**Technical Report — v0.6 working-branch post-release update**
 **Author:** Jayachandra Reddy Palle  
 **Date:** September 22, 2026  
 **Branch:** `research/v0.6-experiments`  
-**Execution commit:** `b931b6a850a9a3319327043fe834402a0267187d`  
+**Execution commit:** `88e1f056dc2143129ef115f3ce1ad731fd0e9a0e`
 **License:** Apache-2.0  
-**DOI:** 10.5281/zenodo.22899466
+**Archived v0.6.0-alpha DOI:** 10.5281/zenodo.22899466 (archive predates the post-release study below)
 
 ## Abstract
 
@@ -17,8 +17,8 @@ calibrated robust threshold on identical isolated OpenPLC captures. The complete
 study comprises 25 trials across five conditions: 125 condition runs, 7,500 planned
 read-only Modbus/TCP transactions, and 250 detector evaluations. Both detectors
 achieved mean recall/F1 of 1.0/1.0 in clean and 20 ms delay conditions, and
-0.95/0.9737564284932706 under 20 ms delay, 5 ms jitter, and 5% loss. Under 40 ms
-delay and 10 ms jitter, robust-minus-baseline recall improved by 0.54; under
+0.97/0.984561403508772 under 20 ms delay, 5 ms jitter, and 5% loss. Under 40 ms
+delay and 10 ms jitter, robust-minus-baseline recall improved by 0.572; under
 60 ms delay and 10 ms jitter, it improved by 1.0. Observation coverage was 1.0
 and false positives were zero throughout. These are controlled laboratory
 measurements, with no production or external-validation claim.
@@ -41,9 +41,9 @@ remain the benchmark abstractions.
 ## 2. Evidence Boundary and Architecture
 
 Results come exclusively from
-[the completed replacement study](../evidence/v06/20260922T021855Z/).
-[aggregate.json](../evidence/v06/20260922T021855Z/aggregate.json) is the source of
-truth for all numerical results; [study.json](../evidence/v06/20260922T021855Z/study.json)
+[the completed replacement study](../evidence/v06/20260922T174026Z/).
+[aggregate.json](../evidence/v06/20260922T174026Z/aggregate.json) is the source of
+truth for all numerical results; [study.json](../evidence/v06/20260922T174026Z/study.json)
 records completion. Synthetic and mocked regression tests verify software behavior
 and are not laboratory measurements. The lab uses a GRFICS-derived OpenPLC image;
 it is not a completed full GRFICSv3 process simulation.
@@ -166,13 +166,13 @@ replacement results are not excluded.
 
 ## 7. Completed Replacement Study and Results
 
-Study `20260922T021855Z` reports `completed`: 25 trials × 5 conditions = 125
+Study `20260922T174026Z` reports `completed`: 25 trials × 5 conditions = 125
 completed condition runs, 60 planned transactions/run, 7,500 planned transactions,
 and 250 detector evaluations. It records no failed attempts, unattempted runs,
 or infrastructure failure within this replacement root. That accounting does not
 erase the earlier failed studies. Execution commit is
-`b931b6a850a9a3319327043fe834402a0267187d`; study milestone is `17d53ff` and findings
-commit is `932dab1`.
+`88e1f056dc2143129ef115f3ce1ad731fd0e9a0e`; the immutable study-evidence milestone is
+`340386e9783f450ccf7b30c84557901d87402c90`.
 
 ### 7.1 Effectiveness
 
@@ -183,8 +183,8 @@ from the aggregate.
 | --- | ---: | ---: | ---: | ---: |
 | clean | 1.0 | 1.0 | 1.0 | 1.0 |
 | delay20 | 1.0 | 1.0 | 1.0 | 1.0 |
-| delay20_jitter5_loss5 | 0.95 | 0.9737564284932706 | 0.95 | 0.9737564284932706 |
-| delay40_jitter10 | 0.46 | 0.6230102454707571 | 1.0 | 1.0 |
+| delay20_jitter5_loss5 | 0.97 | 0.984561403508772 | 0.97 | 0.984561403508772 |
+| delay40_jitter10 | 0.428 | 0.5912675775590125 | 1.0 | 1.0 |
 | delay60_jitter10 | 0.0 | 0.0 | 1.0 | 1.0 |
 
 Coverage is 1.0 in every run for both detectors; end-to-end recall equals recall.
@@ -205,13 +205,13 @@ Each effect has N = 25. Intervals and means retain the aggregate's precision.
 | delay20 | f1 | 0.0 | 0.0 | 0.0 | 0.0 |
 | delay20_jitter5_loss5 | recall | 0.0 | 0.0 | 0.0 | 0.0 |
 | delay20_jitter5_loss5 | f1 | 0.0 | 0.0 | 0.0 | 0.0 |
-| delay40_jitter10 | recall | 0.54 | 0.10606601717798214 | 0.4962180999417499 | 0.5837819000582501 |
-| delay40_jitter10 | f1 | 0.3769897545292429 | 0.10259065142788876 | 0.33464241494554253 | 0.41933709411294323 |
+| delay40_jitter10 | recall | 0.572 | 0.1109429282709508 | 0.5262050099837566 | 0.6177949900162433 |
+| delay40_jitter10 | f1 | 0.4087324224409875 | 0.11009074249538149 | 0.3632891974240317 | 0.4541756474579433 |
 | delay60_jitter10 | recall | 1.0 | 0.0 | 1.0 | 1.0 |
 | delay60_jitter10 | f1 | 1.0 | 0.0 | 1.0 | 1.0 |
 
-The 40 ms delay condition shows +0.54 recall (54 percentage points) and
-+0.3769897545292429 F1. At 60 ms delay both improvements are +1.0. Zero-width
+The 40 ms delay condition shows +0.572 recall (57.2 percentage points) and
++0.4087324224409875 F1. At 60 ms delay both improvements are +1.0. Zero-width
 intervals reflect zero observed variation in these runs, not certainty beyond
 the tested setting. Clean and lighter conditions show zero paired recall/F1 effect.
 
@@ -223,17 +223,27 @@ aggregate.
 
 | Condition | CPU time (ms) | Wall time (ms) | Peak traced memory (`peak_memory_mb`) |
 | --- | ---: | ---: | ---: |
-| clean | 0.302640 / 0.265894 | 0.333642 / 0.299957 | 0.010994 / 0.007469 |
-| delay20 | 0.300108 / 0.265459 | 0.330510 / 0.308039 | 0.010994 / 0.007469 |
-| delay20_jitter5_loss5 | 0.269929 / 0.224682 | 0.295147 / 0.253291 | 0.010994 / 0.007469 |
-| delay40_jitter10 | 0.272826 / 0.221006 | 0.299346 / 0.248649 | 0.010994 / 0.007469 |
-| delay60_jitter10 | 0.269713 / 0.211519 | 0.295831 / 0.240332 | 0.010994 / 0.007469 |
+| clean | 0.225126 / 0.200725 | 0.248112 / 0.221291 | 0.010994 / 0.007469 |
+| delay20 | 0.181945 / 0.200659 | 0.200574 / 0.222860 | 0.010994 / 0.007469 |
+| delay20_jitter5_loss5 | 0.209775 / 0.144973 | 0.230637 / 0.167376 | 0.010994 / 0.007469 |
+| delay40_jitter10 | 0.178405 / 0.180525 | 0.196683 / 0.203694 | 0.010994 / 0.007469 |
+| delay60_jitter10 | 0.201605 / 0.151400 | 0.222166 / 0.176600 | 0.010994 / 0.007469 |
 
 Instrumentation surrounds detector prediction. Memory is Python `tracemalloc`
 peak allocation divided by 1024 squared (MiB despite the field name), not total
 process or system memory. These small host-specific measurements omit capture,
 parsing, calibration, container costs, and the full deployment pipeline. They do
 not establish production throughput or a general robust-detector efficiency advantage.
+
+
+### 7.4 Relationship to the archived v0.6.0-alpha study
+
+The archived v0.6.0-alpha evidence at `20260922T021855Z` reported the same
+qualitative pattern but slightly different run-level means. It reported mean
+recall 0.95 for both detectors under `delay20_jitter5_loss5` and baseline mean
+recall 0.46 under `delay40_jitter10`; the post-release study reports 0.97 and
+0.428, respectively. This is an internal repeat execution on the same
+laboratory family, not an external replication.
 
 ## 8. Interpretation
 
@@ -271,7 +281,7 @@ validation, external replication, industry adoption, or standards compliance.
 ## 10. Reproducibility
 
 Use the [manifest](v0.6_release_manifest.md), retained
-[execution record](../evidence/v06/20260922T021855Z/execution.json), copied protocol,
+[execution record](../evidence/v06/20260922T174026Z/execution.json), copied protocol,
 frozen calibration, per-run provenance, and study integrity inventory to audit
 this report. The execution commit identifies the experimental implementation;
 it is distinct from later findings and release-documentation changes.
@@ -279,7 +289,7 @@ it is distinct from later findings and release-documentation changes.
 Read-only evidence verification, from the repository root:
 
 ```sh
-(cd evidence/v06/20260922T021855Z && sha256sum -c STUDY_SHA256SUMS)
+(cd evidence/v06/20260922T174026Z && sha256sum -c STUDY_SHA256SUMS)
 ```
 
 Software validation in the installed development environment:
@@ -298,9 +308,9 @@ requires a separately authorized isolated laboratory, clean execution checkout,
 new output root, and the procedure in [implementation notes](v0.6_implementation.md).
 Do not overwrite retained evidence or retune calibration using v0.6 results.
 See also [reproducibility guidance](../docs/reproducibility.md).
-v0.6.0-alpha is published on
+The original v0.6.0-alpha release remains published on
 [GitHub](https://github.com/ASHTHRA/otshield-bench/releases/tag/v0.6.0-alpha)
-and archived on [Zenodo](https://doi.org/10.5281/zenodo.22899466).
+and archived on [Zenodo](https://doi.org/10.5281/zenodo.22899466). That archive predates the post-release study documented here and is not being rewritten.
 
 ## 11. Critical-Infrastructure Relevance
 
@@ -330,8 +340,8 @@ measurements, and failure disclosure within a clearly bounded laboratory scope.
 ## References
 
 1. Palle, J. R., [v0.6 Predeclared Experiment Protocol](v0.6_experiment_protocol.md).
-2. OTShield Bench, [completed study manifest](../evidence/v06/20260922T021855Z/study.json)
-   and [aggregate statistics](../evidence/v06/20260922T021855Z/aggregate.json), 2026.
+2. OTShield Bench, [completed study manifest](../evidence/v06/20260922T174026Z/study.json)
+   and [aggregate statistics](../evidence/v06/20260922T174026Z/aggregate.json), 2026.
 3. OTShield Bench, [frozen calibration](v0.6_calibration.json) and
    [implementation notes](v0.6_implementation.md).
 4. OTShield Bench, [duplicate-TID erratum](v0.6_duplicate_tid_erratum.md) and
